@@ -55,76 +55,68 @@ export function ToolsSection({ sectionIndex }: ToolsSectionProps) {
 
   return (
     <SectionShell index={sectionIndex} id="tools">
-      <div className="mb-12 text-center">
+      <div className="mb-10">
         <p className="font-mono mb-3 text-xs tracking-[0.35em] text-[#ffe500]">TOOLS SHOWCASE</p>
-        <h2 className="text-3xl font-extrabold text-[#edf0ff] md:text-5xl">
+        <h2 className="text-3xl font-extrabold text-[#edf0ff] md:text-4xl">
           Power tools inside every tab
         </h2>
       </div>
 
-      <div className="grid gap-8 lg:grid-cols-[1fr_1.2fr]">
-        <div className="flex flex-col gap-3">
-          {TOOLS.map((t, i) => (
-            <StaggerItem key={t.id} sectionIndex={sectionIndex} index={i}>
-              <button
-                type="button"
-                onClick={() => setActive(i)}
-                className={`w-full rounded-xl border px-5 py-4 text-left transition ${
-                  active === i
-                    ? "border-white/20 bg-[#111628] shadow-[0_0_30px_rgba(61,114,255,0.12)]"
-                    : "border-transparent bg-white/[0.03] hover:bg-white/[0.06]"
-                }`}
-                aria-pressed={active === i}
-              >
-                <span className="font-mono text-xs tracking-wider" style={{ color: t.accent }}>
-                  {t.tag}
-                </span>
-                <p className="mt-1 font-semibold text-[#edf0ff]">{t.title}</p>
-              </button>
-            </StaggerItem>
-          ))}
-        </div>
-
-        <div className="relative min-h-[280px] overflow-hidden rounded-2xl border border-white/[0.07] bg-[#111628]/80 p-6 backdrop-blur-sm md:min-h-[360px] md:p-8">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={tool.id}
-              initial={{ opacity: 0, x: 40 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -40 }}
-              transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-              className="flex h-full flex-col justify-center"
+      <div className="mx-auto flex w-full max-w-md flex-col gap-3">
+        {TOOLS.map((t, i) => (
+          <StaggerItem key={t.id} sectionIndex={sectionIndex} index={i}>
+            <button
+              type="button"
+              onClick={() => setActive(i)}
+              className={`w-full rounded-xl border px-5 py-4 text-center transition ${
+                active === i
+                  ? "border-white/20 bg-[#111628]/80 shadow-[0_0_30px_rgba(61,114,255,0.12)]"
+                  : "border-transparent bg-white/[0.04] hover:bg-white/[0.07]"
+              }`}
+              aria-pressed={active === i}
             >
-              <div
-                className="mb-6 inline-flex w-fit rounded-full px-4 py-1 text-xs font-medium"
-                style={{ background: `${tool.accent}22`, color: tool.accent }}
-              >
-                {tool.tag}
-              </div>
-              <h3 className="mb-4 text-2xl font-bold text-[#edf0ff] md:text-4xl">{tool.title}</h3>
-              <p className="max-w-lg text-base leading-relaxed text-[#8892b0] md:text-lg">
-                {tool.description}
-              </p>
-              <div
-                className="pointer-events-none absolute -bottom-20 -right-20 h-64 w-64 rounded-full blur-3xl"
-                style={{ background: `${tool.accent}18` }}
-              />
-            </motion.div>
-          </AnimatePresence>
+              <span className="font-mono text-xs tracking-wider" style={{ color: t.accent }}>
+                {t.tag}
+              </span>
+              <p className="mt-1 font-semibold text-[#edf0ff]">{t.title}</p>
+            </button>
+          </StaggerItem>
+        ))}
+      </div>
 
-          <div className="absolute bottom-4 right-4 flex gap-2 md:bottom-6 md:right-6">
-            {TOOLS.map((_, i) => (
-              <button
-                key={i}
-                type="button"
-                onClick={() => setActive(i)}
-                className={`h-2 rounded-full transition-all ${
-                  i === active ? "w-8 bg-[#ffe500]" : "w-2 bg-white/20"
-                }`}
-                aria-label={`Show tool ${i + 1}`}
-              />
-            ))}
-          </div>
+      <div className="relative mx-auto mt-8 w-full max-w-lg overflow-hidden rounded-2xl border border-white/[0.07] bg-[#111628]/85 p-6 backdrop-blur-md md:p-8">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={tool.id}
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -24 }}
+            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+            className="flex flex-col items-center text-center"
+          >
+            <div
+              className="mb-4 inline-flex rounded-full px-4 py-1 text-xs font-medium"
+              style={{ background: `${tool.accent}22`, color: tool.accent }}
+            >
+              {tool.tag}
+            </div>
+            <h3 className="mb-3 text-2xl font-bold text-[#edf0ff] md:text-3xl">{tool.title}</h3>
+            <p className="max-w-md text-base leading-relaxed text-[#8892b0]">{tool.description}</p>
+          </motion.div>
+        </AnimatePresence>
+
+        <div className="mt-6 flex justify-center gap-2">
+          {TOOLS.map((_, i) => (
+            <button
+              key={i}
+              type="button"
+              onClick={() => setActive(i)}
+              className={`h-2 rounded-full transition-all ${
+                i === active ? "w-8 bg-[#ffe500]" : "w-2 bg-white/20"
+              }`}
+              aria-label={`Show tool ${i + 1}`}
+            />
+          ))}
         </div>
       </div>
     </SectionShell>

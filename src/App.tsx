@@ -1,5 +1,6 @@
 import { useCallback, useState } from "react"
 import { AnimatedBackground } from "@/components/animated-background"
+import { DepthLayers } from "@/components/depth-layers"
 import { PokemonShadowField } from "@/components/pokemon-shadow-field"
 import { LogoZoomIntro } from "@/components/logo-zoom-intro"
 import { ZoomSceneProvider } from "@/components/zoom-scene"
@@ -20,9 +21,10 @@ export function App() {
   return (
     <>
       {!introDone && <LogoZoomIntro onComplete={handleIntroComplete} />}
-      <AnimatedBackground />
       <ZoomSceneProvider sectionCount={SECTION_COUNT} enabled={introDone}>
+        <AnimatedBackground />
         <PokemonShadowField />
+        <DepthLayers />
         <main className={`zoom-viewport relative z-10 ${introDone ? "" : "invisible"}`}>
           <ZoomSection index={SECTION.WAITLIST} id="home">
             <WaitlistHero visible={introDone} />

@@ -1,30 +1,64 @@
 import { useEffect, useRef } from "react"
-import { SILHOUETTE_DEX_IDS, getSilhouetteSrc } from "@/lib/pokemon-silhouettes"
+import { SECTION_COUNT } from "@/lib/sections"
+import {
+  getSectionPokemon,
+  getSilhouetteSrc,
+  type SectionPokemonConfig,
+} from "@/lib/pokemon-silhouettes"
 import { useZoomSceneOptional } from "@/components/zoom-scene"
 
-interface ShadowSprite {
+interface LoadedPokemon {
   dexId: number
-  orbitRadius: number
-  orbitSpeed: number
-  orbitPhase: number
-  yOffset: number
-  ySpeed: number
-  size: number
-  depth: number
   img: HTMLImageElement | null
 }
-
-const SPRITE_COUNT = 22
 
 function lerp(a: number, b: number, t: number): number {
   return a + (b - a) * t
 }
 
+function drawOutlineGlowSilhouette(
+  ctx: CanvasRenderingContext2D,
+  img: HTMLImageElement,
+  cx: number,
+  cy: number,
+  size: number,
+  glow: SectionPokemonConfig["glow"],
+  alpha: number
+) {
+  const x = cx - size / 2
+  const y = cy - size / 2
+
+  for (const color of glow) {
+    ctx.save()
+    ctx.globalAlpha = alpha * 0.55
+    ctx.shadowColor = color
+    ctx.shadowBlur = size * 0.09
+    ctx.filter = "brightness(0) saturate(100%)"
+    ctx.drawImage(img, x, y, size, size)
+    ctx.restore()
+  }
+
+  ctx.save()
+  ctx.globalAlpha = alpha * 0.35
+  ctx.shadowColor = glow[0]
+  ctx.shadowBlur = size * 0.045
+  ctx.filter = "brightness(0) saturate(100%)"
+  ctx.drawImage(img, x, y, size, size)
+  ctx.restore()
+
+  ctx.save()
+  ctx.globalAlpha = alpha * 0.72
+  ctx.filter = "brightness(0) saturate(100%)"
+  ctx.shadowBlur = 0
+  ctx.drawImage(img, x, y, size, size)
+  ctx.restore()
+}
+
 export function PokemonShadowField() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
-  const spritesRef = useRef<ShadowSprite[]>([])
-  const pointerRef = useRef({ x: 0.5, y: 0.5 })
+  const cacheRef = useRef<Map<number, LoadedPokemon>>(new Map())
   const zoomProgressRef = useRef(0)
+  const pointerRef = useRef({ x: 0.5, y: 0.5 })
   const zoomScene = useZoomSceneOptional()
   const rafRef = useRef(0)
   const timeRef = useRef(0)
@@ -43,29 +77,20 @@ export function PokemonShadowField() {
     const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches
     const dpr = Math.min(window.devicePixelRatio || 1, 2)
 
-    function createSprites(): ShadowSprite[] {
-      return Array.from({ length: SPRITE_COUNT }, (_, i) => ({
-        dexId: SILHOUETTE_DEX_IDS[i % SILHOUETTE_DEX_IDS.length],
-        orbitRadius: 0.25 + Math.random() * 0.45,
-        orbitSpeed: 0.08 + Math.random() * 0.18,
-        orbitPhase: Math.random() * Math.PI * 2,
-        yOffset: (Math.random() - 0.5) * 0.6,
-        ySpeed: 0.05 + Math.random() * 0.12,
-        size: 72 + Math.random() * 88,
-        depth: 0.3 + Math.random() * 0.7,
-        img: null,
-      }))
+    function loadPokemon(dexId: number) {
+      if (cacheRef.current.has(dexId)) return
+      const entry: LoadedPokemon = { dexId, img: null }
+      cacheRef.current.set(dexId, entry)
+      const img = new Image()
+      img.src = getSilhouetteSrc(dexId)
+      img.onload = () => {
+        entry.img = img
+      }
     }
 
-    spritesRef.current = createSprites()
-
-    spritesRef.current.forEach((sprite) => {
-      const img = new Image()
-      img.src = getSilhouetteSrc(sprite.dexId)
-      img.onload = () => {
-        sprite.img = img
-      }
-    })
+    for (let i = 0; i < SECTION_COUNT; i++) {
+      loadPokemon(getSectionPokemon(i).dexId)
+    }
 
     function resize() {
       const w = window.innerWidth
@@ -77,65 +102,62 @@ export function PokemonShadowField() {
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
     }
 
+    function drawHero(
+      config: SectionPokemonConfig,
+      cx: number,
+      cy: number,
+      size: number,
+      alpha: number,
+      float: number
+    ) {
+      const cached = cacheRef.current.get(config.dexId)
+      if (!cached?.img?.complete || alpha < 0.02) return
+
+      const px = (pointerRef.current.x - 0.5) * size * 0.04
+      const py = (pointerRef.current.y - 0.5) * size * 0.03
+
+      drawOutlineGlowSilhouette(
+        ctx,
+        cached.img,
+        cx + px,
+        cy + py + float,
+        size,
+        config.glow,
+        alpha
+      )
+    }
+
     function draw() {
       const w = window.innerWidth
       const h = window.innerHeight
       const cx = w * 0.5
-      const cy = h * 0.48
+      const cy = h * 0.5
       const t = timeRef.current
-      const scrollShift = zoomProgressRef.current * 0.35
-      const px = pointerRef.current.x
-      const py = pointerRef.current.y
+      const progress = zoomProgressRef.current
+      const baseSize = Math.min(w, h) * 0.88
 
       ctx.clearRect(0, 0, w, h)
 
-      const sorted = [...spritesRef.current].sort((a, b) => a.depth - b.depth)
+      const idx = Math.floor(progress)
+      const frac = progress - idx
+      const current = getSectionPokemon(idx)
+      const next = getSectionPokemon(Math.min(idx + 1, SECTION_COUNT - 1))
 
-      for (const sprite of sorted) {
-        if (!sprite.img?.complete) continue
+      const floatA = prefersReduced ? 0 : Math.sin(t * 0.9) * 12
+      const floatB = prefersReduced ? 0 : Math.sin(t * 0.9 + 1.2) * 12
 
-        const angle =
-          sprite.orbitPhase +
-          t * sprite.orbitSpeed * (prefersReduced ? 0.2 : 1) +
-          scrollShift * 2
-        const yWave =
-          sprite.yOffset +
-          Math.sin(t * sprite.ySpeed + sprite.orbitPhase) * 0.18
+      const currentSize = baseSize * lerp(1, 1.35, frac)
+      const currentAlpha = lerp(1, 0, Math.pow(frac, 0.85))
 
-        const parallaxX = (px - 0.5) * 0.12 * sprite.depth
-        const parallaxY = (py - 0.5) * 0.1 * sprite.depth
+      drawHero(current, cx, cy, currentSize, currentAlpha, floatA)
 
-        const orbitScale = Math.min(w, h) * sprite.orbitRadius
-        const x = cx + Math.cos(angle) * orbitScale + parallaxX * w
-        const y = cy + yWave * h + Math.sin(angle) * orbitScale * 0.35 + parallaxY * h
-
-        const depthScale = 0.45 + sprite.depth * 0.85
-        const size = sprite.size * depthScale
-        const alpha = 0.1 + sprite.depth * 0.22
-
-        ctx.save()
-        ctx.globalAlpha = alpha
-        ctx.filter = "brightness(0) saturate(100%)"
-        ctx.drawImage(sprite.img, x - size / 2, y - size / 2, size, size)
-
-        ctx.globalAlpha = alpha * 0.45
-        ctx.filter = "blur(18px) brightness(0)"
-        ctx.drawImage(sprite.img, x - size / 2, y - size / 2, size, size)
-
-        ctx.restore()
-
-        if (!prefersReduced) {
-          ctx.save()
-          ctx.globalAlpha = alpha * 0.15
-          ctx.shadowColor = sprite.depth > 0.6 ? "#7c4dff" : "#3d72ff"
-          ctx.shadowBlur = 24
-          ctx.filter = "brightness(0)"
-          ctx.drawImage(sprite.img, x - size / 2, y - size / 2, size * 0.3, size * 0.3)
-          ctx.restore()
-        }
+      if (frac > 0.001 && idx < SECTION_COUNT - 1) {
+        const nextSize = baseSize * lerp(0.55, 1, Math.pow(frac, 0.75))
+        const nextAlpha = lerp(0, 1, Math.pow(frac, 0.9))
+        drawHero(next, cx, cy, nextSize, nextAlpha, floatB)
       }
 
-      timeRef.current += prefersReduced ? 0.008 : 0.016
+      timeRef.current += prefersReduced ? 0.006 : 0.014
       rafRef.current = requestAnimationFrame(draw)
     }
 

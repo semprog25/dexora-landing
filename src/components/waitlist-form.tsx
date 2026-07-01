@@ -69,7 +69,7 @@ export function WaitlistForm({ variant = "hero" }: WaitlistFormProps) {
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0 }}
-            className={`mt-4 text-center text-sm sm:text-left ${
+            className={`mt-4 text-center text-sm ${
               status === "success" ? "text-[#22d87a]" : "text-[#ff4757]"
             }`}
             role="status"
@@ -80,7 +80,7 @@ export function WaitlistForm({ variant = "hero" }: WaitlistFormProps) {
       </AnimatePresence>
 
       {isHero && (
-        <p className="mt-4 text-center text-xs tracking-[0.25em] text-[#6b7494] sm:text-left">
+        <p className="mt-4 text-center text-xs tracking-[0.25em] text-[#6b7494]">
           EARLY ACCESS · NO SPAM
         </p>
       )}

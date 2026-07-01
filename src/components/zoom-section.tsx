@@ -15,7 +15,7 @@ export function ZoomSection({ index, id, children, className = "" }: ZoomSection
   return (
     <section
       id={id}
-      className={`zoom-panel safe-section px-5 py-16 md:px-10 lg:px-16 ${className}`}
+        className={`zoom-panel safe-section relative z-20 px-5 py-16 md:px-10 lg:px-16 ${className}`}
       style={{
         transform: style.transform,
         opacity: style.opacity,
@@ -25,7 +25,7 @@ export function ZoomSection({ index, id, children, className = "" }: ZoomSection
       }}
       aria-hidden={style.pointerEvents === "none"}
     >
-      <div className="relative z-10 mx-auto flex h-full w-full max-w-6xl flex-col justify-center">
+      <div className="relative z-10 mx-auto flex h-full w-full max-w-3xl flex-col items-center justify-center text-center">
         {children}
       </div>
     </section>

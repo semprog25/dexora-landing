@@ -17,7 +17,7 @@ export function SectionShell({ index, id, children, className = "" }: SectionShe
   return (
     <div id={id} className={className}>
       <motion.div
-        className="relative z-10 mx-auto w-full max-w-6xl"
+        className="relative z-10 mx-auto w-full max-w-3xl text-center"
         initial={false}
         animate={{
           opacity: isActive ? 1 : 0.4,

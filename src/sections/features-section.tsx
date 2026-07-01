@@ -39,7 +39,7 @@ export function FeaturesSection({ sectionIndex }: FeaturesSectionProps) {
         </p>
       </div>
 
-      <div className="grid gap-6 md:grid-cols-3">
+      <div className="grid gap-6 md:grid-cols-3 md:text-left">
         {FEATURES.map((f, i) => (
           <FeatureCard key={f.title} {...f} index={i} sectionIndex={sectionIndex} />
         ))}
