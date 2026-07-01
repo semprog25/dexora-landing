@@ -1,0 +1,148 @@
+:root {
+  --font-size: 16px;
+  --background: #07091a;
+  --foreground: #edf0ff;
+  --card: #111628;
+  --card-foreground: #edf0ff;
+  --primary: #ffe500;
+  --primary-foreground: #07091a;
+  --secondary: #1a1f35;
+  --muted-foreground: #6b7494;
+  --accent: #3d72ff;
+  --accent-foreground: #edf0ff;
+  --border: rgba(255, 255, 255, 0.07);
+  --radius: 1rem;
+  --shadow-purple: #7c4dff;
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--foreground);
+  font-size: var(--font-size);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.snap-container {
+  scroll-snap-type: y proximity;
+}
+
+.snap-section {
+  scroll-snap-align: start;
+  scroll-snap-stop: normal;
+  min-height: 100vh;
+  min-height: 100dvh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@keyframes orb-drift-1 {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(8%, -6%) scale(1.08);
+  }
+  66% {
+    transform: translate(-5%, 4%) scale(0.95);
+  }
+}
+
+@keyframes orb-drift-2 {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-10%, 8%) scale(1.12);
+  }
+}
+
+@keyframes orb-drift-3 {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  40% {
+    transform: translate(6%, 10%);
+  }
+  80% {
+    transform: translate(-8%, -4%);
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes scroll-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(8px);
+    opacity: 1;
+  }
+}
+
+.orb-1 {
+  animation: orb-drift-1 18s ease-in-out infinite;
+}
+
+.orb-2 {
+  animation: orb-drift-2 22s ease-in-out infinite;
+}
+
+.orb-3 {
+  animation: orb-drift-3 26s ease-in-out infinite;
+}
+
+.scroll-indicator {
+  animation: scroll-bounce 2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .orb-1,
+  .orb-2,
+  .orb-3,
+  .scroll-indicator {
+    animation: none;
+  }
+}
