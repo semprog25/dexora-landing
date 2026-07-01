@@ -5,7 +5,7 @@ interface DexoraLogoProps {
   fluid?: boolean
 }
 
-const LOGO_ASPECT = 1536 / 1024
+const LOGO_ASPECT = 1084 / 493
 
 export function DexoraLogo({
   height = 48,

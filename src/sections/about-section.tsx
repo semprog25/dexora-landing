@@ -1,3 +1,4 @@
+import { DexoraLogo } from "@/components/dexora-logo"
 import { SectionShell, StaggerItem } from "@/components/section-shell"
 import { SectionEyebrow } from "@/components/section-eyebrow"
 
@@ -10,6 +11,9 @@ export function AboutSection({ sectionIndex }: AboutSectionProps) {
     <SectionShell index={sectionIndex} id="about">
       <div className="content-panel mx-auto w-full max-w-2xl px-6 py-10 md:px-10">
         <SectionEyebrow accent="yellow">ABOUT US</SectionEyebrow>
+        <div className="mb-8 flex justify-center">
+          <DexoraLogo height={72} className="footer-logo-glow" alt="Dexora" />
+        </div>
         <h2 className="display-headline-sm mb-6 text-[#edf0ff]">
           Built by trainers,
           <span className="block">for trainers</span>

@@ -12,7 +12,8 @@ const APP_ROOT = path.resolve(LANDING_ROOT, "..", "Dexora-main")
 
 const ASSETS = [
   { from: "public/dexora-logo.png", to: "public/dexora-logo.png" },
-  { from: "public/dexora-logo.png", to: "public/favicon.png" },
+  { from: "public/dexora-d-logo.png", to: "public/dexora-d-logo.png" },
+  { from: "public/favicon.png", to: "public/favicon.png" },
 ]
 
 async function main() {

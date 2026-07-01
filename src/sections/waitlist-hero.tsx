@@ -1,3 +1,4 @@
+import { DexoraDLogo } from "@/components/dexora-d-logo"
 import { WaitlistForm } from "@/components/waitlist-form"
 import { motion } from "motion/react"
 import { useZoomScene } from "@/components/zoom-scene"
@@ -24,6 +25,7 @@ export function WaitlistHero({ visible }: WaitlistHeroProps) {
         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         className="flex w-full max-w-xl flex-col items-center"
       >
+        <DexoraDLogo height={56} className="mb-6 sm:mb-7" alt="Dexora" />
         <h1 className="display-headline mb-5 w-full text-center sm:mb-6">
           <span className="block text-[#edf0ff]">Your offline</span>
           <span className="text-gradient-yellow block">Pokémon GO</span>
