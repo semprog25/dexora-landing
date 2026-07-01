@@ -17,20 +17,16 @@ export function FeatureCard({
 }: FeatureCardProps) {
   return (
     <StaggerItem sectionIndex={sectionIndex} index={index}>
-      <article className="group relative h-full overflow-hidden rounded-2xl border border-white/[0.07] bg-[#111628]/80 p-8 backdrop-blur-sm transition hover:border-[#ffe500]/30 hover:shadow-[0_0_40px_rgba(61,114,255,0.15)]">
+      <article className="glass-card group relative flex h-full flex-col items-center rounded-2xl p-6 transition hover:border-white/15 md:p-7">
         <div
-          className="mb-6 flex h-14 w-14 items-center justify-center rounded-xl text-2xl transition group-hover:scale-110"
-          style={{ background: "rgba(61,114,255,0.15)" }}
+          className="mb-5 flex h-14 w-14 items-center justify-center rounded-xl text-2xl transition group-hover:scale-105"
+          style={{ background: "rgba(61,114,255,0.12)" }}
           aria-hidden="true"
         >
           {icon}
         </div>
-        <h3 className="mb-3 text-xl font-bold text-[#edf0ff]">{title}</h3>
-        <p className="leading-relaxed text-[#8892b0]">{description}</p>
-        <div
-          className="pointer-events-none absolute -right-8 -top-8 h-32 w-32 rounded-full opacity-0 blur-3xl transition group-hover:opacity-100"
-          style={{ background: "rgba(255,229,0,0.12)" }}
-        />
+        <h3 className="mb-2 text-lg font-bold text-[#edf0ff]">{title}</h3>
+        <p className="text-sm leading-relaxed text-[#8892b0]">{description}</p>
       </article>
     </StaggerItem>
   )

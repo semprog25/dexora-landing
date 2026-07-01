@@ -6,9 +6,16 @@ interface ZoomSectionProps {
   id?: string
   children: ReactNode
   className?: string
+  contentOverflow?: "hidden" | "visible"
 }
 
-export function ZoomSection({ index, id, children, className = "" }: ZoomSectionProps) {
+export function ZoomSection({
+  index,
+  id,
+  children,
+  className = "",
+  contentOverflow = "hidden",
+}: ZoomSectionProps) {
   const { progress } = useZoomScene()
   const style = getZoomSectionStyle(index, progress)
 
@@ -25,7 +32,11 @@ export function ZoomSection({ index, id, children, className = "" }: ZoomSection
       }}
       aria-hidden={style.pointerEvents === "none"}
     >
-      <div className="relative z-10 mx-auto flex h-full w-full max-w-3xl flex-col items-center justify-center text-center">
+      <div
+        className={`relative z-10 mx-auto flex h-full w-full max-w-3xl flex-col items-center justify-center px-1 text-center sm:px-0 ${
+          contentOverflow === "visible" ? "overflow-visible" : "overflow-hidden"
+        }`}
+      >
         {children}
       </div>
     </section>
@@ -83,19 +94,11 @@ export function ZoomHint({ show }: ZoomHintProps) {
     <button
       type="button"
       onClick={goNext}
-      className="scroll-indicator zoom-hint safe-bottom-offset fixed left-1/2 z-50 flex min-h-[44px] min-w-[44px] -translate-x-1/2 flex-col items-center justify-center gap-1 text-[#6b7494] transition active:text-[#ffe500]"
-      aria-label="Zoom to explore"
+      className="scroll-indicator zoom-hint safe-bottom-offset fixed left-1/2 z-50 flex min-h-[44px] min-w-[44px] -translate-x-1/2 flex-col items-center justify-center gap-3 transition hover:opacity-90 active:opacity-70"
+      aria-label="Scroll to explore"
     >
-      <span className="text-[10px] tracking-[0.35em] md:text-xs">SCROLL</span>
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <path
-          d="M12 5v14M5 12l7 7 7-7"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
+      <span className="zoom-hint-label">scroll to explore</span>
+      <div className="zoom-hint-line" />
     </button>
   )
 }

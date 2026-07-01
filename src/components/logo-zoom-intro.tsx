@@ -1,64 +1,85 @@
 import { useEffect, useState } from "react"
-import { motion, AnimatePresence } from "motion/react"
+import { motion } from "motion/react"
 
 interface LogoZoomIntroProps {
+  onReveal: () => void
   onComplete: () => void
 }
 
-export function LogoZoomIntro({ onComplete }: LogoZoomIntroProps) {
-  const [visible, setVisible] = useState(true)
-  const [phase, setPhase] = useState<"zoom" | "exit">("zoom")
+const ENTER_S = 0.42
+const REVEAL_S = 0.36
+
+function prefersReducedMotion(): boolean {
+  if (typeof window === "undefined") return false
+  return window.matchMedia("(prefers-reduced-motion: reduce)").matches
+}
+
+export function LogoZoomIntro({ onReveal, onComplete }: LogoZoomIntroProps) {
+  const [phase, setPhase] = useState<"enter" | "reveal">("enter")
 
   useEffect(() => {
-    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches
-    if (prefersReduced) {
+    const link = document.createElement("link")
+    link.rel = "preload"
+    link.as = "image"
+    link.href = "/dexora-logo.png"
+    document.head.appendChild(link)
+    return () => {
+      document.head.removeChild(link)
+    }
+  }, [])
+
+  useEffect(() => {
+    if (prefersReducedMotion()) {
+      onReveal()
       onComplete()
       return
     }
 
-    const exitTimer = setTimeout(() => setPhase("exit"), 1400)
-    const hideTimer = setTimeout(() => setVisible(false), 2050)
-    const doneTimer = setTimeout(onComplete, 2100)
+    const revealTimer = window.setTimeout(() => {
+      setPhase("reveal")
+      onReveal()
+    }, ENTER_S * 1000)
+
+    const completeTimer = window.setTimeout(() => {
+      onComplete()
+    }, (ENTER_S + REVEAL_S) * 1000 + 40)
 
     return () => {
-      clearTimeout(exitTimer)
-      clearTimeout(hideTimer)
-      clearTimeout(doneTimer)
+      window.clearTimeout(revealTimer)
+      window.clearTimeout(completeTimer)
     }
-  }, [onComplete])
+  }, [onComplete, onReveal])
+
+  if (prefersReducedMotion()) return null
+
+  const isReveal = phase === "reveal"
 
   return (
-    <AnimatePresence>
-      {visible && (
-        <motion.div
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-[#07091a]"
-          initial={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-          role="status"
-          aria-label="Loading Dexora"
-          style={{
-            paddingTop: "env(safe-area-inset-top)",
-            paddingBottom: "env(safe-area-inset-bottom)",
-          }}
-        >
-          <motion.img
-            src="/dexora-logo.png"
-            alt="Dexora"
-            className="h-28 w-28 rounded-3xl shadow-[0_0_80px_rgba(255,229,0,0.35)] md:h-36 md:w-36"
-            style={{ borderRadius: "22%" }}
-            initial={{ scale: 3.8, opacity: 0.5 }}
-            animate={{
-              scale: phase === "exit" ? 0.75 : 1,
-              opacity: phase === "exit" ? 0 : 1,
-            }}
-            transition={{
-              duration: phase === "exit" ? 0.55 : 1.35,
-              ease: [0.22, 1, 0.36, 1],
-            }}
-          />
-        </motion.div>
-      )}
-    </AnimatePresence>
+    <motion.div
+      className="dexora-intro dexora-intro--motion"
+      role="presentation"
+      aria-label="Loading Dexora"
+      initial={{ opacity: 1 }}
+      animate={{ opacity: isReveal ? 0 : 1 }}
+      transition={{ duration: REVEAL_S, ease: [0.45, 0, 0.2, 1] }}
+      style={{ pointerEvents: isReveal ? "none" : "auto" }}
+    >
+      <motion.img
+        className="dexora-intro__logo dexora-intro__logo--motion"
+        src="/dexora-logo.png"
+        alt="Dexora"
+        draggable={false}
+        initial={{ scale: 1.7, opacity: 0 }}
+        animate={
+          isReveal
+            ? { scale: 6.5, opacity: 0 }
+            : { scale: 1, opacity: 1 }
+        }
+        transition={{
+          duration: isReveal ? REVEAL_S : ENTER_S,
+          ease: isReveal ? [0.45, 0, 0.2, 1] : [0.22, 1, 0.36, 1],
+        }}
+      />
+    </motion.div>
   )
 }

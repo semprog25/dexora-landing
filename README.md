@@ -33,7 +33,19 @@ npm run build
 npm run preview
 ```
 
-Deploy the `dist/` folder to any static host (Vercel, Netlify, Cloudflare Pages, etc.) and point **dexora.app** DNS to it.
+### GitHub Pages (production)
+
+Pushes to `main` deploy automatically via [GitHub Actions](.github/workflows/deploy.yml).
+
+1. In the repo **Settings → Secrets and variables → Actions**, add:
+   - `VITE_SUPABASE_URL`
+   - `VITE_SUPABASE_ANON_KEY`
+2. In **Settings → Pages**, set **Source** to **GitHub Actions**.
+3. Point DNS for **www.dexora.app** to GitHub Pages:
+   - `CNAME` record: `www` → `semprog25.github.io` (or your Pages hostname shown in Settings)
+   - Apex `dexora.app` can redirect to `www` via your DNS provider, or use A records for GitHub Pages.
+
+The `public/CNAME` file pins the custom domain to **www.dexora.app**.
 
 ## Environment
 

@@ -26,8 +26,8 @@ function clamp(value: number, min: number, max: number): number {
   return Math.min(max, Math.max(min, value))
 }
 
-function easeOutCubic(t: number): number {
-  return 1 - Math.pow(1 - t, 3)
+function easeInOutCubic(t: number): number {
+  return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2
 }
 
 interface ZoomSceneProviderProps {
@@ -45,21 +45,28 @@ export function ZoomSceneProvider({ sectionCount, enabled, children }: ZoomScene
   const animatingRef = useRef(false)
   const touchStartYRef = useRef(0)
   const lastNavRef = useRef(0)
+  const wheelAccumRef = useRef(0)
+  const wheelDirRef = useRef<0 | 1 | -1>(0)
 
   const maxIndex = sectionCount - 1
 
   const animateTo = useCallback(
     (target: number) => {
       const clamped = clamp(target, 0, maxIndex)
-      if (animatingRef.current && Math.abs(targetRef.current - clamped) < 0.01) return
-
       targetRef.current = clamped
+
       const start = progressRef.current
       const distance = clamped - start
-      if (Math.abs(distance) < 0.001) return
+      if (Math.abs(distance) < 0.001) {
+        progressRef.current = clamped
+        setProgress(clamped)
+        return
+      }
+
+      cancelAnimationFrame(animFrameRef.current)
 
       const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches
-      const duration = prefersReduced ? 200 : 950
+      const duration = prefersReduced ? 280 : 1050
 
       animatingRef.current = true
       setIsAnimating(true)
@@ -67,7 +74,7 @@ export function ZoomSceneProvider({ sectionCount, enabled, children }: ZoomScene
 
       function tick(now: number) {
         const t = clamp((now - startTime) / duration, 0, 1)
-        const eased = easeOutCubic(t)
+        const eased = easeInOutCubic(t)
         const next = start + distance * eased
         progressRef.current = next
         setProgress(next)
@@ -81,9 +88,10 @@ export function ZoomSceneProvider({ sectionCount, enabled, children }: ZoomScene
         setProgress(clamped)
         animatingRef.current = false
         setIsAnimating(false)
+        wheelAccumRef.current = 0
+        wheelDirRef.current = 0
       }
 
-      cancelAnimationFrame(animFrameRef.current)
       animFrameRef.current = requestAnimationFrame(tick)
     },
     [maxIndex]
@@ -92,7 +100,7 @@ export function ZoomSceneProvider({ sectionCount, enabled, children }: ZoomScene
   const goTo = useCallback(
     (index: number) => {
       const now = Date.now()
-      if (now - lastNavRef.current < 400) return
+      if (now - lastNavRef.current < 520) return
       lastNavRef.current = now
       animateTo(index)
     },
@@ -100,12 +108,20 @@ export function ZoomSceneProvider({ sectionCount, enabled, children }: ZoomScene
   )
 
   const goNext = useCallback(() => {
-    goTo(Math.ceil(progressRef.current + 0.05))
-  }, [goTo])
+    const snapped = Math.round(progressRef.current)
+    const base = Math.abs(progressRef.current - snapped) < 0.08 ? snapped : Math.floor(progressRef.current + 0.001)
+    const next = clamp(base + 1, 0, maxIndex)
+    if (next === base && progressRef.current >= maxIndex - 0.01) return
+    goTo(next)
+  }, [goTo, maxIndex])
 
   const goPrev = useCallback(() => {
-    goTo(Math.floor(progressRef.current - 0.05))
-  }, [goTo])
+    const snapped = Math.round(progressRef.current)
+    const base = Math.abs(progressRef.current - snapped) < 0.08 ? snapped : Math.ceil(progressRef.current - 0.001)
+    const prev = clamp(base - 1, 0, maxIndex)
+    if (prev === base && progressRef.current <= 0.01) return
+    goTo(prev)
+  }, [goTo, maxIndex])
 
   useEffect(() => {
     document.documentElement.style.setProperty("--zoom-progress", String(progress))
@@ -118,11 +134,26 @@ export function ZoomSceneProvider({ sectionCount, enabled, children }: ZoomScene
 
     const onWheel = (e: WheelEvent) => {
       e.preventDefault()
-      if (animatingRef.current) return
-      if (Math.abs(e.deltaY) < 12) return
 
-      if (e.deltaY > 0) goNext()
+      const dir: 1 | -1 = e.deltaY > 0 ? 1 : -1
+      if (wheelDirRef.current !== 0 && wheelDirRef.current !== dir) {
+        wheelAccumRef.current = 0
+      }
+      wheelDirRef.current = dir
+      wheelAccumRef.current += e.deltaY
+
+      const threshold = 72
+      if (Math.abs(wheelAccumRef.current) < threshold) return
+
+      if (animatingRef.current) {
+        wheelAccumRef.current = 0
+        return
+      }
+
+      if (wheelAccumRef.current > 0) goNext()
       else goPrev()
+
+      wheelAccumRef.current = 0
     }
 
     const onKeyDown = (e: KeyboardEvent) => {
@@ -146,7 +177,7 @@ export function ZoomSceneProvider({ sectionCount, enabled, children }: ZoomScene
       if (animatingRef.current) return
       const endY = e.changedTouches[0]?.clientY ?? 0
       const delta = touchStartYRef.current - endY
-      if (Math.abs(delta) < 48) return
+      if (Math.abs(delta) < 56) return
       if (delta > 0) goNext()
       else goPrev()
     }
@@ -189,29 +220,27 @@ export function getZoomSectionStyle(index: number, progress: number) {
   const delta = index - progress
   const abs = Math.abs(delta)
 
-  let scale: number
-  let translateZ: number
-  let opacity: number
-
-  if (delta <= 0) {
-    const passed = Math.min(1, -delta)
-    scale = 1 + passed * 2.2
-    translateZ = delta * 420
-    opacity = Math.max(0, 1 - passed * 1.35)
-  } else {
-    scale = 1 / (1 + delta * 0.72)
-    translateZ = -delta * 1100
-    opacity = Math.max(0, 1 - delta * 0.92)
+  if (abs > 0.52) {
+    return {
+      transform: `translate3d(0, 0, ${delta > 0 ? -1100 : 320}px) scale(${delta > 0 ? 0.78 : 1.5})`,
+      opacity: 0,
+      filter: "none",
+      pointerEvents: "none" as const,
+      zIndex: 100 - Math.round(abs * 10),
+    }
   }
 
-  const blur = Math.max(0, abs - 0.25) * 5
-  const pointerEvents = abs < 0.45 ? "auto" : "none"
+  const t = abs / 0.52
+  const scale = 1 - t * 0.12
+  const translateZ = -delta * 820
+  const opacity = Math.max(0, 1 - t * 1.65)
+  const pointerEvents = abs < 0.42 ? ("auto" as const) : ("none" as const)
 
   return {
     transform: `translate3d(0, 0, ${translateZ}px) scale(${scale})`,
     opacity,
-    filter: blur > 0.1 ? `blur(${blur}px)` : "none",
-    pointerEvents: pointerEvents as "auto" | "none",
+    filter: "none",
+    pointerEvents,
     zIndex: 100 - Math.round(abs * 10),
   }
 }

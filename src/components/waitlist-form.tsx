@@ -1,6 +1,7 @@
-import { useState, type FormEvent } from "react"
+import { useRef, useState, type FormEvent } from "react"
 import { motion, AnimatePresence } from "motion/react"
 import { joinWaitlist } from "@/lib/waitlist"
+import { emitGlowBurst, KEYSTROKE_NEON_COLORS } from "@/lib/glow-bus"
 
 interface WaitlistFormProps {
   variant?: "hero" | "cta"
@@ -10,6 +11,19 @@ export function WaitlistForm({ variant = "hero" }: WaitlistFormProps) {
   const [email, setEmail] = useState("")
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle")
   const [message, setMessage] = useState("")
+  const keystrokeColorRef = useRef(0)
+
+  function handleEmailChange(next: string) {
+    if (next.length > email.length) {
+      const color = KEYSTROKE_NEON_COLORS[keystrokeColorRef.current % KEYSTROKE_NEON_COLORS.length]
+      keystrokeColorRef.current += 1
+      emitGlowBurst({
+        color,
+        size: 1.1 + Math.random() * 0.5,
+      })
+    }
+    setEmail(next)
+  }
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault()
@@ -25,10 +39,10 @@ export function WaitlistForm({ variant = "hero" }: WaitlistFormProps) {
   const isHero = variant === "hero"
 
   return (
-    <div className={isHero ? "w-full max-w-xl" : "w-full max-w-lg mx-auto"}>
+    <div className={isHero ? "hero-waitlist-form w-full max-w-xl mx-auto" : "w-full max-w-lg mx-auto"}>
       <form
         onSubmit={handleSubmit}
-        className="flex flex-col gap-3 sm:flex-row sm:items-center"
+        className="mx-auto grid w-full max-w-xl grid-cols-1 gap-3 sm:grid-cols-[minmax(0,1fr)_auto]"
         noValidate
       >
         <label htmlFor={`waitlist-email-${variant}`} className="sr-only">
@@ -47,14 +61,14 @@ export function WaitlistForm({ variant = "hero" }: WaitlistFormProps) {
           required
           placeholder="trainer@email.com"
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e) => handleEmailChange(e.target.value)}
           disabled={status === "loading"}
-          className="min-h-[48px] flex-1 rounded-full border-2 border-white/10 bg-white/5 px-6 py-3 text-base text-[#edf0ff] placeholder:text-[#6b7494] outline-none transition focus:border-[#ffe500] focus:bg-white/[0.08] focus:shadow-[0_0_24px_rgba(255,229,0,0.2)] disabled:opacity-60"
+          className="min-h-[48px] w-full min-w-0 rounded-full border border-white/10 bg-white/5 px-5 py-3 text-base text-[#edf0ff] placeholder:text-[#6b7494] outline-none transition focus:border-[#ffe500]/50 focus:bg-white/[0.08] focus:shadow-[0_0_24px_rgba(255,229,0,0.15)] disabled:opacity-60 sm:px-6"
         />
         <motion.button
           type="submit"
           disabled={status === "loading"}
-          className="min-h-[48px] rounded-full bg-[#ffe500] px-8 py-3 text-base font-semibold text-[#07091a] transition hover:shadow-[0_0_32px_rgba(255,229,0,0.45)] disabled:cursor-not-allowed disabled:opacity-60"
+          className="min-h-[48px] w-full rounded-full bg-[#ffe500] px-8 py-3 text-base font-semibold text-[#07091a] transition hover:shadow-[0_0_32px_rgba(255,229,0,0.45)] disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto sm:justify-self-center"
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
         >
@@ -70,7 +84,7 @@ export function WaitlistForm({ variant = "hero" }: WaitlistFormProps) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0 }}
             className={`mt-4 text-center text-sm ${
-              status === "success" ? "text-[#22d87a]" : "text-[#ff4757]"
+              status === "success" ? "text-[#3dbd62]" : "text-[#ff4757]"
             }`}
             role="status"
           >

@@ -1,45 +1,46 @@
 import { useCallback, useState } from "react"
 import { AnimatedBackground } from "@/components/animated-background"
+import { SectionPokemonBackdrop } from "@/components/section-pokemon-backdrop"
+import { CursorPaintGlow } from "@/components/cursor-paint-glow"
 import { DepthLayers } from "@/components/depth-layers"
-import { PokemonShadowField } from "@/components/pokemon-shadow-field"
+import { LegalNav } from "@/components/legal-nav"
 import { LogoZoomIntro } from "@/components/logo-zoom-intro"
 import { ZoomSceneProvider } from "@/components/zoom-scene"
-import { ZoomSection, ZoomProgress, ZoomHint } from "@/components/zoom-section"
+import { ZoomSection, ZoomHint } from "@/components/zoom-section"
 import { WaitlistHero } from "@/sections/waitlist-hero"
-import { AboutSection } from "@/sections/about-section"
-import { FeaturesSection } from "@/sections/features-section"
-import { ToolsSection } from "@/sections/tools-section"
-import { StatsSection } from "@/sections/stats-section"
+import { ShowcaseSection } from "@/sections/showcase-section"
 import { ComingSoonSection } from "@/sections/coming-soon-section"
 import { FooterSection } from "@/sections/footer-section"
-import { SECTION, SECTION_COUNT, SECTION_LABELS } from "@/lib/sections"
+import { SECTION, SECTION_COUNT } from "@/lib/sections"
 
 export function App() {
-  const [introDone, setIntroDone] = useState(false)
-  const handleIntroComplete = useCallback(() => setIntroDone(true), [])
+  const [introFinished, setIntroFinished] = useState(false)
+  const [siteVisible, setSiteVisible] = useState(false)
+
+  const handleIntroReveal = useCallback(() => setSiteVisible(true), [])
+  const handleIntroComplete = useCallback(() => setIntroFinished(true), [])
 
   return (
     <>
-      {!introDone && <LogoZoomIntro onComplete={handleIntroComplete} />}
-      <ZoomSceneProvider sectionCount={SECTION_COUNT} enabled={introDone}>
+      {!introFinished && (
+        <LogoZoomIntro onReveal={handleIntroReveal} onComplete={handleIntroComplete} />
+      )}
+      <ZoomSceneProvider sectionCount={SECTION_COUNT} enabled={siteVisible}>
+        <LegalNav variant="header" />
         <AnimatedBackground />
-        <PokemonShadowField />
+        <CursorPaintGlow />
+        <SectionPokemonBackdrop />
         <DepthLayers />
-        <main className={`zoom-viewport relative z-10 ${introDone ? "" : "invisible"}`}>
-          <ZoomSection index={SECTION.WAITLIST} id="home">
-            <WaitlistHero visible={introDone} />
+        <main
+          className={`zoom-viewport relative z-10 transition-opacity duration-[360ms] ease-out ${
+            siteVisible ? "opacity-100" : "opacity-0"
+          }`}
+        >
+          <ZoomSection index={SECTION.WAITLIST} id="home" className="!px-4 sm:!px-6">
+            <WaitlistHero visible={siteVisible} />
           </ZoomSection>
-          <ZoomSection index={SECTION.ABOUT} id="about">
-            <AboutSection sectionIndex={SECTION.ABOUT} />
-          </ZoomSection>
-          <ZoomSection index={SECTION.FEATURES} id="features">
-            <FeaturesSection sectionIndex={SECTION.FEATURES} />
-          </ZoomSection>
-          <ZoomSection index={SECTION.TOOLS} id="tools">
-            <ToolsSection sectionIndex={SECTION.TOOLS} />
-          </ZoomSection>
-          <ZoomSection index={SECTION.STATS} id="stats">
-            <StatsSection sectionIndex={SECTION.STATS} />
+          <ZoomSection index={SECTION.SHOWCASE} id="explore" className="!py-6 md:!py-8" contentOverflow="visible">
+            <ShowcaseSection sectionIndex={SECTION.SHOWCASE} />
           </ZoomSection>
           <ZoomSection index={SECTION.COMING} id="coming-soon">
             <ComingSoonSection sectionIndex={SECTION.COMING} />
@@ -48,7 +49,6 @@ export function App() {
             <FooterSection />
           </ZoomSection>
         </main>
-        <ZoomProgress labels={SECTION_LABELS} />
         <ZoomHint />
         <div className="zoom-tunnel" aria-hidden="true" />
       </ZoomSceneProvider>

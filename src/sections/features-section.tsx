@@ -1,5 +1,6 @@
 import { SectionShell } from "@/components/section-shell"
 import { FeatureCard } from "@/components/feature-card"
+import { SectionEyebrow } from "@/components/section-eyebrow"
 
 const FEATURES = [
   {
@@ -29,20 +30,20 @@ interface FeaturesSectionProps {
 export function FeaturesSection({ sectionIndex }: FeaturesSectionProps) {
   return (
     <SectionShell index={sectionIndex} id="features">
-      <div className="mb-14 text-center">
-        <p className="font-mono mb-3 text-xs tracking-[0.35em] text-[#3d72ff]">CORE FEATURES</p>
-        <h2 className="text-3xl font-extrabold text-[#edf0ff] md:text-5xl">
+      <div className="content-panel mx-auto w-full max-w-4xl px-6 py-10 md:px-10">
+        <SectionEyebrow accent="blue">CORE FEATURES</SectionEyebrow>
+        <h2 className="display-headline-sm mb-4 text-[#edf0ff]">
           Everything a serious trainer needs
         </h2>
-        <p className="mx-auto mt-4 max-w-2xl text-[#8892b0]">
+        <p className="mx-auto mb-12 max-w-2xl text-base leading-relaxed text-[#8892b0] md:text-lg">
           Casual or hardcore — Dexora gives you the data edge without the grind of tab-hopping.
         </p>
-      </div>
 
-      <div className="grid gap-6 md:grid-cols-3 md:text-left">
-        {FEATURES.map((f, i) => (
-          <FeatureCard key={f.title} {...f} index={i} sectionIndex={sectionIndex} />
-        ))}
+        <div className="grid gap-5 text-center md:grid-cols-3">
+          {FEATURES.map((f, i) => (
+            <FeatureCard key={f.title} {...f} index={i} sectionIndex={sectionIndex} />
+          ))}
+        </div>
       </div>
     </SectionShell>
   )

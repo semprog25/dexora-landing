@@ -1,4 +1,5 @@
 import { SectionShell, StaggerItem } from "@/components/section-shell"
+import { SectionEyebrow } from "@/components/section-eyebrow"
 
 interface AboutSectionProps {
   sectionIndex: number
@@ -7,21 +8,20 @@ interface AboutSectionProps {
 export function AboutSection({ sectionIndex }: AboutSectionProps) {
   return (
     <SectionShell index={sectionIndex} id="about">
-      <div className="mx-auto max-w-2xl">
-        <p className="font-mono mb-3 text-xs tracking-[0.35em] text-[#ffe500]">ABOUT US</p>
-        <h2 className="mb-6 text-3xl font-extrabold text-[#edf0ff] md:text-5xl">
+      <div className="content-panel mx-auto w-full max-w-2xl px-6 py-10 md:px-10">
+        <SectionEyebrow accent="yellow">ABOUT US</SectionEyebrow>
+        <h2 className="display-headline-sm mb-6 text-[#edf0ff]">
           Built by trainers,
-          <br />
-          for trainers
+          <span className="block">for trainers</span>
         </h2>
-        <p className="mb-10 text-lg leading-relaxed text-[#8892b0]">
+        <p className="mb-10 text-base leading-relaxed text-[#8892b0] md:text-lg">
           We&apos;re not just an app — we&apos;re a community of passionate Pokémon GO players who
           wanted smarter tools without waiting for signal at every PokéStop.
         </p>
 
-        <div className="mx-auto max-w-xl space-y-4 text-left">
+        <div className="mx-auto max-w-lg space-y-4">
           <StaggerItem sectionIndex={sectionIndex} index={0}>
-            <div className="rounded-2xl border border-white/[0.07] bg-[#111628]/70 p-6 backdrop-blur-sm">
+            <div className="glass-card rounded-2xl p-6 text-center">
               <p className="leading-relaxed text-[#edf0ff]">
                 Browse stats, evolutions, counters, and more — no connection required. Dexora
                 works offline-first so you can research anywhere.
@@ -29,7 +29,7 @@ export function AboutSection({ sectionIndex }: AboutSectionProps) {
             </div>
           </StaggerItem>
           <StaggerItem sectionIndex={sectionIndex} index={1}>
-            <div className="rounded-2xl border border-[#3d72ff]/20 bg-[#111628]/70 p-6 backdrop-blur-sm">
+            <div className="glass-card rounded-2xl border-[#3d72ff]/15 p-6 text-center">
               <p className="leading-relaxed text-[#8892b0]">
                 Help trainers make smarter decisions every day — from evolve recommendations to
                 type counters and PvP league insights.
@@ -37,9 +37,9 @@ export function AboutSection({ sectionIndex }: AboutSectionProps) {
             </div>
           </StaggerItem>
           <StaggerItem sectionIndex={sectionIndex} index={2}>
-            <div className="rounded-2xl border border-[#ffe500]/20 bg-[#111628]/70 p-6 backdrop-blur-sm">
-              <p className="font-mono text-center text-sm text-[#6b7494]">
-                Fan-made · Non-commercial · Not affiliated with Niantic or TPC
+            <div className="glass-card rounded-2xl border-[#ffe500]/15 p-5">
+              <p className="font-mono text-center text-xs tracking-[0.2em] text-[#6b7494]">
+                FAN-MADE · NON-COMMERCIAL · NOT AFFILIATED WITH NIANTIC OR TPC
               </p>
             </div>
           </StaggerItem>

@@ -20,10 +20,9 @@ export function SectionShell({ index, id, children, className = "" }: SectionShe
         className="relative z-10 mx-auto w-full max-w-3xl text-center"
         initial={false}
         animate={{
-          opacity: isActive ? 1 : 0.4,
-          y: isActive ? 0 : 24,
+          opacity: isActive ? 1 : 0,
         }}
-        transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
       >
         {children}
       </motion.div>
@@ -46,11 +45,10 @@ export function StaggerItem({ children, index = 0, sectionIndex }: StaggerItemPr
       initial={false}
       animate={{
         opacity: isActive ? 1 : 0,
-        y: isActive ? 0 : 28,
       }}
       transition={{
-        duration: 0.55,
-        delay: isActive ? index * 0.08 : 0,
+        duration: 0.75,
+        delay: isActive ? index * 0.06 : 0,
         ease: [0.22, 1, 0.36, 1],
       }}
     >
