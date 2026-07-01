@@ -22,9 +22,13 @@ const FEATURES = [
   },
 ]
 
-export function FeaturesSection() {
+interface FeaturesSectionProps {
+  sectionIndex: number
+}
+
+export function FeaturesSection({ sectionIndex }: FeaturesSectionProps) {
   return (
-    <SectionShell id="features">
+    <SectionShell index={sectionIndex} id="features">
       <div className="mb-14 text-center">
         <p className="font-mono mb-3 text-xs tracking-[0.35em] text-[#3d72ff]">CORE FEATURES</p>
         <h2 className="text-3xl font-extrabold text-[#edf0ff] md:text-5xl">
@@ -37,7 +41,7 @@ export function FeaturesSection() {
 
       <div className="grid gap-6 md:grid-cols-3">
         {FEATURES.map((f, i) => (
-          <FeatureCard key={f.title} {...f} index={i} />
+          <FeatureCard key={f.title} {...f} index={i} sectionIndex={sectionIndex} />
         ))}
       </div>
     </SectionShell>

@@ -1,6 +1,6 @@
 export function SiteFooter() {
   return (
-    <footer className="relative z-10 border-t border-white/[0.07] bg-[#07091a]/90 px-5 py-12 backdrop-blur-md md:px-10" style={{ paddingBottom: "max(3rem, env(safe-area-inset-bottom))" }}>
+    <footer className="relative z-10 border-t border-white/[0.07] bg-transparent px-5 py-8 md:px-10" style={{ paddingBottom: "max(1.5rem, env(safe-area-inset-bottom))" }}>
       <div className="mx-auto flex max-w-6xl flex-col gap-8 md:flex-row md:justify-between">
         <div className="max-w-md">
           <img

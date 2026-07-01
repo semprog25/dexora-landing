@@ -1,5 +1,4 @@
-import { SectionShell } from "@/components/section-shell"
-import { StaggerItem } from "@/components/section-shell"
+import { SectionShell, StaggerItem } from "@/components/section-shell"
 
 function StoreBadge({
   platform,
@@ -43,9 +42,13 @@ function StoreBadge({
   )
 }
 
-export function ComingSoonSection() {
+interface ComingSoonSectionProps {
+  sectionIndex: number
+}
+
+export function ComingSoonSection({ sectionIndex }: ComingSoonSectionProps) {
   return (
-    <SectionShell id="coming-soon">
+    <SectionShell index={sectionIndex} id="coming-soon">
       <div className="grid items-center gap-12 lg:grid-cols-2">
         <div>
           <p className="font-mono mb-3 text-xs tracking-[0.35em] text-[#ffe500]">COMING SOON</p>
@@ -59,10 +62,10 @@ export function ComingSoonSection() {
         </div>
 
         <div className="flex flex-col gap-4">
-          <StaggerItem index={0}>
+          <StaggerItem sectionIndex={sectionIndex} index={0}>
             <StoreBadge platform="apple" subtitle="Download on the" disabled />
           </StaggerItem>
-          <StaggerItem index={1}>
+          <StaggerItem sectionIndex={sectionIndex} index={1}>
             <StoreBadge platform="google" subtitle="Get it on" disabled />
           </StaggerItem>
         </div>

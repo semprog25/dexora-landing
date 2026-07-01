@@ -2,37 +2,54 @@ import { useCallback, useState } from "react"
 import { AnimatedBackground } from "@/components/animated-background"
 import { PokemonShadowField } from "@/components/pokemon-shadow-field"
 import { LogoZoomIntro } from "@/components/logo-zoom-intro"
-import { SiteFooter } from "@/components/site-footer"
-import { useLenis } from "@/components/section-shell"
+import { ZoomSceneProvider } from "@/components/zoom-scene"
+import { ZoomSection, ZoomProgress, ZoomHint } from "@/components/zoom-section"
 import { WaitlistHero } from "@/sections/waitlist-hero"
 import { AboutSection } from "@/sections/about-section"
 import { FeaturesSection } from "@/sections/features-section"
 import { ToolsSection } from "@/sections/tools-section"
 import { StatsSection } from "@/sections/stats-section"
 import { ComingSoonSection } from "@/sections/coming-soon-section"
+import { FooterSection } from "@/sections/footer-section"
+import { SECTION, SECTION_COUNT, SECTION_LABELS } from "@/lib/sections"
 
 export function App() {
   const [introDone, setIntroDone] = useState(false)
   const handleIntroComplete = useCallback(() => setIntroDone(true), [])
 
-  useLenis({ enabled: introDone })
-
   return (
     <>
       {!introDone && <LogoZoomIntro onComplete={handleIntroComplete} />}
       <AnimatedBackground />
-      <PokemonShadowField />
-      <main className={`relative z-10 snap-container ${introDone ? "" : "invisible"}`}>
-        <WaitlistHero visible={introDone} />
-        <div id="explore">
-          <AboutSection />
-          <FeaturesSection />
-          <ToolsSection />
-          <StatsSection />
-          <ComingSoonSection />
-        </div>
-      </main>
-      <SiteFooter />
+      <ZoomSceneProvider sectionCount={SECTION_COUNT} enabled={introDone}>
+        <PokemonShadowField />
+        <main className={`zoom-viewport relative z-10 ${introDone ? "" : "invisible"}`}>
+          <ZoomSection index={SECTION.WAITLIST} id="home">
+            <WaitlistHero visible={introDone} />
+          </ZoomSection>
+          <ZoomSection index={SECTION.ABOUT} id="about">
+            <AboutSection sectionIndex={SECTION.ABOUT} />
+          </ZoomSection>
+          <ZoomSection index={SECTION.FEATURES} id="features">
+            <FeaturesSection sectionIndex={SECTION.FEATURES} />
+          </ZoomSection>
+          <ZoomSection index={SECTION.TOOLS} id="tools">
+            <ToolsSection sectionIndex={SECTION.TOOLS} />
+          </ZoomSection>
+          <ZoomSection index={SECTION.STATS} id="stats">
+            <StatsSection sectionIndex={SECTION.STATS} />
+          </ZoomSection>
+          <ZoomSection index={SECTION.COMING} id="coming-soon">
+            <ComingSoonSection sectionIndex={SECTION.COMING} />
+          </ZoomSection>
+          <ZoomSection index={SECTION.FOOTER} id="footer">
+            <FooterSection />
+          </ZoomSection>
+        </main>
+        <ZoomProgress labels={SECTION_LABELS} />
+        <ZoomHint />
+        <div className="zoom-tunnel" aria-hidden="true" />
+      </ZoomSceneProvider>
     </>
   )
 }

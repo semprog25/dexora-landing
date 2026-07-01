@@ -1,24 +1,34 @@
-import { useEffect, useRef, useState } from "react"
-import { motion, useInView } from "motion/react"
+import { useEffect, useState } from "react"
+import { motion } from "motion/react"
+import { useZoomScene } from "@/components/zoom-scene"
 
 interface StatsCounterProps {
+  sectionIndex: number
   value: number
   suffix?: string
   label: string
   decimals?: number
 }
 
-export function StatsCounter({ value, suffix = "", label, decimals = 0 }: StatsCounterProps) {
-  const ref = useRef<HTMLDivElement>(null)
-  const isInView = useInView(ref, { once: true, amount: 0.5 })
+export function StatsCounter({
+  sectionIndex,
+  value,
+  suffix = "",
+  label,
+  decimals = 0,
+}: StatsCounterProps) {
+  const { activeIndex } = useZoomScene()
+  const isActive = activeIndex === sectionIndex
   const [display, setDisplay] = useState(0)
+  const [hasAnimated, setHasAnimated] = useState(false)
 
   useEffect(() => {
-    if (!isInView) return
+    if (!isActive || hasAnimated) return
 
     const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches
     if (prefersReduced) {
       setDisplay(value)
+      setHasAnimated(true)
       return
     }
 
@@ -30,21 +40,20 @@ export function StatsCounter({ value, suffix = "", label, decimals = 0 }: StatsC
       const eased = 1 - Math.pow(1 - progress, 3)
       setDisplay(eased * value)
       if (progress < 1) requestAnimationFrame(tick)
+      else setHasAnimated(true)
     }
 
     requestAnimationFrame(tick)
-  }, [isInView, value])
+  }, [isActive, hasAnimated, value])
 
   const formatted =
     decimals > 0 ? display.toFixed(decimals) : Math.floor(display).toLocaleString()
 
   return (
     <motion.div
-      ref={ref}
       className="text-center"
-      initial={{ opacity: 0, scale: 0.9 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      viewport={{ once: true }}
+      initial={false}
+      animate={{ opacity: isActive ? 1 : 0.3, scale: isActive ? 1 : 0.92 }}
       transition={{ duration: 0.5 }}
     >
       <p className="font-mono text-4xl font-medium text-[#ffe500] md:text-5xl lg:text-6xl">

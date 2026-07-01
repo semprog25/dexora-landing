@@ -1,9 +1,12 @@
-import { SectionShell } from "@/components/section-shell"
-import { StaggerItem } from "@/components/section-shell"
+import { SectionShell, StaggerItem } from "@/components/section-shell"
 
-export function AboutSection() {
+interface AboutSectionProps {
+  sectionIndex: number
+}
+
+export function AboutSection({ sectionIndex }: AboutSectionProps) {
   return (
-    <SectionShell id="about">
+    <SectionShell index={sectionIndex} id="about">
       <div className="grid items-center gap-12 lg:grid-cols-2">
         <div>
           <p className="font-mono mb-3 text-xs tracking-[0.35em] text-[#ffe500]">ABOUT US</p>
@@ -19,7 +22,7 @@ export function AboutSection() {
         </div>
 
         <div className="space-y-6">
-          <StaggerItem index={0}>
+          <StaggerItem sectionIndex={sectionIndex} index={0}>
             <div className="rounded-2xl border border-white/[0.07] bg-[#111628]/60 p-6 backdrop-blur-sm">
               <p className="leading-relaxed text-[#edf0ff]">
                 Browse stats, evolutions, counters, and more — no connection required. Dexora
@@ -27,7 +30,7 @@ export function AboutSection() {
               </p>
             </div>
           </StaggerItem>
-          <StaggerItem index={1}>
+          <StaggerItem sectionIndex={sectionIndex} index={1}>
             <div className="rounded-2xl border border-[#3d72ff]/20 bg-[#111628]/60 p-6 backdrop-blur-sm">
               <p className="leading-relaxed text-[#8892b0]">
                 Help trainers make smarter decisions every day — from evolve recommendations to
@@ -35,7 +38,7 @@ export function AboutSection() {
               </p>
             </div>
           </StaggerItem>
-          <StaggerItem index={2}>
+          <StaggerItem sectionIndex={sectionIndex} index={2}>
             <div className="rounded-2xl border border-[#ffe500]/20 bg-[#111628]/60 p-6 backdrop-blur-sm">
               <p className="font-mono text-sm text-[#6b7494]">
                 Fan-made · Non-commercial · Not affiliated with Niantic or TPC

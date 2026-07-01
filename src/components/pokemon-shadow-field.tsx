@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react"
 import { SILHOUETTE_DEX_IDS, getSilhouetteSrc } from "@/lib/pokemon-silhouettes"
+import { useZoomSceneOptional } from "@/components/zoom-scene"
 
 interface ShadowSprite {
   dexId: number
@@ -23,9 +24,14 @@ export function PokemonShadowField() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const spritesRef = useRef<ShadowSprite[]>([])
   const pointerRef = useRef({ x: 0.5, y: 0.5 })
-  const scrollRef = useRef(0)
+  const zoomProgressRef = useRef(0)
+  const zoomScene = useZoomSceneOptional()
   const rafRef = useRef(0)
   const timeRef = useRef(0)
+
+  useEffect(() => {
+    zoomProgressRef.current = zoomScene?.progress ?? 0
+  }, [zoomScene?.progress])
 
   useEffect(() => {
     const canvas = canvasRef.current
@@ -77,7 +83,7 @@ export function PokemonShadowField() {
       const cx = w * 0.5
       const cy = h * 0.48
       const t = timeRef.current
-      const scrollShift = scrollRef.current * 0.0004
+      const scrollShift = zoomProgressRef.current * 0.35
       const px = pointerRef.current.x
       const py = pointerRef.current.y
 
@@ -137,9 +143,6 @@ export function PokemonShadowField() {
     draw()
 
     const onResize = () => resize()
-    const onScroll = () => {
-      scrollRef.current = window.scrollY
-    }
     const onMove = (e: MouseEvent) => {
       pointerRef.current = { x: e.clientX / window.innerWidth, y: e.clientY / window.innerHeight }
     }
@@ -153,14 +156,12 @@ export function PokemonShadowField() {
     }
 
     window.addEventListener("resize", onResize)
-    window.addEventListener("scroll", onScroll, { passive: true })
     window.addEventListener("mousemove", onMove, { passive: true })
     window.addEventListener("touchmove", onTouch, { passive: true })
 
     return () => {
       cancelAnimationFrame(rafRef.current)
       window.removeEventListener("resize", onResize)
-      window.removeEventListener("scroll", onScroll)
       window.removeEventListener("mousemove", onMove)
       window.removeEventListener("touchmove", onTouch)
     }

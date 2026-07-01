@@ -58,23 +58,50 @@ body {
   bottom: max(1.5rem, env(safe-area-inset-bottom));
 }
 
+body.zoom-scene-active {
+  overflow: hidden;
+  height: 100dvh;
+  position: fixed;
+  width: 100%;
+}
+
 #root {
-  min-height: 100vh;
-}
-
-.snap-container {
-  scroll-snap-type: y proximity;
-}
-
-.snap-section {
-  scroll-snap-align: start;
-  scroll-snap-stop: normal;
-  min-height: 100vh;
   min-height: 100dvh;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  height: 100dvh;
+}
+
+.zoom-viewport {
+  position: fixed;
+  inset: 0;
+  perspective: 1500px;
+  perspective-origin: 50% 48%;
+  overflow: hidden;
+  transform-style: preserve-3d;
+}
+
+.zoom-panel {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  will-change: transform, opacity, filter;
+}
+
+.zoom-tunnel {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 5;
+  background: radial-gradient(
+    ellipse 70% 60% at 50% 48%,
+    transparent 0%,
+    rgba(7, 9, 26, 0.35) 55%,
+    rgba(7, 9, 26, 0.85) 100%
+  );
+}
+
+.zoom-progress {
+  padding-right: env(safe-area-inset-right);
 }
 
 @keyframes orb-drift-1 {

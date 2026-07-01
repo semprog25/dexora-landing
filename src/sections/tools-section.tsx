@@ -45,12 +45,16 @@ const TOOLS = [
   },
 ]
 
-export function ToolsSection() {
+interface ToolsSectionProps {
+  sectionIndex: number
+}
+
+export function ToolsSection({ sectionIndex }: ToolsSectionProps) {
   const [active, setActive] = useState(0)
   const tool = TOOLS[active]
 
   return (
-    <SectionShell id="tools">
+    <SectionShell index={sectionIndex} id="tools">
       <div className="mb-12 text-center">
         <p className="font-mono mb-3 text-xs tracking-[0.35em] text-[#ffe500]">TOOLS SHOWCASE</p>
         <h2 className="text-3xl font-extrabold text-[#edf0ff] md:text-5xl">
@@ -61,7 +65,7 @@ export function ToolsSection() {
       <div className="grid gap-8 lg:grid-cols-[1fr_1.2fr]">
         <div className="flex flex-col gap-3">
           {TOOLS.map((t, i) => (
-            <StaggerItem key={t.id} index={i}>
+            <StaggerItem key={t.id} sectionIndex={sectionIndex} index={i}>
               <button
                 type="button"
                 onClick={() => setActive(i)}
@@ -72,10 +76,7 @@ export function ToolsSection() {
                 }`}
                 aria-pressed={active === i}
               >
-                <span
-                  className="font-mono text-xs tracking-wider"
-                  style={{ color: t.accent }}
-                >
+                <span className="font-mono text-xs tracking-wider" style={{ color: t.accent }}>
                   {t.tag}
                 </span>
                 <p className="mt-1 font-semibold text-[#edf0ff]">{t.title}</p>
@@ -84,7 +85,7 @@ export function ToolsSection() {
           ))}
         </div>
 
-        <div className="relative min-h-[320px] overflow-hidden rounded-2xl border border-white/[0.07] bg-[#111628]/80 p-8 backdrop-blur-sm md:min-h-[400px]">
+        <div className="relative min-h-[280px] overflow-hidden rounded-2xl border border-white/[0.07] bg-[#111628]/80 p-6 backdrop-blur-sm md:min-h-[360px] md:p-8">
           <AnimatePresence mode="wait">
             <motion.div
               key={tool.id}
@@ -96,15 +97,14 @@ export function ToolsSection() {
             >
               <div
                 className="mb-6 inline-flex w-fit rounded-full px-4 py-1 text-xs font-medium"
-                style={{
-                  background: `${tool.accent}22`,
-                  color: tool.accent,
-                }}
+                style={{ background: `${tool.accent}22`, color: tool.accent }}
               >
                 {tool.tag}
               </div>
-              <h3 className="mb-4 text-3xl font-bold text-[#edf0ff] md:text-4xl">{tool.title}</h3>
-              <p className="max-w-lg text-lg leading-relaxed text-[#8892b0]">{tool.description}</p>
+              <h3 className="mb-4 text-2xl font-bold text-[#edf0ff] md:text-4xl">{tool.title}</h3>
+              <p className="max-w-lg text-base leading-relaxed text-[#8892b0] md:text-lg">
+                {tool.description}
+              </p>
               <div
                 className="pointer-events-none absolute -bottom-20 -right-20 h-64 w-64 rounded-full blur-3xl"
                 style={{ background: `${tool.accent}18` }}
@@ -112,7 +112,7 @@ export function ToolsSection() {
             </motion.div>
           </AnimatePresence>
 
-          <div className="absolute bottom-6 right-6 flex gap-2">
+          <div className="absolute bottom-4 right-4 flex gap-2 md:bottom-6 md:right-6">
             {TOOLS.map((_, i) => (
               <button
                 key={i}
