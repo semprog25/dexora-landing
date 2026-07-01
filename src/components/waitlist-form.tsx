@@ -38,18 +38,23 @@ export function WaitlistForm({ variant = "hero" }: WaitlistFormProps) {
           id={`waitlist-email-${variant}`}
           type="email"
           name="email"
+          inputMode="email"
+          enterKeyHint="done"
           autoComplete="email"
+          autoCapitalize="none"
+          autoCorrect="off"
+          spellCheck={false}
           required
           placeholder="trainer@email.com"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           disabled={status === "loading"}
-          className="flex-1 rounded-full border-2 border-white/10 bg-white/5 px-6 py-4 text-[#edf0ff] placeholder:text-[#6b7494] outline-none transition focus:border-[#ffe500] focus:bg-white/[0.08] focus:shadow-[0_0_24px_rgba(255,229,0,0.2)] disabled:opacity-60"
+          className="min-h-[48px] flex-1 rounded-full border-2 border-white/10 bg-white/5 px-6 py-3 text-base text-[#edf0ff] placeholder:text-[#6b7494] outline-none transition focus:border-[#ffe500] focus:bg-white/[0.08] focus:shadow-[0_0_24px_rgba(255,229,0,0.2)] disabled:opacity-60"
         />
         <motion.button
           type="submit"
           disabled={status === "loading"}
-          className="rounded-full bg-[#ffe500] px-8 py-4 font-semibold text-[#07091a] transition hover:shadow-[0_0_32px_rgba(255,229,0,0.45)] disabled:cursor-not-allowed disabled:opacity-60"
+          className="min-h-[48px] rounded-full bg-[#ffe500] px-8 py-3 text-base font-semibold text-[#07091a] transition hover:shadow-[0_0_32px_rgba(255,229,0,0.45)] disabled:cursor-not-allowed disabled:opacity-60"
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
         >
