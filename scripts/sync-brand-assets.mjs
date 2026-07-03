@@ -14,6 +14,9 @@ const ASSETS = [
   { from: "public/dexora-logo.png", to: "public/dexora-logo.png" },
   { from: "public/dexora-d-logo.png", to: "public/dexora-d-logo.png" },
   { from: "public/favicon.png", to: "public/favicon.png" },
+  { from: "public/apple-touch-icon.png", to: "public/apple-touch-icon.png" },
+  { from: "public/icon-192.png", to: "public/icon-192.png" },
+  { from: "public/icon-512.png", to: "public/icon-512.png" },
 ]
 
 async function main() {
