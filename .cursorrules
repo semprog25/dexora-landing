@@ -17,4 +17,6 @@ Source of truth: `src/lib/legal-content.ts` — static copies generated at build
 
 ## Deploy
 
-Push to `main` → GitHub Actions deploys `dist/` to `gh-pages` branch → served at www.dexora.app.
+Push to `main` → GitHub Actions builds `dist/` and deploys to GitHub Pages.
+
+**Pages source must be “GitHub Actions”** in repo Settings → Pages. Do not use “Deploy from branch: main” (that serves unbuilt Vite source and breaks the site).
