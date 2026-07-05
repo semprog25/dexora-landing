@@ -26,6 +26,31 @@ cd ../Dexora-main
 supabase db push
 ```
 
+### Waitlist admin (hidden)
+
+Signups are stored in Supabase table `waitlist_signups`. A password-protected admin page lets you review entries and export CSV.
+
+1. Set the admin password secret in Supabase (once):
+
+```bash
+cd ../Dexora-main
+supabase secrets set WAITLIST_ADMIN_PASSWORD="choose-a-strong-password"
+```
+
+2. Deploy the `waitlist-admin` edge function (included in Dexora-main):
+
+```bash
+supabase functions deploy waitlist-admin --no-verify-jwt
+```
+
+3. Open the hidden admin page:
+
+```
+https://www.dexora.app/ops/waitlist-d7x9m2
+```
+
+Optional: override the path at build time with `VITE_WAITLIST_ADMIN_PATH`.
+
 ## Build
 
 ```bash
@@ -61,3 +86,6 @@ curl -I https://www.dexora.app/delete-account
 |----------|-------------|
 | `VITE_SUPABASE_URL` | Supabase project URL |
 | `VITE_SUPABASE_ANON_KEY` | Supabase anon/public key |
+| `VITE_WAITLIST_ADMIN_PATH` | Optional hidden admin path (default: `ops/waitlist-d7x9m2`) |
+
+Supabase secret (not in GitHub Actions): `WAITLIST_ADMIN_PASSWORD` for the `waitlist-admin` edge function.
