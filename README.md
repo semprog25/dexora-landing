@@ -48,6 +48,7 @@ The build also generates static legal pages (`/privacy`, `/terms`, etc.) so thos
 
 ```bash
 curl -I https://www.dexora.app/privacy
+curl -I https://www.dexora.app/delete-account
 # Expect: HTTP/2 200
 ```
 

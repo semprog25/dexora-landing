@@ -45,14 +45,22 @@ export function LegalPage({ slug }: LegalPageProps) {
           ))}
         </div>
 
-        {(slug === "contact" || slug === "feedback") && (
-          <div className="mt-8 flex justify-center">
+        {(slug === "contact" || slug === "feedback" || slug === "delete-account") && (
+          <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
             <a
-              href="mailto:support@dexora.app"
+              href="mailto:support@dexora.app?subject=Dexora%20Account%20Deletion%20Request"
               className="inline-flex min-h-[44px] items-center justify-center rounded-full bg-[#64d9ff] px-6 py-3 text-sm font-semibold text-[#07091a] transition hover:shadow-[0_0_24px_rgba(100,217,255,0.35)]"
             >
               Email support@dexora.app
             </a>
+            {slug === "delete-account" && (
+              <a
+                href="/privacy"
+                className="inline-flex min-h-[44px] items-center justify-center rounded-full border border-white/10 px-6 py-3 text-sm font-semibold text-[#edf0ff] transition hover:border-[#64d9ff]/40"
+              >
+                Privacy policy
+              </a>
+            )}
           </div>
         )}
 

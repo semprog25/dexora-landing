@@ -1,27 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://dexora.app/</loc>
+    <loc>https://www.dexora.app/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://dexora.app/privacy</loc>
+    <loc>https://www.dexora.app/privacy</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://dexora.app/terms</loc>
+    <loc>https://www.dexora.app/delete-account</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://dexora.app/contact</loc>
+    <loc>https://www.dexora.app/terms</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.dexora.app/contact</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://dexora.app/feedback</loc>
+    <loc>https://www.dexora.app/feedback</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>

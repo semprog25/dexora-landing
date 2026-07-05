@@ -11,7 +11,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const distDir = path.resolve(__dirname, "../dist")
 
 const SITE_ORIGIN = "https://www.dexora.app"
-const EFFECTIVE_DATE = "July 1, 2026"
+const EFFECTIVE_DATE = "July 5, 2026"
 const SUPPORT_EMAIL = "support@dexora.app"
 
 const LEGAL_DISCLAIMER =
@@ -35,7 +35,15 @@ const LEGAL_PAGES = {
       },
       {
         heading: "App account data",
-        body: "When you use the Dexora app, your trainer profile, collection progress, favorites, and settings may be saved to your Dexora cloud account to sync across devices.",
+        body: "When you use the Dexora app, your trainer profile, collection progress, favorites, language preference, optional Google sign-in email, community messages, public trainer code, and Dexora Plus subscription status may be saved to your Dexora cloud account to sync across devices.",
+      },
+      {
+        heading: "Trainer Vision photos",
+        body: "Pokémon GO screenshots you import for Trainer Vision are processed on your device with OCR. They are not uploaded to Dexora servers.",
+      },
+      {
+        heading: "Community features",
+        body: "If you use community chat, group messages, or public friend codes, that content is stored in our cloud database. Chat is moderated with automated filters; you can report messages and block users.",
       },
       {
         heading: "Analytics and advertising",
@@ -47,7 +55,7 @@ const LEGAL_PAGES = {
       },
       {
         heading: "Your rights",
-        body: `You may request deletion of your waitlist email or app account data by contacting us at ${SUPPORT_EMAIL}.`,
+        body: `You can permanently delete your app account in Profile → Settings → Delete Account, or request deletion at ${SITE_ORIGIN}/delete-account. You may also email ${SUPPORT_EMAIL} to delete waitlist or account data.`,
       },
       {
         heading: "Updates",
@@ -121,6 +129,28 @@ const LEGAL_PAGES = {
       },
     ],
   },
+  "delete-account": {
+    title: "Delete Account and Data",
+    description: "Permanently remove your Dexora cloud account and associated data.",
+    sections: [
+      {
+        heading: "Delete in the app (recommended)",
+        body: "Open Dexora → Profile → Settings → Delete Account, then confirm twice. This permanently removes your cloud profile, collection sync, community messages, and subscription entitlement records stored by Dexora.",
+      },
+      {
+        heading: "What gets deleted",
+        body: "Trainer profile, synced Pokémon collection, favorites, community chat messages, groups you created, leaderboard points, blocked-user lists, reports you submitted, and Dexora Plus entitlement stored in Dexora cloud.",
+      },
+      {
+        heading: "What is not deleted by Dexora",
+        body: "Your Google Play subscription billing history (manage or cancel in Google Play). Pokémon GO screenshots processed on-device for Trainer Vision are not uploaded to Dexora servers.",
+      },
+      {
+        heading: "Request deletion by email",
+        body: `If you cannot access the app, email ${SUPPORT_EMAIL} from the address linked to your Google account (if used). Include your trainer name and trainer code when possible. We process requests within 30 days.`,
+      },
+    ],
+  },
 }
 
 function escapeHtml(value) {
@@ -146,7 +176,9 @@ function renderPage(slug, doc) {
   const contactBlock =
     slug === "contact" || slug === "feedback"
       ? `<p class="actions"><a class="button" href="mailto:${SUPPORT_EMAIL}">Email ${SUPPORT_EMAIL}</a></p>`
-      : ""
+      : slug === "delete-account"
+        ? `<p class="actions"><a class="button" href="mailto:${SUPPORT_EMAIL}?subject=Dexora%20Account%20Deletion%20Request">Email deletion request</a> <a class="button secondary" href="/privacy">Privacy policy</a></p>`
+        : ""
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -241,6 +273,12 @@ function renderPage(slug, doc) {
         color: #07091a;
         font-weight: 600;
         text-decoration: none;
+        margin: 0 0.35rem 0.5rem;
+      }
+      .button.secondary {
+        background: transparent;
+        color: #edf0ff;
+        border: 1px solid rgba(255, 255, 255, 0.12);
       }
       .footer-note {
         margin-top: 2.5rem;

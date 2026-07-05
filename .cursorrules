@@ -1,0 +1,20 @@
+# dexora-landing project intelligence
+
+Marketing site for Dexora at **https://www.dexora.app**.
+
+- **Repo:** https://github.com/semprog25/dexora-landing
+- **Companion app repo:** https://github.com/semprog25/Dexora (Dexora-main)
+
+## Legal pages (Play Store / App Store)
+
+| Page | URL |
+| --- | --- |
+| Privacy | https://www.dexora.app/privacy |
+| Delete account | https://www.dexora.app/delete-account |
+| Terms | https://www.dexora.app/terms |
+
+Source of truth: `src/lib/legal-content.ts` — static copies generated at build time via `scripts/generate-legal-pages.mjs`.
+
+## Deploy
+
+Push to `main` → GitHub Actions deploys `dist/` to `gh-pages` branch → served at www.dexora.app.
