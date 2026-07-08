@@ -1,10 +1,23 @@
 import { PokemonShowcaseCard } from "@/components/pokemon-showcase-card"
 import { SHOWCASE_POKEMON } from "@/lib/showcase-pokemon"
 
-const LOOP_ITEMS = [...SHOWCASE_POKEMON, ...SHOWCASE_POKEMON]
-
 interface PokemonMarqueeProps {
   className?: string
+}
+
+function MarqueeGroup({ groupId }: { groupId: string }) {
+  return (
+    <div className="pokemon-marquee-group" aria-hidden={groupId === "b" ? true : undefined}>
+      {SHOWCASE_POKEMON.map(mon => (
+        <PokemonShowcaseCard
+          key={`${groupId}-${mon.dexId}`}
+          dexId={mon.dexId}
+          name={mon.name}
+          glow={mon.glow}
+        />
+      ))}
+    </div>
+  )
 }
 
 export function PokemonMarquee({ className = "" }: PokemonMarqueeProps) {
@@ -13,18 +26,10 @@ export function PokemonMarquee({ className = "" }: PokemonMarqueeProps) {
       className={`pokemon-marquee-bleed pokemon-marquee-wrap--compact ${className}`.trim()}
       aria-label="Pokémon showcase"
     >
-      <div className="pokemon-marquee-fade pokemon-marquee-fade-left" aria-hidden="true" />
-      <div className="pokemon-marquee-fade pokemon-marquee-fade-right" aria-hidden="true" />
       <div className="pokemon-marquee-viewport">
-        <div className="pokemon-marquee-track" aria-hidden="true">
-          {LOOP_ITEMS.map((mon, i) => (
-            <PokemonShowcaseCard
-              key={`${mon.dexId}-${i}`}
-              dexId={mon.dexId}
-              name={mon.name}
-              glow={mon.glow}
-            />
-          ))}
+        <div className="pokemon-marquee-track">
+          <MarqueeGroup groupId="a" />
+          <MarqueeGroup groupId="b" />
         </div>
       </div>
     </div>

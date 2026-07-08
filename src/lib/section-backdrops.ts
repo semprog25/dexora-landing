@@ -26,8 +26,8 @@ export const SECTION_BACKDROPS: Record<number, SectionBackdropConfig> = {
     contentDense: true,
   },
   [SECTION.DAILY]: {
-    wallpaper: "/backgrounds/home-gengar.png",
-    wallpaperVideo: "/backgrounds/home-glaceon.mp4",
+    wallpaper: "/backgrounds/daily-scene.jpg",
+    wallpaperVideo: "/backgrounds/daily-scene.mp4",
     figure: "/pokemon/silhouettes/25.png",
     figurePosition: "center",
     smokeHue: "#FFE500",
@@ -42,8 +42,8 @@ export const SECTION_BACKDROPS: Record<number, SectionBackdropConfig> = {
     contentDense: true,
   },
   [SECTION.DOWNLOAD]: {
-    wallpaper: "/backgrounds/coming-eevee.png",
-    wallpaperVideo: "/backgrounds/coming-umbreon.mp4",
+    wallpaper: "/backgrounds/download-legendary-birds.jpg",
+    wallpaperVideo: "/backgrounds/download-legendary-birds.mp4",
     smokeHue: "#7C4DFF",
   },
   [SECTION.FOOTER]: {
