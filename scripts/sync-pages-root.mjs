@@ -16,6 +16,8 @@ function removePath(target) {
 
 const staticPaths = [
   "assets",
+  "pokemon",
+  "backgrounds",
   "privacy",
   "terms",
   "contact",
@@ -23,7 +25,21 @@ const staticPaths = [
   "delete-account",
 ]
 
-for (const file of ["index.html", "404.html", "favicon.png", "apple-touch-icon.png", "dexora-logo.png", "CNAME", ".nojekyll"]) {
+for (const file of [
+  "index.html",
+  "404.html",
+  "favicon.png",
+  "apple-touch-icon.png",
+  "dexora-logo.png",
+  "dexora-d-logo.png",
+  "icon-192.png",
+  "icon-512.png",
+  "robots.txt",
+  "sitemap.xml",
+  "CNAME",
+  ".nojekyll",
+  "_redirects",
+]) {
   const from = path.join(dist, file)
   if (!fs.existsSync(from)) continue
   copyPath(from, path.join(root, file))
