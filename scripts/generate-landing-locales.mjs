@@ -1,9 +1,11 @@
 import fs from "node:fs/promises"
 import path from "node:path"
+import { fileURLToPath } from "node:url"
 
-const SOURCE_PATH =
-  "/Users/sharanestone/Semprog/dexora-landing/src/locales/en/landing.json"
-const LOCALES_ROOT = "/Users/sharanestone/Semprog/dexora-landing/src/locales"
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
+const ROOT = path.resolve(__dirname, "..")
+const SOURCE_PATH = path.join(ROOT, "src/locales/en/landing.json")
+const LOCALES_ROOT = path.join(ROOT, "src/locales")
 
 const LOCALE_OVERRIDES = {
   de: {
