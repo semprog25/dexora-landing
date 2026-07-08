@@ -37,23 +37,24 @@ export function DailyAssistantSection({ sectionIndex }: DailyAssistantSectionPro
           <span className="text-[#edf0ff]">{t("daily.headline1")} </span>
           <span className="text-gradient-yellow">{t("daily.headlineHighlight")}</span>
         </h2>
-        <p className="mx-auto mb-8 max-w-md text-sm leading-relaxed text-[#8892b0] md:text-base">
-          {t("daily.copy")}
-        </p>
+        <p className="landing-page-copy mx-auto max-w-md">{t("daily.copy")}</p>
 
-        <PhoneMockup className="mx-auto mb-8 max-w-xs" />
+        <div className="daily-split mx-auto grid w-full max-w-4xl grid-cols-1 items-center gap-6 md:grid-cols-[minmax(0,240px)_1fr] md:gap-8">
+          <PhoneMockup className="mx-auto w-full max-w-[240px] md:mx-0 md:justify-self-center" />
 
-        <div className="daily-pillars mx-auto flex max-w-xl flex-col gap-3">
-          {pillars.map((item, i) => (
-            <FeatureHighlightCard
-              key={item.title}
-              title={item.title}
-              text={item.text}
-              accent={item.accent}
-              index={i}
-              sectionIndex={sectionIndex}
-            />
-          ))}
+          <div className="daily-pillars flex w-full flex-col gap-3">
+            {pillars.map((item, i) => (
+              <FeatureHighlightCard
+                key={item.title}
+                title={item.title}
+                text={item.text}
+                accent={item.accent}
+                index={i}
+                sectionIndex={sectionIndex}
+                variant="landing"
+              />
+            ))}
+          </div>
         </div>
       </div>
     </SectionShell>

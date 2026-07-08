@@ -28,11 +28,9 @@ export function CommunitySectionPage({ sectionIndex }: CommunitySectionPageProps
       <div className="landing-page-panel mx-auto w-full max-w-xl px-4 text-center">
         <SectionEyebrow accent="blue">{t("community.eyebrow")}</SectionEyebrow>
         <h2 className="landing-page-headline mb-3 text-[#edf0ff]">{t("community.headline")}</h2>
-        <p className="mx-auto mb-8 max-w-md text-sm leading-relaxed text-[#8892b0] md:text-base">
-          {t("community.copy")}
-        </p>
+        <p className="landing-page-copy mx-auto max-w-md">{t("community.copy")}</p>
 
-        <div className="community-cards mx-auto flex max-w-lg flex-col gap-4">
+        <div className="community-cards mx-auto grid w-full max-w-2xl grid-cols-1 gap-4 sm:grid-cols-2">
           {cards.map((item, i) => (
             <FeatureHighlightCard
               key={item.title}
@@ -41,6 +39,7 @@ export function CommunitySectionPage({ sectionIndex }: CommunitySectionPageProps
               accent={item.accent}
               index={i}
               sectionIndex={sectionIndex}
+              variant="landing"
             />
           ))}
         </div>

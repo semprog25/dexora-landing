@@ -21,7 +21,6 @@ export const SECTION_POKEMON: SectionPokemonConfig[] = [
   { dexId: 448, glow: ["#3D72FF", "#64D9FF", "#7C4DFF"], name: "Lucario" },
   { dexId: 94, glow: ["#7C4DFF", "#9575CD", "#3D72FF"], name: "Gengar" },
   { dexId: 658, glow: ["#3D8EFF", "#3D72FF", "#FFE500"], name: "Greninja" },
-  { dexId: 151, glow: ["#FF6EC7", "#7C4DFF", "#3D72FF"], name: "Mew" },
 ]
 
 export function getSilhouetteSrc(dexId: number): string {

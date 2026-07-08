@@ -3,9 +3,16 @@ import { SHOWCASE_POKEMON } from "@/lib/showcase-pokemon"
 
 const LOOP_ITEMS = [...SHOWCASE_POKEMON, ...SHOWCASE_POKEMON]
 
-export function PokemonMarquee() {
+interface PokemonMarqueeProps {
+  className?: string
+}
+
+export function PokemonMarquee({ className = "" }: PokemonMarqueeProps) {
   return (
-    <div className="pokemon-marquee-bleed pokemon-marquee-wrap--compact" aria-label="Pokémon showcase">
+    <div
+      className={`pokemon-marquee-bleed pokemon-marquee-wrap--compact ${className}`.trim()}
+      aria-label="Pokémon showcase"
+    >
       <div className="pokemon-marquee-fade pokemon-marquee-fade-left" aria-hidden="true" />
       <div className="pokemon-marquee-fade pokemon-marquee-fade-right" aria-hidden="true" />
       <div className="pokemon-marquee-viewport">

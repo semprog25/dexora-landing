@@ -1,7 +1,14 @@
 import { useZoomSceneOptional } from "@/components/zoom-scene"
 import { BRAND } from "@/lib/brand-colors"
 
-const SECTION_ORB_HUES = [BRAND.purple, BRAND.blue, BRAND.purple, BRAND.neonBlue] as const
+const SECTION_ORB_HUES = [
+  BRAND.purple,
+  "#FF6EC7",
+  BRAND.yellow,
+  BRAND.blue,
+  BRAND.purple,
+  BRAND.neonBlue,
+] as const
 
 export function DepthLayers() {
   const zoom = useZoomSceneOptional()

@@ -17,6 +17,8 @@ export function PokemonShowcaseCard({ dexId, name, glow }: PokemonShowcaseCardPr
       <img
         src={getShowcaseSrc(dexId)}
         alt=""
+        width={56}
+        height={56}
         className="pokemon-showcase-img pokemon-showcase-silhouette"
         loading="lazy"
         decoding="async"
@@ -25,6 +27,8 @@ export function PokemonShowcaseCard({ dexId, name, glow }: PokemonShowcaseCardPr
       <img
         src={getArtworkSrc(dexId)}
         alt=""
+        width={56}
+        height={56}
         className="pokemon-showcase-img pokemon-showcase-artwork"
         loading="lazy"
         decoding="async"

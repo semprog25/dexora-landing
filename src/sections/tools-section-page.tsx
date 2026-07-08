@@ -41,11 +41,11 @@ export function ToolsSectionPage({ sectionIndex }: ToolsSectionPageProps) {
       <div className="landing-page-panel mx-auto w-full max-w-3xl px-4 text-center">
         <SectionEyebrow accent="pink">{t("tools.eyebrow")}</SectionEyebrow>
         <h2 className="landing-page-headline mb-3 text-[#edf0ff]">{t("tools.headline")}</h2>
-        <p className="mx-auto mb-8 max-w-md text-sm leading-relaxed text-[#8892b0] md:text-base">
-          {t("tools.copy")}
-        </p>
+        <p className="landing-page-copy mx-auto max-w-md">{t("tools.copy")}</p>
 
-        <div className="tools-grid mx-auto mb-8 max-w-2xl">
+        <PokemonMarquee className="tools-marquee" />
+
+        <div className="tools-grid mx-auto w-full max-w-2xl">
           {tools.map((item, i) => (
             <FeatureHighlightCard
               key={item.title}
@@ -54,11 +54,10 @@ export function ToolsSectionPage({ sectionIndex }: ToolsSectionPageProps) {
               accent={item.accent}
               index={i}
               sectionIndex={sectionIndex}
+              variant="landing"
             />
           ))}
         </div>
-
-        <PokemonMarquee />
       </div>
     </SectionShell>
   )

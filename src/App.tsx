@@ -47,7 +47,7 @@ export function App() {
           <ZoomSection index={SECTION.DAILY} id="daily" className="!py-6 md:!py-8" contentOverflow="visible">
             <DailyAssistantSection sectionIndex={SECTION.DAILY} />
           </ZoomSection>
-          <ZoomSection index={SECTION.COMMUNITY} id="community">
+          <ZoomSection index={SECTION.COMMUNITY} id="community" className="!py-6 md:!py-8" contentOverflow="visible">
             <CommunitySectionPage sectionIndex={SECTION.COMMUNITY} />
           </ZoomSection>
           <ZoomSection index={SECTION.DOWNLOAD} id="download">

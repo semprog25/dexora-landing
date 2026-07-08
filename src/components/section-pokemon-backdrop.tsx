@@ -38,7 +38,7 @@ export function SectionPokemonBackdrop() {
         return (
           <div
             key={index}
-            className="section-backdrop-layer absolute inset-0"
+            className={`section-backdrop-layer absolute inset-0${config.contentDense ? " section-backdrop-layer--content" : ""}`}
             style={{ opacity }}
           >
             {showVideo ? (

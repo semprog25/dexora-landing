@@ -7,6 +7,7 @@ interface FeatureHighlightCardProps {
   accent: string
   index: number
   sectionIndex: number
+  variant?: "compact" | "landing"
 }
 
 export function FeatureHighlightCard({
@@ -15,11 +16,12 @@ export function FeatureHighlightCard({
   accent,
   index,
   sectionIndex,
+  variant = "compact",
 }: FeatureHighlightCardProps) {
   return (
     <StaggerItem sectionIndex={sectionIndex} index={index}>
       <div
-        className="feature-block feature-block--neon group"
+        className={`feature-block feature-block--neon group ${variant === "landing" ? "feature-block--landing" : ""}`.trim()}
         style={{ "--feature-accent": accent } as CSSProperties}
       >
         <h3 className="feature-block-title">{title}</h3>

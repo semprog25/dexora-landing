@@ -7,6 +7,8 @@ export interface SectionBackdropConfig {
   figure?: string
   figurePosition?: "center" | "bottom" | "right"
   smokeHue: string
+  /** Brighter wallpaper for content-heavy scroll sections */
+  contentDense?: boolean
 }
 
 export const SECTION_BACKDROPS: Record<number, SectionBackdropConfig> = {
@@ -18,17 +20,26 @@ export const SECTION_BACKDROPS: Record<number, SectionBackdropConfig> = {
   [SECTION.TOOLS]: {
     wallpaper: "/backgrounds/explore-eternatus.png",
     wallpaperVideo: "/backgrounds/explore-mewtwo.mp4",
+    figure: "/pokemon/silhouettes/150.png",
+    figurePosition: "center",
     smokeHue: "#FF6EC7",
+    contentDense: true,
   },
   [SECTION.DAILY]: {
     wallpaper: "/backgrounds/home-gengar.png",
     wallpaperVideo: "/backgrounds/home-glaceon.mp4",
+    figure: "/pokemon/silhouettes/25.png",
+    figurePosition: "center",
     smokeHue: "#FFE500",
+    contentDense: true,
   },
   [SECTION.COMMUNITY]: {
     wallpaper: "/backgrounds/explore-eternatus.png",
     wallpaperVideo: "/backgrounds/explore-mewtwo.mp4",
+    figure: "/pokemon/silhouettes/448.png",
+    figurePosition: "center",
     smokeHue: "#3D72FF",
+    contentDense: true,
   },
   [SECTION.DOWNLOAD]: {
     wallpaper: "/backgrounds/coming-eevee.png",
