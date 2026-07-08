@@ -4,7 +4,6 @@ import { LanguageSwitcher } from "@/components/language-switcher"
 import { SectionPokemonBackdrop } from "@/components/section-pokemon-backdrop"
 import { CursorPaintGlow } from "@/components/cursor-paint-glow"
 import { DepthLayers } from "@/components/depth-layers"
-import { LegalNav } from "@/components/legal-nav"
 import { LogoZoomIntro } from "@/components/logo-zoom-intro"
 import { ZoomSceneProvider } from "@/components/zoom-scene"
 import { ZoomSection, ZoomHint } from "@/components/zoom-section"
@@ -28,7 +27,6 @@ export function App() {
       )}
       <ZoomSceneProvider sectionCount={SECTION_COUNT} enabled={siteVisible}>
         <LanguageSwitcher />
-        <LegalNav variant="header" />
         <AnimatedBackground />
         <CursorPaintGlow />
         <SectionPokemonBackdrop />

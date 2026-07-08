@@ -1,6 +1,5 @@
 import { DexoraLogo } from "@/components/dexora-logo"
 import { LegalLink } from "@/components/legal-link"
-import { LegalNav } from "@/components/legal-nav"
 import { LanguageSwitcher } from "@/components/language-switcher"
 import {
   LEGAL_EFFECTIVE_DATE,
@@ -22,9 +21,8 @@ export function LegalPage({ slug }: LegalPageProps) {
   return (
     <div className="legal-page min-h-dvh bg-[#07091a] text-[#edf0ff]">
       <LanguageSwitcher />
-      <LegalNav variant="header" />
 
-      <main className="mx-auto max-w-2xl px-5 pb-16 pt-20 sm:px-6 sm:pt-24">
+      <main className="mx-auto max-w-2xl px-5 pb-16 pt-16 sm:px-6 sm:pt-20">
         <div className="mb-8 flex justify-center">
           <LegalLink href="/">
             <DexoraLogo height={64} className="footer-logo-glow" alt="Dexora home" />
