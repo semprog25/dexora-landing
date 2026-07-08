@@ -50,7 +50,8 @@ const LOCALE_OVERRIDES = {
     },
     tools: {
       eyebrow: "POWER-TOOLS",
-      headline: "Scannen, tracken, offline planen",
+      headline1: "Scannen, tracken,",
+      headline2: "offline planen",
       copy: "Trainer Vision, Catch Queue, Offline-Pokédex und Live-Events — die Tools für jede Jagd.",
     },
     daily: {
@@ -101,6 +102,7 @@ const LOCALE_OVERRIDES = {
         "Vertraut von Trainern, die {{speciesCount}}+ Arten offline synchronisieren",
     },
     download: {
+      exploreLabel: "ENTDECKEN",
       headlinePrefix: "Hol dir",
       headlineBrand: "Dexora",
       copy: "Nimm deinen täglichen Begleiter auf jede Jagd mit. Kostenlos auf Android — iOS folgt bald.",
@@ -239,6 +241,7 @@ const LOCALE_OVERRIDES = {
         "Adopté par des dresseurs qui synchronisent {{speciesCount}}+ espèces hors ligne",
     },
     download: {
+      exploreLabel: "EXPLORER",
       headlinePrefix: "Téléchargez",
       headlineBrand: "Dexora",
       copy: "Emportez votre compagnon quotidien à chaque chasse. Gratuit sur Android — iOS arrive bientôt.",
@@ -373,6 +376,7 @@ const LOCALE_OVERRIDES = {
         "Con la confianza de entrenadores que sincronizan {{speciesCount}}+ especies sin conexión",
     },
     download: {
+      exploreLabel: "EXPLORAR",
       headlinePrefix: "Consigue",
       headlineBrand: "Dexora",
       copy: "Lleva a tu compañero diario en cada caza. Gratis en Android — iOS llegará pronto.",
@@ -505,6 +509,7 @@ const LOCALE_OVERRIDES = {
         "Scelto dagli allenatori che sincronizzano {{speciesCount}}+ specie offline",
     },
     download: {
+      exploreLabel: "ESPLORA",
       headlinePrefix: "Ottieni",
       headlineBrand: "Dexora",
       copy: "Porta il tuo compagno quotidiano in ogni caccia. Gratis su Android — iOS in arrivo.",
@@ -638,6 +643,7 @@ const LOCALE_OVERRIDES = {
         "Confiado por treinadores que sincronizam {{speciesCount}}+ espécies offline",
     },
     download: {
+      exploreLabel: "EXPLORAR",
       headlinePrefix: "Baixe",
       headlineBrand: "Dexora",
       copy: "Leve seu companheiro diário em cada caçada. Grátis no Android — iOS em breve.",
@@ -770,6 +776,7 @@ const LOCALE_OVERRIDES = {
         "Выбор тренеров, синхронизирующих {{speciesCount}}+ видов офлайн",
     },
     download: {
+      exploreLabel: "ИССЛЕДОВАТЬ",
       headlinePrefix: "Установите",
       headlineBrand: "Dexora",
       copy: "Берите ежедневного спутника на каждую охоту. Бесплатно на Android — iOS скоро.",
@@ -903,6 +910,7 @@ const LOCALE_OVERRIDES = {
         "{{speciesCount}}+ 種をオフライン同期するトレーナーに支持されています",
     },
     download: {
+      exploreLabel: "探索",
       headlinePrefix: "今すぐ",
       headlineBrand: "Dexora",
       copy: "毎日の相棒をすべてのハントに。Androidは無料 — iOSは近日公開。",
@@ -1035,6 +1043,7 @@ const LOCALE_OVERRIDES = {
         "{{speciesCount}}+ 종을 오프라인 동기화하는 트레이너가 신뢰합니다",
     },
     download: {
+      exploreLabel: "탐색",
       headlinePrefix: "지금",
       headlineBrand: "Dexora",
       copy: "매일 함께하는 동반자를 모든 사냥에. Android는 무료 — iOS 곧 출시.",
@@ -1165,6 +1174,7 @@ const LOCALE_OVERRIDES = {
       ctaNote: "深受训练家信赖，离线同步 {{speciesCount}}+ 个物种",
     },
     download: {
+      exploreLabel: "探索",
       headlinePrefix: "获取",
       headlineBrand: "Dexora",
       copy: "让每日伙伴陪你每次狩猎。Android 免费 — iOS 即将推出。",
@@ -1291,6 +1301,7 @@ const LOCALE_OVERRIDES = {
       ctaNote: "深受訓練家信賴，離線同步 {{speciesCount}}+ 個物種",
     },
     download: {
+      exploreLabel: "探索",
       headlinePrefix: "取得",
       headlineBrand: "Dexora",
       copy: "讓每日夥伴陪你每次狩獵。Android 免費 — iOS 即將推出。",
@@ -1419,6 +1430,7 @@ const LOCALE_OVERRIDES = {
         "موثوق من مدربين يزامنون {{speciesCount}}+ نوعاً دون اتصال",
     },
     download: {
+      exploreLabel: "استكشف",
       headlinePrefix: "احصل على",
       headlineBrand: "Dexora",
       copy: "اصطحب رفيقك اليومي في كل مطاردة. مجاني على Android — iOS قريبًا.",
@@ -1551,6 +1563,7 @@ const LOCALE_OVERRIDES = {
         "מאמנים סומכים עלינו לסנכרון לא מקוון של {{speciesCount}}+ מינים",
     },
     download: {
+      exploreLabel: "גלה",
       headlinePrefix: "הורידו את",
       headlineBrand: "Dexora",
       copy: "קחו את בן הלוויה היומי לכל מצוד. חינם ב-Android — iOS בקרוב.",

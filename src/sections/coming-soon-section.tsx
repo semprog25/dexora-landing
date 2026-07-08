@@ -12,16 +12,20 @@ export function ComingSoonSection({ sectionIndex }: ComingSoonSectionProps) {
 
   return (
     <SectionShell index={sectionIndex} id="download">
-      <div className="download-section mx-auto w-full min-w-0 max-w-sm px-1 text-center sm:px-2">
+      <div className="download-section download-cta-panel">
+        <p className="download-explore-label zoom-hint-label mb-4 max-md:mb-3">
+          {t("download.exploreLabel")}
+        </p>
+
         <h2 className="download-headline mb-3 max-md:mb-2">
           <span className="text-[#edf0ff]">{t("download.headlinePrefix")} </span>
           <span className="text-section-purple">{t("download.headlineBrand")}</span>
         </h2>
 
-        <p className="download-copy mx-auto mb-5 max-w-md max-md:mb-4">{t("download.copy")}</p>
+        <p className="download-copy mb-5 max-md:mb-4">{t("download.copy")}</p>
 
         <StaggerItem sectionIndex={sectionIndex} index={0}>
-          <div className="store-cta-row mx-auto flex w-full max-w-xs flex-col items-stretch gap-2.5 sm:max-w-sm sm:flex-row sm:items-start sm:justify-center sm:gap-3">
+          <div className="store-cta-row">
             <StoreCtaButton platform="google" />
             <StoreCtaButton platform="apple" />
           </div>

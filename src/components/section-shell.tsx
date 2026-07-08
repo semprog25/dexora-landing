@@ -17,7 +17,7 @@ export function SectionShell({ index, id, children, className = "" }: SectionShe
   return (
     <div id={id} className={className}>
       <motion.div
-        className="relative z-10 mx-auto w-full min-w-0 max-w-3xl text-center"
+        className="section-shell-inner relative z-10 mx-auto flex w-full min-w-0 max-w-3xl flex-col items-center text-center"
         initial={false}
         animate={{
           opacity: isActive ? 1 : 0,
@@ -42,7 +42,7 @@ export function StaggerItem({ children, index = 0, sectionIndex }: StaggerItemPr
 
   return (
     <motion.div
-      className="w-full min-w-0"
+      className="section-stagger-item flex w-full min-w-0 flex-col items-center"
       initial={false}
       animate={{
         opacity: isActive ? 1 : 0,

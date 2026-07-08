@@ -39,7 +39,8 @@
   },
   "tools": {
     "eyebrow": "POWER-TOOLS",
-    "headline": "Scannen, tracken, offline planen",
+    "headline1": "Scannen, tracken,",
+    "headline2": "offline planen",
     "copy": "Trainer Vision, Catch Queue, Offline-Pokédex und Live-Events — die Tools für jede Jagd."
   },
   "daily": {
@@ -80,6 +81,7 @@
     "ctaNote": "Vertraut von Trainern, die {{speciesCount}}+ Arten offline synchronisieren"
   },
   "download": {
+    "exploreLabel": "ENTDECKEN",
     "headlinePrefix": "Hol dir",
     "headlineBrand": "Dexora",
     "copy": "Nimm deinen täglichen Begleiter auf jede Jagd mit. Kostenlos auf Android — iOS folgt bald."

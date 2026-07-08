@@ -1,4 +1,5 @@
 import { type ReactNode } from "react"
+import { useTranslation } from "react-i18next"
 import { useZoomScene, getZoomSectionStyle } from "@/components/zoom-scene"
 
 interface ZoomSectionProps {
@@ -21,7 +22,7 @@ export function ZoomSection({
   const style = getZoomSectionStyle(index, progress)
 
   const contentOverflowClass = isActive
-    ? "justify-start overflow-y-auto overscroll-y-contain max-md:pt-2 max-md:pb-4"
+    ? "justify-center overflow-y-auto overscroll-y-contain max-md:pt-2 max-md:pb-4"
     : contentOverflow === "visible"
       ? "justify-center overflow-y-hidden"
       : "justify-center overflow-hidden"
@@ -91,6 +92,7 @@ interface ZoomHintProps {
 }
 
 export function ZoomHint({ show }: ZoomHintProps) {
+  const { t } = useTranslation("landing")
   const { goNext, activeIndex } = useZoomScene()
 
   if (show === false) return null
@@ -101,9 +103,9 @@ export function ZoomHint({ show }: ZoomHintProps) {
       type="button"
       onClick={goNext}
       className="scroll-indicator zoom-hint safe-bottom-offset fixed left-1/2 z-50 flex min-h-[44px] min-w-[44px] -translate-x-1/2 flex-col items-center justify-center gap-3 transition hover:opacity-90 active:opacity-70"
-      aria-label="Scroll to explore"
+      aria-label={t("nav.explore")}
     >
-      <span className="zoom-hint-label">scroll to explore</span>
+      <span className="zoom-hint-label">{t("nav.explore")}</span>
       <div className="zoom-hint-line" />
     </button>
   )

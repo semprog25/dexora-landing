@@ -39,8 +39,9 @@
   },
   "tools": {
     "eyebrow": "POWER TOOLS",
-    "headline": "Scan, track, and plan offline",
-    "copy": "Trainer Vision, Catch Queue, offline Pokédex, and live events — the tools you reach for on every hunt."
+    "headline1": "Scan, track, and",
+    "headline2": "plan offline",
+    "copy": "Trainer Vision, Catch Queue, and your offline Pokédex — swipe ahead to see how each tool works in the app."
   },
   "daily": {
     "eyebrow": "YOUR HOME SCREEN",
@@ -51,7 +52,7 @@
   "community": {
     "eyebrow": "TRAINERS WORLDWIDE",
     "headline": "Play together, in your language",
-    "copy": "Friend codes, group chat, and full localization in 13 languages."
+    "copy": "Trainer Vision, Catch Queue, and your offline Pokédex — plus friend codes, group chat, and 13 languages."
   },
   "showcase": {
     "eyebrow": "DÉCOUVRIR DEXORA",
@@ -80,6 +81,7 @@
     "ctaNote": "Adopté par des dresseurs qui synchronisent {{speciesCount}}+ espèces hors ligne"
   },
   "download": {
+    "exploreLabel": "EXPLORER",
     "headlinePrefix": "Téléchargez",
     "headlineBrand": "Dexora",
     "copy": "Emportez votre compagnon quotidien à chaque chasse. Gratuit sur Android — iOS arrive bientôt."

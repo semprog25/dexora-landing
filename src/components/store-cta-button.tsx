@@ -11,12 +11,17 @@ interface StoreCtaButtonProps {
 export function StoreCtaButton({ platform, className = "" }: StoreCtaButtonProps) {
   const { t } = useTranslation("landing")
   const [showComingSoon, setShowComingSoon] = useState(false)
+  const [isGlowing, setIsGlowing] = useState(false)
 
   const isGoogle = platform === "google"
 
   function handleAppleClick() {
+    setIsGlowing(true)
     setShowComingSoon(true)
-    window.setTimeout(() => setShowComingSoon(false), 2800)
+    window.setTimeout(() => {
+      setShowComingSoon(false)
+      setIsGlowing(false)
+    }, 2800)
   }
 
   const content = (
@@ -57,7 +62,7 @@ export function StoreCtaButton({ platform, className = "" }: StoreCtaButtonProps
         <button
           type="button"
           onClick={handleAppleClick}
-          className="store-cta store-cta--glass store-cta--apple"
+          className={`store-cta store-cta--glass store-cta--apple ${isGlowing ? "store-cta--apple-glow" : ""}`.trim()}
           aria-label={t("store.appStoreAria")}
         >
           {content}
