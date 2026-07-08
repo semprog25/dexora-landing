@@ -246,6 +246,33 @@ export function ZoomSceneProvider({ sectionCount, enabled, children }: ZoomScene
 export function getZoomSectionStyle(index: number, progress: number) {
   const delta = index - progress
   const abs = Math.abs(delta)
+  const isMobile =
+    typeof window !== "undefined" && window.matchMedia("(max-width: 767px)").matches
+
+  if (isMobile) {
+    if (abs > 0.52) {
+      return {
+        transform: `translate3d(0, ${delta > 0 ? "12%" : "-12%"}, 0)`,
+        opacity: 0,
+        filter: "none",
+        pointerEvents: "none" as const,
+        zIndex: 100 - Math.round(abs * 10),
+      }
+    }
+
+    const t = abs / 0.52
+    const translateY = delta * 6
+    const opacity = Math.max(0, 1 - t * 1.65)
+    const pointerEvents = abs < 0.42 ? ("auto" as const) : ("none" as const)
+
+    return {
+      transform: `translate3d(0, ${translateY}%, 0)`,
+      opacity,
+      filter: "none",
+      pointerEvents,
+      zIndex: 100 - Math.round(abs * 10),
+    }
+  }
 
   if (abs > 0.52) {
     return {

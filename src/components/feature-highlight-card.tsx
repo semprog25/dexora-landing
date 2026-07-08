@@ -21,7 +21,7 @@ export function FeatureHighlightCard({
   return (
     <StaggerItem sectionIndex={sectionIndex} index={index}>
       <div
-        className={`feature-block feature-block--neon group ${variant === "landing" ? "feature-block--landing" : ""}`.trim()}
+        className={`feature-block feature-block--neon group w-full min-w-0 ${variant === "landing" ? "feature-block--landing" : ""}`.trim()}
         style={{ "--feature-accent": accent } as CSSProperties}
       >
         <h3 className="feature-block-title">{title}</h3>

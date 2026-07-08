@@ -45,7 +45,7 @@ export function WaitlistForm({ variant = "hero" }: WaitlistFormProps) {
     <div className={isHero ? "hero-waitlist-form w-full max-w-xl mx-auto" : "w-full max-w-lg mx-auto"}>
       <form
         onSubmit={handleSubmit}
-        className="mx-auto grid w-full max-w-xl grid-cols-1 gap-3 md:grid-cols-[minmax(0,1fr)_auto]"
+        className="hero-waitlist-fields mx-auto flex w-full max-w-xl flex-col gap-3"
         noValidate
       >
         <label htmlFor={`waitlist-email-${variant}`} className="sr-only">

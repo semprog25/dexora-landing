@@ -16,7 +16,7 @@ export function WaitlistHero({ visible }: WaitlistHeroProps) {
 
   return (
     <div
-      className={`home-hero mx-auto flex w-full max-w-lg flex-col items-center justify-center px-4 text-center transition-opacity duration-700 sm:px-6 ${
+      className={`home-hero mx-auto flex w-full max-w-lg flex-col items-center justify-center px-2 text-center transition-opacity duration-700 max-md:px-1 sm:px-4 ${
         visible ? "opacity-100" : "opacity-0"
       }`}
     >

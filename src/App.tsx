@@ -41,16 +41,16 @@ export function App() {
           <ZoomSection index={SECTION.HOME} id="home" className="!px-4 sm:!px-6 home-section">
             <WaitlistHero visible={siteVisible} />
           </ZoomSection>
-          <ZoomSection index={SECTION.TOOLS} id="tools" className="!py-6 md:!py-8" contentOverflow="visible">
+          <ZoomSection index={SECTION.TOOLS} id="tools" className="zoom-section--scrollable !py-4 md:!py-8" contentOverflow="visible">
             <ToolsSectionPage sectionIndex={SECTION.TOOLS} />
           </ZoomSection>
-          <ZoomSection index={SECTION.DAILY} id="daily" className="!py-6 md:!py-8" contentOverflow="visible">
+          <ZoomSection index={SECTION.DAILY} id="daily" className="zoom-section--scrollable !py-4 md:!py-8" contentOverflow="visible">
             <DailyAssistantSection sectionIndex={SECTION.DAILY} />
           </ZoomSection>
-          <ZoomSection index={SECTION.COMMUNITY} id="community" className="!py-6 md:!py-8" contentOverflow="visible">
+          <ZoomSection index={SECTION.COMMUNITY} id="community" className="zoom-section--scrollable !py-4 md:!py-8" contentOverflow="visible">
             <CommunitySectionPage sectionIndex={SECTION.COMMUNITY} />
           </ZoomSection>
-          <ZoomSection index={SECTION.DOWNLOAD} id="download">
+          <ZoomSection index={SECTION.DOWNLOAD} id="download" className="zoom-section--compact">
             <ComingSoonSection sectionIndex={SECTION.DOWNLOAD} />
           </ZoomSection>
           <ZoomSection index={SECTION.FOOTER} id="footer">

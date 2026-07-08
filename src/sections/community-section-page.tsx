@@ -25,12 +25,12 @@ export function CommunitySectionPage({ sectionIndex }: CommunitySectionPageProps
 
   return (
     <SectionShell index={sectionIndex} id="community">
-      <div className="landing-page-panel mx-auto w-full max-w-xl px-3 text-center max-md:px-2 sm:px-4">
+      <div className="landing-page-panel mx-auto w-full min-w-0 max-w-xl px-1 text-center sm:px-2">
         <SectionEyebrow accent="blue">{t("community.eyebrow")}</SectionEyebrow>
         <h2 className="landing-page-headline mb-3 text-[#edf0ff]">{t("community.headline")}</h2>
         <p className="landing-page-copy mx-auto max-w-md">{t("community.copy")}</p>
 
-        <div className="community-cards mx-auto grid w-full max-w-2xl grid-cols-1 gap-4 sm:grid-cols-2">
+        <div className="community-cards mx-auto grid w-full min-w-0 max-w-2xl grid-cols-1 gap-2.5 max-md:gap-2 sm:grid-cols-2 sm:gap-4">
           {cards.map((item, i) => (
             <FeatureHighlightCard
               key={item.title}
