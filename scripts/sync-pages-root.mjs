@@ -6,6 +6,9 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const root = path.resolve(__dirname, "..")
 const dist = path.join(root, "dist")
 
+// Required for GitHub Pages to serve Vite routes and copied assets.
+fs.writeFileSync(path.join(dist, ".nojekyll"), "")
+
 function copyPath(from, to) {
   fs.cpSync(from, to, { recursive: true, force: true })
 }

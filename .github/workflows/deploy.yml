@@ -54,10 +54,15 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          touch .nojekyll
           git add index.html 404.html assets favicon.png apple-touch-icon.png dexora-logo.png dexora-d-logo.png icon-192.png icon-512.png robots.txt sitemap.xml CNAME .nojekyll _redirects pokemon backgrounds privacy terms contact feedback delete-account
-          git diff --staged --quiet && echo "No production changes to commit" || git commit -m "chore: sync production build to main"
-          git pull --rebase origin main
-          git push origin main
+          if git diff --staged --quiet; then
+            echo "No production changes to commit"
+          else
+            git commit -m "chore: sync production build to main"
+            git pull --rebase origin main
+            git push origin main
+          fi
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
