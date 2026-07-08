@@ -1,0 +1,120 @@
+{
+  "meta": {
+    "title": "Dexora — 每日 Pokémon GO 助手與收藏追蹤",
+    "description": "Dexora 是你的每日 Pokémon GO 夥伴——首頁儀表板、living dex 追蹤、Raid 與 PvP 情報、Trainer Vision，以及 13 種語言。Google Play 免費提供。"
+  },
+  "nav": {
+    "legalLabel": "法律與支援",
+    "privacy": "隱私",
+    "terms": "條款",
+    "deleteAccount": "刪除帳號",
+    "contact": "聯絡我們",
+    "feedback": "回饋",
+    "home": "首頁",
+    "explore": "探索",
+    "download": "下載",
+    "legal": "法律"
+  },
+  "language": {
+    "title": "語言",
+    "choose": "選擇語言",
+    "searchPlaceholder": "搜尋語言…",
+    "previewHint": "點選語言即可立即預覽"
+  },
+  "hero": {
+    "eyebrow": "Pokémon GO 夥伴",
+    "headline1": "你的每日",
+    "headline2": "Pokémon GO",
+    "headline3": "助手",
+    "copy": "規劃狩獵、追蹤 living dex、取得 Raid 與 PvP 情報，並使用 Trainer Vision 掃描截圖——offline-first，支援 13 種語言。",
+    "benefitDaily": "Daily GO Assistant",
+    "benefitCollection": "Collection Tracking",
+    "benefitBattle": "Battle Intelligence",
+    "playStoreNote": "Android 免費 · iOS 即將推出",
+    "waitlistEyebrow": "或加入候補名單",
+    "waitlistHint": "搶先體驗 · 無垃圾郵件"
+  },
+  "showcase": {
+    "eyebrow": "探索 DEXORA",
+    "headline1": "專為每天遊玩的",
+    "headline2": "訓練家打造",
+    "headlineHighlight": "",
+    "copy": "一個首頁儀表板，整合優先事項、收藏進度、對戰情報、活動與社群——出門前需要的資訊一次到位。",
+    "coreDailyTitle": "每日助手",
+    "coreDailyText": "優先事項、今日狩獵、每日任務與活動感知首頁，每次開啟 Dexora 都能看到。",
+    "coreCollectionTitle": "收藏追蹤",
+    "coreCollectionText": "living dex、shiny、mega、hundo 與里程碑圓環，透過 Google 登入安全雲端同步。",
+    "coreBattleTitle": "對戰情報",
+    "coreBattleText": "提供 Raid 評分、PvP 分級、Rocket 克制與依 Pokémon 提供的 AI 建議。",
+    "highlightVisionTitle": "Trainer Vision",
+    "highlightVisionText": "透過裝置端 OCR 掃描截圖，立即辨識 Pokémon、IV 與捕捉機會。",
+    "highlightCatchTitle": "Catch Queue",
+    "highlightCatchText": "每週 Raid 目標自動同步，追蹤待抓與已抓 Pokémon。",
+    "highlightPokedexTitle": "離線 Pokédex",
+    "highlightPokedexText": "{{speciesCount}} 個物種，含 GO 數據、招式與插圖，快取於裝置。",
+    "highlightEventsTitle": "活動追蹤",
+    "highlightEventsText": "Community Day、GO Fest 與即時活動，提供招式池、加成與倒數提醒。",
+    "highlightCommunityTitle": "訓練家社群",
+    "highlightCommunityText": "好友代碼、群聊、Raid 協調與管理工具——與全球訓練家連結。",
+    "highlightLanguagesTitle": "13 種語言",
+    "highlightLanguagesText": "完整應用在地化——English、Deutsch、Français、Español 等 13 種語言，含阿拉伯語與希伯來語。",
+    "ctaNote": "深受訓練家信賴，離線同步 {{speciesCount}}+ 個物種"
+  },
+  "download": {
+    "headlinePrefix": "取得",
+    "headlineBrand": "Dexora",
+    "copyPlay": "現已上架",
+    "copyPlayHighlight": "Google Play",
+    "copyIos": "iOS",
+    "copyIosSuffix": "正在最後打磨中。"
+  },
+  "waitlist": {
+    "emailLabel": "電子郵件地址",
+    "emailPlaceholder": "trainer@email.com",
+    "join": "加入候補名單",
+    "joining": "加入中...",
+    "joinButton": "加入候補名單",
+    "invalidEmail": "請輸入有效的電子郵件地址。",
+    "notConfigured": "候補名單尚未設定，請稍後再試。",
+    "alreadyOnList": "你已在候補名單中！",
+    "error": "發生錯誤，請再試一次。",
+    "success": "你已加入名單！我們會在上線時通知你。"
+  },
+  "store": {
+    "googlePlayAria": "在 Google Play 取得 Dexora",
+    "getItOn": "下載於",
+    "googlePlay": "Google Play"
+  },
+  "footer": {
+    "rights": "© {{year}} Dexora。版權所有。"
+  },
+  "legalPage": {
+    "brand": "DEXORA",
+    "effective": "{{date}} 生效",
+    "backHome": "← 返回首頁",
+    "emailSupport": "寄信至 support@dexora.app",
+    "privacyPolicy": "隱私政策"
+  },
+  "legal": {
+    "privacy": {
+      "title": "隱私政策",
+      "description": "Dexora 如何在 dexora.app 與應用程式中處理你的資訊。"
+    },
+    "terms": {
+      "title": "條款與細則",
+      "description": "使用 dexora.app 與 Dexora 伴侶應用程式的規則。"
+    },
+    "contact": {
+      "title": "聯絡我們",
+      "description": "聯絡 Dexora 團隊。"
+    },
+    "feedback": {
+      "title": "回饋",
+      "description": "分享想法、回報錯誤或提出改進建議。"
+    },
+    "delete-account": {
+      "title": "刪除帳號與資料",
+      "description": "永久移除你的 Dexora 雲端帳號及相關資料。"
+    }
+  }
+}

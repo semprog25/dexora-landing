@@ -1,5 +1,7 @@
 import { useRef, useState } from "react"
 
+import { APP_STORE_URL, PLAY_STORE_URL } from "@/lib/app-links"
+
 interface StoreFlipButtonProps {
   platform: "apple" | "google"
 }
@@ -8,6 +10,8 @@ export function StoreFlipButton({ platform }: StoreFlipButtonProps) {
   const [isFlipped, setIsFlipped] = useState(false)
   const [isPortal, setIsPortal] = useState(false)
   const timerRef = useRef<number | null>(null)
+  const isLive = platform === "google"
+  const href = platform === "google" ? PLAY_STORE_URL : APP_STORE_URL
 
   function clearTimer() {
     if (timerRef.current !== null) {
@@ -17,6 +21,11 @@ export function StoreFlipButton({ platform }: StoreFlipButtonProps) {
   }
 
   function handleClick() {
+    if (isLive) {
+      window.open(href, "_blank", "noopener,noreferrer")
+      return
+    }
+
     if (isPortal) return
 
     clearTimer()
@@ -32,13 +41,14 @@ export function StoreFlipButton({ platform }: StoreFlipButtonProps) {
 
   const label = platform === "apple" ? "App Store" : "Google Play"
   const subtitle = platform === "apple" ? "Download on the" : "GET IT ON"
+  const ariaLabel = isLive ? `Get Dexora on ${label}` : `${label} — Coming soon`
 
   return (
     <button
       type="button"
       onClick={handleClick}
-      className={`store-flip-btn ${isFlipped ? "is-flipped" : ""} ${isPortal ? "store-flip-btn--portal" : ""}`}
-      aria-label={`${label} — Coming soon`}
+      className={`store-flip-btn ${isFlipped ? "is-flipped" : ""} ${isPortal ? "store-flip-btn--portal" : ""} ${isLive ? "store-flip-btn--live" : ""}`}
+      aria-label={ariaLabel}
       aria-pressed={isFlipped}
     >
       <span className="store-flip-portal-glow" aria-hidden="true" />
@@ -59,7 +69,7 @@ export function StoreFlipButton({ platform }: StoreFlipButtonProps) {
           </span>
         </span>
         <span className="store-flip-face store-flip-back">
-          <span className="store-flip-soon">Coming Soon</span>
+          <span className="store-flip-soon">{isLive ? "Open Play Store" : "Coming Soon"}</span>
         </span>
       </span>
     </button>

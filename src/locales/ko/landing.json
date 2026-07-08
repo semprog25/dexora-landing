@@ -1,0 +1,120 @@
+{
+  "meta": {
+    "title": "Dexora — 매일 쓰는 Pokémon GO 도우미 & 컬렉션 트래커",
+    "description": "Dexora는 매일 사용하는 Pokémon GO 동반자입니다. 홈 대시보드, living dex 추적, 레이드 및 PvP 인텔리전스, Trainer Vision, 13개 언어를 제공합니다. Google Play에서 무료."
+  },
+  "nav": {
+    "legalLabel": "법적 정보 및 지원",
+    "privacy": "개인정보",
+    "terms": "이용약관",
+    "deleteAccount": "계정 삭제",
+    "contact": "문의",
+    "feedback": "피드백",
+    "home": "홈",
+    "explore": "둘러보기",
+    "download": "다운로드",
+    "legal": "법적 고지"
+  },
+  "language": {
+    "title": "언어",
+    "choose": "언어 선택",
+    "searchPlaceholder": "언어 검색…",
+    "previewHint": "언어를 탭하면 즉시 미리보기됩니다"
+  },
+  "hero": {
+    "eyebrow": "Pokémon GO 동반자",
+    "headline1": "당신의 매일을 위한",
+    "headline2": "Pokémon GO",
+    "headline3": "도우미",
+    "copy": "사냥 계획, living dex 추적, 레이드 & PvP 인텔리전스, Trainer Vision 스크린샷 스캔까지 — offline-first, 13개 언어 지원.",
+    "benefitDaily": "Daily GO Assistant",
+    "benefitCollection": "Collection Tracking",
+    "benefitBattle": "Battle Intelligence",
+    "playStoreNote": "Android 무료 · iOS 곧 출시",
+    "waitlistEyebrow": "또는 대기자 명단에 참여",
+    "waitlistHint": "얼리 액세스 · 스팸 없음"
+  },
+  "showcase": {
+    "eyebrow": "DEXORA 살펴보기",
+    "headline1": "매일 플레이하는",
+    "headline2": "트레이너를 위해",
+    "headlineHighlight": "만들었습니다",
+    "copy": "하나의 홈 대시보드에 우선순위, 컬렉션 진행도, 배틀 인텔리전스, 이벤트, 커뮤니티를 모두 담았습니다. 집을 나서기 전 필요한 정보가 준비됩니다.",
+    "coreDailyTitle": "데일리 어시스턴트",
+    "coreDailyText": "우선순위, 오늘의 사냥, 일일 미션, 이벤트 반영 히어로를 Dexora를 열 때마다 확인하세요.",
+    "coreCollectionTitle": "컬렉션 추적",
+    "coreCollectionText": "living dex, shiny, mega, hundo, 마일스톤 링을 Google 로그인으로 안전하게 클라우드 동기화.",
+    "coreBattleTitle": "배틀 인텔리전스",
+    "coreBattleText": "레이드 평점, PvP 티어, Rocket 카운터, Pokémon별 AI 추천 제공.",
+    "highlightVisionTitle": "Trainer Vision",
+    "highlightVisionText": "스크린샷을 스캔해 Pokémon, IV, 포획 기회를 기기 내 OCR로 즉시 식별합니다.",
+    "highlightCatchTitle": "Catch Queue",
+    "highlightCatchText": "주간 레이드 목표가 자동으로 동기화됩니다. 대기 중/포획 완료 Pokémon을 추적하세요.",
+    "highlightPokedexTitle": "오프라인 Pokédex",
+    "highlightPokedexText": "{{speciesCount}}종의 GO 스탯, 기술, 아트워크를 기기에 캐시.",
+    "highlightEventsTitle": "이벤트 트래커",
+    "highlightEventsText": "Community Day, GO Fest, 라이브 이벤트의 기술 풀, 보너스, 카운트다운 알림 제공.",
+    "highlightCommunityTitle": "트레이너 커뮤니티",
+    "highlightCommunityText": "친구 코드, 그룹 채팅, 레이드 조율, 모더레이션 도구로 전 세계 트레이너와 연결.",
+    "highlightLanguagesTitle": "13개 언어",
+    "highlightLanguagesText": "전체 앱 현지화 지원 — English, Deutsch, Français, Español 포함 13개 언어(아랍어, 히브리어 포함).",
+    "ctaNote": "{{speciesCount}}+ 종을 오프라인 동기화하는 트레이너가 신뢰합니다"
+  },
+  "download": {
+    "headlinePrefix": "지금",
+    "headlineBrand": "Dexora",
+    "copyPlay": "에서 이용 가능",
+    "copyPlayHighlight": "Google Play",
+    "copyIos": "iOS",
+    "copyIosSuffix": "는 최종 마무리 단계입니다."
+  },
+  "waitlist": {
+    "emailLabel": "이메일 주소",
+    "emailPlaceholder": "trainer@email.com",
+    "join": "대기자 명단 참여",
+    "joining": "참여 중...",
+    "joinButton": "대기자 명단 참여",
+    "invalidEmail": "유효한 이메일 주소를 입력해 주세요.",
+    "notConfigured": "대기자 명단이 아직 설정되지 않았습니다. 잠시 후 다시 시도해 주세요.",
+    "alreadyOnList": "이미 대기자 명단에 등록되어 있습니다!",
+    "error": "문제가 발생했습니다. 다시 시도해 주세요.",
+    "success": "명단에 등록되었습니다! 출시 시 알려드리겠습니다."
+  },
+  "store": {
+    "googlePlayAria": "Google Play에서 Dexora 받기",
+    "getItOn": "다운로드",
+    "googlePlay": "Google Play"
+  },
+  "footer": {
+    "rights": "© {{year}} Dexora. 모든 권리 보유."
+  },
+  "legalPage": {
+    "brand": "DEXORA",
+    "effective": "{{date}}부터 적용",
+    "backHome": "← 홈으로 돌아가기",
+    "emailSupport": "support@dexora.app로 이메일 보내기",
+    "privacyPolicy": "개인정보 처리방침"
+  },
+  "legal": {
+    "privacy": {
+      "title": "개인정보 처리방침",
+      "description": "dexora.app 및 앱에서 Dexora가 정보를 처리하는 방식입니다."
+    },
+    "terms": {
+      "title": "이용약관",
+      "description": "dexora.app 및 Dexora 동반 앱 이용 규칙입니다."
+    },
+    "contact": {
+      "title": "문의하기",
+      "description": "Dexora 팀에 연락하세요."
+    },
+    "feedback": {
+      "title": "피드백",
+      "description": "아이디어 공유, 버그 신고, 개선 제안을 보내주세요."
+    },
+    "delete-account": {
+      "title": "계정 및 데이터 삭제",
+      "description": "Dexora 클라우드 계정과 관련 데이터를 영구적으로 삭제합니다."
+    }
+  }
+}

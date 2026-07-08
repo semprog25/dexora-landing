@@ -1,0 +1,120 @@
+{
+  "meta": {
+    "title": "Dexora — 毎日使える Pokémon GO アシスタント＆コレクショントラッカー",
+    "description": "Dexora は毎日の Pokémon GO コンパニオン。ホームダッシュボード、living dex 管理、レイドと PvP インテリジェンス、Trainer Vision、13言語に対応。Google Play で無料。"
+  },
+  "nav": {
+    "legalLabel": "法務とサポート",
+    "privacy": "プライバシー",
+    "terms": "利用規約",
+    "deleteAccount": "アカウント削除",
+    "contact": "お問い合わせ",
+    "feedback": "フィードバック",
+    "home": "ホーム",
+    "explore": "機能を見る",
+    "download": "ダウンロード",
+    "legal": "法務"
+  },
+  "language": {
+    "title": "言語",
+    "choose": "言語を選択",
+    "searchPlaceholder": "言語を検索…",
+    "previewHint": "言語をタップするとすぐにプレビューできます"
+  },
+  "hero": {
+    "eyebrow": "Pokémon GO コンパニオン",
+    "headline1": "あなたの毎日を支える",
+    "headline2": "Pokémon GO",
+    "headline3": "アシスタント",
+    "copy": "捕獲計画、living dex 管理、レイドと PvP の情報取得、Trainer Vision によるスクリーンショット解析まで。offline-first で 13 言語対応。",
+    "benefitDaily": "Daily GO Assistant",
+    "benefitCollection": "Collection Tracking",
+    "benefitBattle": "Battle Intelligence",
+    "playStoreNote": "Android で無料 · iOS は近日公開",
+    "waitlistEyebrow": "またはウェイトリストに参加",
+    "waitlistHint": "先行アクセス · スパムなし"
+  },
+  "showcase": {
+    "eyebrow": "DEXORA をチェック",
+    "headline1": "毎日プレイする",
+    "headline2": "トレーナーのために",
+    "headlineHighlight": "設計",
+    "copy": "ひとつのホームダッシュボードに、優先事項、コレクション進捗、バトル情報、イベント、コミュニティを集約。外出前に必要な情報がそろいます。",
+    "coreDailyTitle": "デイリーアシスタント",
+    "coreDailyText": "優先事項、今日の狙い、デイリーミッション、イベント連動ヒーローを Dexora 起動時に毎回表示。",
+    "coreCollectionTitle": "コレクション管理",
+    "coreCollectionText": "living dex、色違い、メガ、hundo、マイルストーンリングを Google サインインで安全にクラウド同期。",
+    "coreBattleTitle": "バトルインテリジェンス",
+    "coreBattleText": "レイド評価、PvP ティア、Rocket 対策、Pokémon ごとの AI 推奨を提供。",
+    "highlightVisionTitle": "Trainer Vision",
+    "highlightVisionText": "スクリーンショットをスキャンして、Pokémon、IV、捕獲チャンスを OCR ですぐに判別。",
+    "highlightCatchTitle": "Catch Queue",
+    "highlightCatchText": "週間レイド目標を自動同期。未捕獲・捕獲済みの Pokémon を追跡。",
+    "highlightPokedexTitle": "オフライン Pokédex",
+    "highlightPokedexText": "{{speciesCount}} 種の GO ステータス、技、アートワークを端末にキャッシュ。",
+    "highlightEventsTitle": "イベントトラッカー",
+    "highlightEventsText": "Community Day、GO Fest、開催中イベントの技プール、ボーナス、カウントダウン通知を確認。",
+    "highlightCommunityTitle": "トレーナーコミュニティ",
+    "highlightCommunityText": "フレンドコード、グループチャット、レイド調整、モデレーション機能で世界中のトレーナーとつながる。",
+    "highlightLanguagesTitle": "13言語",
+    "highlightLanguagesText": "アプリを完全ローカライズ。English、Deutsch、Français、Español を含む 13 言語（アラビア語・ヘブライ語対応）。",
+    "ctaNote": "{{speciesCount}}+ 種をオフライン同期するトレーナーに支持されています"
+  },
+  "download": {
+    "headlinePrefix": "今すぐ",
+    "headlineBrand": "Dexora",
+    "copyPlay": "現在",
+    "copyPlayHighlight": "Google Play",
+    "copyIos": "iOS",
+    "copyIosSuffix": "版は最終調整中です。"
+  },
+  "waitlist": {
+    "emailLabel": "メールアドレス",
+    "emailPlaceholder": "trainer@email.com",
+    "join": "ウェイトリストに参加",
+    "joining": "参加中...",
+    "joinButton": "ウェイトリストに参加",
+    "invalidEmail": "有効なメールアドレスを入力してください。",
+    "notConfigured": "ウェイトリストはまだ設定されていません。しばらくしてから再度お試しください。",
+    "alreadyOnList": "すでにウェイトリストに登録されています！",
+    "error": "問題が発生しました。もう一度お試しください。",
+    "success": "登録完了！リリース時にお知らせします。"
+  },
+  "store": {
+    "googlePlayAria": "Google Play で Dexora を入手",
+    "getItOn": "入手先",
+    "googlePlay": "Google Play"
+  },
+  "footer": {
+    "rights": "© {{year}} Dexora. All rights reserved."
+  },
+  "legalPage": {
+    "brand": "DEXORA",
+    "effective": "施行日 {{date}}",
+    "backHome": "← ホームに戻る",
+    "emailSupport": "support@dexora.app にメール",
+    "privacyPolicy": "プライバシーポリシー"
+  },
+  "legal": {
+    "privacy": {
+      "title": "プライバシーポリシー",
+      "description": "dexora.app およびアプリ内で Dexora が情報をどのように扱うか。"
+    },
+    "terms": {
+      "title": "利用規約",
+      "description": "dexora.app と Dexora コンパニオンアプリの利用ルール。"
+    },
+    "contact": {
+      "title": "お問い合わせ",
+      "description": "Dexora チームへの連絡先。"
+    },
+    "feedback": {
+      "title": "フィードバック",
+      "description": "アイデア共有、バグ報告、改善提案はこちら。"
+    },
+    "delete-account": {
+      "title": "アカウントとデータの削除",
+      "description": "Dexora クラウドアカウントと関連データを完全に削除します。"
+    }
+  }
+}

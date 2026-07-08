@@ -12,6 +12,7 @@ const supabase = isSupabaseConfigured
 export interface WaitlistResult {
   success: boolean
   message: string
+  messageKey?: string
   alreadyExists?: boolean
 }
 
@@ -23,13 +24,14 @@ export async function joinWaitlist(email: string): Promise<WaitlistResult> {
   const normalized = email.toLowerCase().trim()
 
   if (!isValidEmail(normalized)) {
-    return { success: false, message: "Please enter a valid email address." }
+    return { success: false, messageKey: "waitlist.invalidEmail", message: "" }
   }
 
   if (!supabase) {
     return {
       success: false,
-      message: "Waitlist is not configured yet. Please try again soon.",
+      messageKey: "waitlist.notConfigured",
+      message: "",
     }
   }
 
@@ -43,17 +45,20 @@ export async function joinWaitlist(email: string): Promise<WaitlistResult> {
       return {
         success: true,
         alreadyExists: true,
-        message: "You're already on the waitlist!",
+        messageKey: "waitlist.alreadyOnList",
+        message: "",
       }
     }
     return {
       success: false,
-      message: "Something went wrong. Please try again.",
+      messageKey: "waitlist.error",
+      message: "",
     }
   }
 
   return {
     success: true,
-    message: "You're on the list! We'll notify you at launch.",
+    messageKey: "waitlist.success",
+    message: "",
   }
 }

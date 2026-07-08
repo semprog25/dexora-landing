@@ -1,0 +1,120 @@
+{
+  "meta": {
+    "title": "Dexora — Asistente diario de Pokémon GO y seguimiento de colección",
+    "description": "Dexora es tu compañero diario de Pokémon GO: panel principal, seguimiento de living dex, inteligencia de raids y PvP, Trainer Vision y 13 idiomas. Gratis en Google Play."
+  },
+  "nav": {
+    "legalLabel": "Legal y soporte",
+    "privacy": "Privacidad",
+    "terms": "Términos",
+    "deleteAccount": "Eliminar cuenta",
+    "contact": "Contacto",
+    "feedback": "Comentarios",
+    "home": "Inicio",
+    "explore": "Explorar",
+    "download": "Descargar",
+    "legal": "Legal"
+  },
+  "language": {
+    "title": "Idioma",
+    "choose": "Elegir idioma",
+    "searchPlaceholder": "Buscar idiomas…",
+    "previewHint": "Toca un idioma para vista previa instantánea"
+  },
+  "hero": {
+    "eyebrow": "Compañero de Pokémon GO",
+    "headline1": "Tu",
+    "headline2": "Pokémon GO",
+    "headline3": "asistente diario",
+    "copy": "Planifica cacerías, sigue tu living dex, obtén inteligencia de raids y PvP, y escanea capturas con Trainer Vision — offline-first, en 13 idiomas.",
+    "benefitDaily": "Daily GO Assistant",
+    "benefitCollection": "Collection Tracking",
+    "benefitBattle": "Battle Intelligence",
+    "playStoreNote": "Gratis en Android · iOS próximamente",
+    "waitlistEyebrow": "O únete a la lista de espera",
+    "waitlistHint": "ACCESO ANTICIPADO · SIN SPAM"
+  },
+  "showcase": {
+    "eyebrow": "EXPLORA DEXORA",
+    "headline1": "Creado para entrenadores",
+    "headline2": "que juegan",
+    "headlineHighlight": "cada día",
+    "copy": "Un panel principal. Prioridades, progreso de colección, inteligencia de combate, eventos y comunidad: todo lo que necesitas antes de salir.",
+    "coreDailyTitle": "Asistente diario",
+    "coreDailyText": "Prioridades, cacería de hoy, misiones diarias y héroe consciente de eventos, cada vez que abres Dexora.",
+    "coreCollectionTitle": "Seguimiento de colección",
+    "coreCollectionText": "Living dex, shinies, megas, hundos y anillos de hitos, sincronizados de forma segura en la nube con inicio de sesión de Google.",
+    "coreBattleTitle": "Inteligencia de combate",
+    "coreBattleText": "Calificaciones de raid, niveles PvP, counters de Rocket y recomendaciones de IA por Pokémon.",
+    "highlightVisionTitle": "Trainer Vision",
+    "highlightVisionText": "Escanea capturas para identificar Pokémon, IV y oportunidades de captura al instante con OCR en el dispositivo.",
+    "highlightCatchTitle": "Catch Queue",
+    "highlightCatchText": "Los objetivos semanales de raid se sincronizan automáticamente. Sigue Pokémon pendientes y capturados.",
+    "highlightPokedexTitle": "Pokédex sin conexión",
+    "highlightPokedexText": "{{speciesCount}} especies con estadísticas GO, movimientos e ilustraciones en caché en el dispositivo.",
+    "highlightEventsTitle": "Seguimiento de eventos",
+    "highlightEventsText": "Community Day, GO Fest y eventos en vivo con grupos de movimientos, bonificaciones y recordatorios de cuenta regresiva.",
+    "highlightCommunityTitle": "Comunidad de entrenadores",
+    "highlightCommunityText": "Códigos de amigo, chat grupal, coordinación de raids y herramientas de moderación: conéctate con entrenadores de todo el mundo.",
+    "highlightLanguagesTitle": "13 idiomas",
+    "highlightLanguagesText": "Localización completa de la app: English, Deutsch, Français, Español y 9 más, incluyendo árabe y hebreo.",
+    "ctaNote": "Con la confianza de entrenadores que sincronizan {{speciesCount}}+ especies sin conexión"
+  },
+  "download": {
+    "headlinePrefix": "Consigue",
+    "headlineBrand": "Dexora",
+    "copyPlay": "Disponible ahora en",
+    "copyPlayHighlight": "Google Play",
+    "copyIos": "iOS",
+    "copyIosSuffix": "está en el pulido final."
+  },
+  "waitlist": {
+    "emailLabel": "Correo electrónico",
+    "emailPlaceholder": "trainer@email.com",
+    "join": "Unirme a la lista",
+    "joining": "Uniéndote...",
+    "joinButton": "Unirme a la lista",
+    "invalidEmail": "Introduce un correo electrónico válido.",
+    "notConfigured": "La lista de espera aún no está configurada. Inténtalo de nuevo pronto.",
+    "alreadyOnList": "¡Ya estás en la lista de espera!",
+    "error": "Algo salió mal. Inténtalo de nuevo.",
+    "success": "¡Ya estás en la lista! Te avisaremos en el lanzamiento."
+  },
+  "store": {
+    "googlePlayAria": "Consigue Dexora en Google Play",
+    "getItOn": "CONSÍGUELO EN",
+    "googlePlay": "Google Play"
+  },
+  "footer": {
+    "rights": "© {{year}} Dexora. Todos los derechos reservados."
+  },
+  "legalPage": {
+    "brand": "DEXORA",
+    "effective": "Vigente desde {{date}}",
+    "backHome": "← Volver al inicio",
+    "emailSupport": "Enviar correo a support@dexora.app",
+    "privacyPolicy": "Política de privacidad"
+  },
+  "legal": {
+    "privacy": {
+      "title": "Política de privacidad",
+      "description": "Cómo Dexora gestiona tu información en dexora.app y en la app."
+    },
+    "terms": {
+      "title": "Términos y condiciones",
+      "description": "Reglas para usar dexora.app y la app complementaria Dexora."
+    },
+    "contact": {
+      "title": "Contáctanos",
+      "description": "Ponte en contacto con el equipo de Dexora."
+    },
+    "feedback": {
+      "title": "Comentarios",
+      "description": "Comparte ideas, reporta errores o sugiere mejoras."
+    },
+    "delete-account": {
+      "title": "Eliminar cuenta y datos",
+      "description": "Elimina permanentemente tu cuenta en la nube de Dexora y los datos asociados."
+    }
+  }
+}

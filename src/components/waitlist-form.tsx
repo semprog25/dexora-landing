@@ -1,5 +1,6 @@
 import { useRef, useState, type FormEvent } from "react"
 import { motion, AnimatePresence } from "motion/react"
+import { useTranslation } from "react-i18next"
 import { joinWaitlist } from "@/lib/waitlist"
 import { emitGlowBurst, KEYSTROKE_NEON_COLORS } from "@/lib/glow-bus"
 
@@ -8,6 +9,7 @@ interface WaitlistFormProps {
 }
 
 export function WaitlistForm({ variant = "hero" }: WaitlistFormProps) {
+  const { t } = useTranslation("landing")
   const [email, setEmail] = useState("")
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle")
   const [message, setMessage] = useState("")
@@ -31,7 +33,8 @@ export function WaitlistForm({ variant = "hero" }: WaitlistFormProps) {
 
     setStatus("loading")
     const result = await joinWaitlist(email)
-    setMessage(result.message)
+    const translatedMessage = result.messageKey ? t(result.messageKey) : result.message
+    setMessage(translatedMessage)
     setStatus(result.success ? "success" : "error")
     if (result.success) setEmail("")
   }
@@ -46,7 +49,7 @@ export function WaitlistForm({ variant = "hero" }: WaitlistFormProps) {
         noValidate
       >
         <label htmlFor={`waitlist-email-${variant}`} className="sr-only">
-          Email address
+          {t("waitlist.emailLabel")}
         </label>
         <input
           id={`waitlist-email-${variant}`}
@@ -59,7 +62,7 @@ export function WaitlistForm({ variant = "hero" }: WaitlistFormProps) {
           autoCorrect="off"
           spellCheck={false}
           required
-          placeholder="trainer@email.com"
+          placeholder={t("waitlist.emailPlaceholder")}
           value={email}
           onChange={(e) => handleEmailChange(e.target.value)}
           disabled={status === "loading"}
@@ -72,7 +75,7 @@ export function WaitlistForm({ variant = "hero" }: WaitlistFormProps) {
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
         >
-          {status === "loading" ? "Joining..." : "Join Waitlist"}
+          {status === "loading" ? t("waitlist.joining") : t("waitlist.join")}
         </motion.button>
       </form>
 
@@ -95,7 +98,7 @@ export function WaitlistForm({ variant = "hero" }: WaitlistFormProps) {
 
       {isHero && (
         <p className="mt-4 text-center text-xs tracking-[0.25em] text-[#6b7494]">
-          EARLY ACCESS · NO SPAM
+          {t("hero.waitlistHint")}
         </p>
       )}
     </div>

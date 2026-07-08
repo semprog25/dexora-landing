@@ -7,4 +7,9 @@ export const SECTION = {
 
 export const SECTION_COUNT = 4
 
-export const SECTION_LABELS = ["Waitlist", "Explore", "Launch", "Legal"]
+export const SECTION_LABEL_KEYS = [
+  "nav.home",
+  "nav.explore",
+  "nav.download",
+  "nav.legal",
+] as const

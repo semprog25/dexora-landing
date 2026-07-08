@@ -1,5 +1,6 @@
 import { useCallback, useState } from "react"
 import { AnimatedBackground } from "@/components/animated-background"
+import { LanguageSwitcher } from "@/components/language-switcher"
 import { SectionPokemonBackdrop } from "@/components/section-pokemon-backdrop"
 import { CursorPaintGlow } from "@/components/cursor-paint-glow"
 import { DepthLayers } from "@/components/depth-layers"
@@ -26,6 +27,7 @@ export function App() {
         <LogoZoomIntro onReveal={handleIntroReveal} onComplete={handleIntroComplete} />
       )}
       <ZoomSceneProvider sectionCount={SECTION_COUNT} enabled={siteVisible}>
+        <LanguageSwitcher />
         <LegalNav variant="header" />
         <AnimatedBackground />
         <CursorPaintGlow />

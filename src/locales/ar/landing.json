@@ -1,0 +1,120 @@
+{
+  "meta": {
+    "title": "Dexora — مساعد Pokémon GO اليومي ومتتبع المجموعة",
+    "description": "Dexora هو رفيقك اليومي في Pokémon GO — لوحة رئيسية، تتبع living dex، ذكاء Raid وPvP، Trainer Vision، و13 لغة. مجاناً على Google Play."
+  },
+  "nav": {
+    "legalLabel": "القانوني والدعم",
+    "privacy": "الخصوصية",
+    "terms": "الشروط",
+    "deleteAccount": "حذف الحساب",
+    "contact": "اتصل بنا",
+    "feedback": "الملاحظات",
+    "home": "الرئيسية",
+    "explore": "استكشاف",
+    "download": "تنزيل",
+    "legal": "قانوني"
+  },
+  "language": {
+    "title": "اللغة",
+    "choose": "اختر اللغة",
+    "searchPlaceholder": "ابحث عن اللغات…",
+    "previewHint": "اضغط على لغة لمعاينة فورية"
+  },
+  "hero": {
+    "eyebrow": "رفيق Pokémon GO",
+    "headline1": "مساعدك اليومي",
+    "headline2": "Pokémon GO",
+    "headline3": "",
+    "copy": "خطط لعمليات الصيد، وتتبع living dex، واحصل على ذكاء Raid وPvP، وامسح لقطات الشاشة عبر Trainer Vision — يعمل offline-first وبـ13 لغة.",
+    "benefitDaily": "Daily GO Assistant",
+    "benefitCollection": "Collection Tracking",
+    "benefitBattle": "Battle Intelligence",
+    "playStoreNote": "مجاناً على Android · iOS قريباً",
+    "waitlistEyebrow": "أو انضم إلى قائمة الانتظار",
+    "waitlistHint": "وصول مبكر · بدون رسائل مزعجة"
+  },
+  "showcase": {
+    "eyebrow": "استكشف DEXORA",
+    "headline1": "مصمم للمدربين",
+    "headline2": "الذين يلعبون",
+    "headlineHighlight": "كل يوم",
+    "copy": "لوحة رئيسية واحدة: الأولويات، تقدم المجموعة، ذكاء المعارك، الأحداث، والمجتمع — كل ما تحتاجه قبل الخروج.",
+    "coreDailyTitle": "المساعد اليومي",
+    "coreDailyText": "الأولويات، صيد اليوم، المهام اليومية، وواجهة تراعي الأحداث — في كل مرة تفتح فيها Dexora.",
+    "coreCollectionTitle": "تتبع المجموعة",
+    "coreCollectionText": "living dex وshinies وmegas وhundos وحلقات الإنجاز — مزامنة سحابية آمنة عبر تسجيل Google.",
+    "coreBattleTitle": "ذكاء المعارك",
+    "coreBattleText": "تقييمات Raid، وتصنيفات PvP، وعدادات Rocket، وتوصيات AI لكل Pokémon.",
+    "highlightVisionTitle": "Trainer Vision",
+    "highlightVisionText": "امسح لقطات الشاشة للتعرف فوراً على Pokémon وIV وفرص الالتقاط عبر OCR على الجهاز.",
+    "highlightCatchTitle": "Catch Queue",
+    "highlightCatchText": "تتزامن أهداف Raid الأسبوعية تلقائياً. تتبع Pokémon المعلق والمصاد.",
+    "highlightPokedexTitle": "Pokédex دون اتصال",
+    "highlightPokedexText": "{{speciesCount}} نوعاً مع إحصاءات GO والحركات والرسومات محفوظة على الجهاز.",
+    "highlightEventsTitle": "متتبع الأحداث",
+    "highlightEventsText": "Community Day وGO Fest والأحداث المباشرة مع مجموعات الحركات والمكافآت وتذكيرات العد التنازلي.",
+    "highlightCommunityTitle": "مجتمع المدربين",
+    "highlightCommunityText": "أكواد الأصدقاء، دردشة جماعية، تنسيق Raid، وأدوات الإشراف — تواصل مع مدربين حول العالم.",
+    "highlightLanguagesTitle": "13 لغة",
+    "highlightLanguagesText": "توطين كامل للتطبيق — English وDeutsch وFrançais وEspañol و9 لغات أخرى، منها العربية والعبرية.",
+    "ctaNote": "موثوق من مدربين يزامنون {{speciesCount}}+ نوعاً دون اتصال"
+  },
+  "download": {
+    "headlinePrefix": "احصل على",
+    "headlineBrand": "Dexora",
+    "copyPlay": "متاح الآن على",
+    "copyPlayHighlight": "Google Play",
+    "copyIos": "iOS",
+    "copyIosSuffix": "في مرحلة اللمسات الأخيرة."
+  },
+  "waitlist": {
+    "emailLabel": "البريد الإلكتروني",
+    "emailPlaceholder": "trainer@email.com",
+    "join": "انضم إلى قائمة الانتظار",
+    "joining": "جارٍ الانضمام...",
+    "joinButton": "انضم إلى قائمة الانتظار",
+    "invalidEmail": "يرجى إدخال بريد إلكتروني صالح.",
+    "notConfigured": "قائمة الانتظار غير مهيأة بعد. يرجى المحاولة مرة أخرى قريباً.",
+    "alreadyOnList": "أنت بالفعل في قائمة الانتظار!",
+    "error": "حدث خطأ ما. يرجى المحاولة مرة أخرى.",
+    "success": "تمت إضافتك إلى القائمة! سنبلغك عند الإطلاق."
+  },
+  "store": {
+    "googlePlayAria": "احصل على Dexora من Google Play",
+    "getItOn": "متوفر على",
+    "googlePlay": "Google Play"
+  },
+  "footer": {
+    "rights": "© {{year}} Dexora. جميع الحقوق محفوظة."
+  },
+  "legalPage": {
+    "brand": "DEXORA",
+    "effective": "ساري اعتباراً من {{date}}",
+    "backHome": "← العودة إلى الرئيسية",
+    "emailSupport": "راسل support@dexora.app",
+    "privacyPolicy": "سياسة الخصوصية"
+  },
+  "legal": {
+    "privacy": {
+      "title": "سياسة الخصوصية",
+      "description": "كيف يتعامل Dexora مع معلوماتك على dexora.app وداخل التطبيق."
+    },
+    "terms": {
+      "title": "الشروط والأحكام",
+      "description": "قواعد استخدام dexora.app وتطبيق Dexora المرافق."
+    },
+    "contact": {
+      "title": "اتصل بنا",
+      "description": "تواصل مع فريق Dexora."
+    },
+    "feedback": {
+      "title": "الملاحظات",
+      "description": "شارك أفكارك، أبلغ عن الأخطاء، أو اقترح تحسينات."
+    },
+    "delete-account": {
+      "title": "حذف الحساب والبيانات",
+      "description": "احذف حساب Dexora السحابي والبيانات المرتبطة به نهائياً."
+    }
+  }
+}

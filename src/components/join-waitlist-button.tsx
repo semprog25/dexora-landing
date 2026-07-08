@@ -1,6 +1,7 @@
 import { useZoomScene } from "@/components/zoom-scene"
 import { SECTION } from "@/lib/sections"
 import { BRAND } from "@/lib/brand-colors"
+import { useTranslation } from "react-i18next"
 
 interface JoinWaitlistButtonProps {
   className?: string
@@ -11,6 +12,7 @@ export function JoinWaitlistButton({
   className = "",
   variant = "primary",
 }: JoinWaitlistButtonProps) {
+  const { t } = useTranslation("landing")
   const { goTo } = useZoomScene()
 
   function handleClick() {
@@ -46,7 +48,7 @@ export function JoinWaitlistButton({
       className={`${base} ${variantStyles[variant]} ${className}`}
       style={inlineStyle}
     >
-      Join Waitlist
+      {t("waitlist.joinButton")}
     </button>
   )
 }

@@ -1,22 +1,27 @@
 import { DexoraLogo } from "@/components/dexora-logo"
 import { LegalLink } from "@/components/legal-link"
 import { LegalNav } from "@/components/legal-nav"
+import { LanguageSwitcher } from "@/components/language-switcher"
 import {
   LEGAL_EFFECTIVE_DATE,
-  LEGAL_LINKS,
   LEGAL_PAGES,
   type LegalSlug,
 } from "@/lib/legal-content"
+import { useTranslation } from "react-i18next"
 
 interface LegalPageProps {
   slug: LegalSlug
 }
 
+const LEGAL_SLUGS: LegalSlug[] = ["privacy", "terms", "delete-account", "contact", "feedback"]
+
 export function LegalPage({ slug }: LegalPageProps) {
+  const { t } = useTranslation("landing")
   const doc = LEGAL_PAGES[slug]
 
   return (
     <div className="legal-page min-h-dvh bg-[#07091a] text-[#edf0ff]">
+      <LanguageSwitcher />
       <LegalNav variant="header" />
 
       <main className="mx-auto max-w-2xl px-5 pb-16 pt-20 sm:px-6 sm:pt-24">
@@ -26,12 +31,16 @@ export function LegalPage({ slug }: LegalPageProps) {
           </LegalLink>
         </div>
 
-        <p className="section-eyebrow mb-3 text-center text-[#64d9ff]">DEXORA</p>
-        <h1 className="mb-2 text-center text-2xl font-bold tracking-tight sm:text-3xl">{doc.title}</h1>
+        <p className="section-eyebrow mb-3 text-center text-[#64d9ff]">{t("legalPage.brand")}</p>
+        <h1 className="mb-2 text-center text-2xl font-bold tracking-tight sm:text-3xl">
+          {t(`legal.${slug}.title`)}
+        </h1>
         <p className="mx-auto mb-2 max-w-lg text-center text-sm leading-relaxed text-[#8892b0]">
-          {doc.description}
+          {t(`legal.${slug}.description`)}
         </p>
-        <p className="mb-8 text-center text-xs text-[#6b7494]">Effective {LEGAL_EFFECTIVE_DATE}</p>
+        <p className="mb-8 text-center text-xs text-[#6b7494]">
+          {t("legalPage.effective", { date: LEGAL_EFFECTIVE_DATE })}
+        </p>
 
         <div className="space-y-4">
           {doc.sections.map((section) => (
@@ -51,14 +60,14 @@ export function LegalPage({ slug }: LegalPageProps) {
               href="mailto:support@dexora.app?subject=Dexora%20Account%20Deletion%20Request"
               className="inline-flex min-h-[44px] items-center justify-center rounded-full bg-[#64d9ff] px-6 py-3 text-sm font-semibold text-[#07091a] transition hover:shadow-[0_0_24px_rgba(100,217,255,0.35)]"
             >
-              Email support@dexora.app
+              {t("legalPage.emailSupport")}
             </a>
             {slug === "delete-account" && (
               <a
                 href="/privacy"
                 className="inline-flex min-h-[44px] items-center justify-center rounded-full border border-white/10 px-6 py-3 text-sm font-semibold text-[#edf0ff] transition hover:border-[#64d9ff]/40"
               >
-                Privacy policy
+                {t("legalPage.privacyPolicy")}
               </a>
             )}
           </div>
@@ -66,15 +75,15 @@ export function LegalPage({ slug }: LegalPageProps) {
 
         <div className="mt-10 flex flex-wrap justify-center gap-4 border-t border-white/[0.06] pt-8">
           <LegalLink href="/" className="text-sm font-semibold text-[#ffe500] hover:underline">
-            ← Back to home
+            {t("legalPage.backHome")}
           </LegalLink>
-          {LEGAL_LINKS.filter((link) => link.slug !== slug).map((link) => (
+          {LEGAL_SLUGS.filter(linkSlug => linkSlug !== slug).map(linkSlug => (
             <LegalLink
-              key={link.slug}
-              href={link.href}
+              key={linkSlug}
+              href={`/${linkSlug}`}
               className="text-sm text-[#6b7494] transition hover:text-[#64d9ff]"
             >
-              {link.label}
+              {t(`nav.${linkSlug === "delete-account" ? "deleteAccount" : linkSlug}`)}
             </LegalLink>
           ))}
         </div>

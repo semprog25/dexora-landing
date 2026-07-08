@@ -1,9 +1,13 @@
 import { DexoraLogo } from "@/components/dexora-logo"
+import { GooglePlayCta } from "@/components/google-play-cta"
 import { JoinWaitlistButton } from "@/components/join-waitlist-button"
 import { LegalNav } from "@/components/legal-nav"
 import { LEGAL_DISCLAIMER, LEGAL_SUBSCRIPTION_NOTE } from "@/lib/legal"
+import { useTranslation } from "react-i18next"
 
 export function SiteFooter() {
+  const { t } = useTranslation("landing")
+
   return (
     <footer
       className="footer-section relative z-10 bg-transparent px-5 py-8 text-center md:px-10"
@@ -19,14 +23,15 @@ export function SiteFooter() {
         {LEGAL_SUBSCRIPTION_NOTE}
       </p>
 
-      <div className="mt-8 flex justify-center">
+      <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+        <GooglePlayCta variant="compact" />
         <JoinWaitlistButton variant="neonBlue" />
       </div>
 
       <LegalNav variant="footer" />
 
       <p className="mx-auto mt-6 text-xs text-[#6b7494]">
-        © {new Date().getFullYear()} Dexora. All rights reserved.
+        {t("footer.rights", { year: new Date().getFullYear() })}
       </p>
     </footer>
   )
