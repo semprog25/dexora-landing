@@ -12,7 +12,7 @@ export function ComingSoonSection({ sectionIndex }: ComingSoonSectionProps) {
 
   return (
     <SectionShell index={sectionIndex} id="download">
-      <div className="download-section mx-auto w-full max-w-xl px-4 text-center">
+      <div className="download-section mx-auto w-full max-w-xl px-3 text-center max-md:px-2 sm:px-4">
         <h2 className="download-headline mb-4">
           <span className="text-[#edf0ff]">{t("download.headlinePrefix")} </span>
           <span className="text-section-purple">{t("download.headlineBrand")}</span>

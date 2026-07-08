@@ -30,6 +30,15 @@ function easeInOutCubic(t: number): number {
   return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2
 }
 
+function findZoomScrollContainer(node: EventTarget | null): HTMLElement | null {
+  let element = node as HTMLElement | null
+  while (element && element !== document.body) {
+    if (element.dataset.zoomScroll === "true") return element
+    element = element.parentElement
+  }
+  return null
+}
+
 interface ZoomSceneProviderProps {
   sectionCount: number
   enabled: boolean
@@ -44,6 +53,8 @@ export function ZoomSceneProvider({ sectionCount, enabled, children }: ZoomScene
   const animFrameRef = useRef(0)
   const animatingRef = useRef(false)
   const touchStartYRef = useRef(0)
+  const touchStartScrollTopRef = useRef(0)
+  const touchScrollContainerRef = useRef<HTMLElement | null>(null)
   const lastNavRef = useRef(0)
   const wheelAccumRef = useRef(0)
   const wheelDirRef = useRef<0 | 1 | -1>(0)
@@ -171,6 +182,8 @@ export function ZoomSceneProvider({ sectionCount, enabled, children }: ZoomScene
 
     const onTouchStart = (e: TouchEvent) => {
       touchStartYRef.current = e.touches[0]?.clientY ?? 0
+      touchScrollContainerRef.current = findZoomScrollContainer(e.target)
+      touchStartScrollTopRef.current = touchScrollContainerRef.current?.scrollTop ?? 0
     }
 
     const onTouchEnd = (e: TouchEvent) => {
@@ -178,6 +191,20 @@ export function ZoomSceneProvider({ sectionCount, enabled, children }: ZoomScene
       const endY = e.changedTouches[0]?.clientY ?? 0
       const delta = touchStartYRef.current - endY
       if (Math.abs(delta) < 56) return
+
+      const scrollable = touchScrollContainerRef.current
+      if (scrollable) {
+        const maxScroll = scrollable.scrollHeight - scrollable.clientHeight
+        if (maxScroll > 4) {
+          if (Math.abs(scrollable.scrollTop - touchStartScrollTopRef.current) > 8) return
+
+          const atTop = scrollable.scrollTop <= 2
+          const atBottom = scrollable.scrollTop >= maxScroll - 2
+          if (delta > 0 && !atBottom) return
+          if (delta < 0 && !atTop) return
+        }
+      }
+
       if (delta > 0) goNext()
       else goPrev()
     }

@@ -45,7 +45,7 @@ export function WaitlistForm({ variant = "hero" }: WaitlistFormProps) {
     <div className={isHero ? "hero-waitlist-form w-full max-w-xl mx-auto" : "w-full max-w-lg mx-auto"}>
       <form
         onSubmit={handleSubmit}
-        className="mx-auto grid w-full max-w-xl grid-cols-1 gap-3 sm:grid-cols-[minmax(0,1fr)_auto]"
+        className="mx-auto grid w-full max-w-xl grid-cols-1 gap-3 md:grid-cols-[minmax(0,1fr)_auto]"
         noValidate
       >
         <label htmlFor={`waitlist-email-${variant}`} className="sr-only">
@@ -71,7 +71,7 @@ export function WaitlistForm({ variant = "hero" }: WaitlistFormProps) {
         <motion.button
           type="submit"
           disabled={status === "loading"}
-          className="min-h-[48px] w-full rounded-full bg-[#ffe500] px-8 py-3 text-base font-semibold text-[#07091a] transition hover:shadow-[0_0_32px_rgba(255,229,0,0.45)] disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto sm:justify-self-center"
+          className="min-h-[48px] w-full rounded-full bg-[#ffe500] px-8 py-3 text-base font-semibold text-[#07091a] transition hover:shadow-[0_0_32px_rgba(255,229,0,0.45)] disabled:cursor-not-allowed disabled:opacity-60 md:w-auto md:justify-self-center"
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
         >

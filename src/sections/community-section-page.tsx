@@ -25,7 +25,7 @@ export function CommunitySectionPage({ sectionIndex }: CommunitySectionPageProps
 
   return (
     <SectionShell index={sectionIndex} id="community">
-      <div className="landing-page-panel mx-auto w-full max-w-xl px-4 text-center">
+      <div className="landing-page-panel mx-auto w-full max-w-xl px-3 text-center max-md:px-2 sm:px-4">
         <SectionEyebrow accent="blue">{t("community.eyebrow")}</SectionEyebrow>
         <h2 className="landing-page-headline mb-3 text-[#edf0ff]">{t("community.headline")}</h2>
         <p className="landing-page-copy mx-auto max-w-md">{t("community.copy")}</p>

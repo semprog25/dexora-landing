@@ -26,15 +26,15 @@ export function WaitlistHero({ visible }: WaitlistHeroProps) {
         transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
         className="home-hero-inner w-full"
       >
-        <DexoraDLogo height={52} className="home-hero-logo mx-auto mb-8" alt="Dexora" />
+        <DexoraDLogo height={52} className="home-hero-logo mx-auto mb-6 max-md:mb-5 max-md:h-[42px]" alt="Dexora" />
 
-        <h1 className="home-hero-headline mb-5">
+        <h1 className="home-hero-headline mb-4 max-md:mb-3">
           <span className="block text-[#edf0ff]">{t("hero.headline1")}</span>
           <span className="text-gradient-yellow block">{t("hero.headline2")}</span>
           <span className="block text-[#edf0ff]">{t("hero.headline3")}</span>
         </h1>
 
-        <p className="home-hero-copy mx-auto mb-8 max-w-md text-base leading-relaxed text-[#8892b0] md:text-[1.05rem]">
+        <p className="home-hero-copy mx-auto mb-6 max-w-md text-base leading-relaxed text-[#8892b0] max-md:mb-5 max-md:text-[0.9rem] md:text-[1.05rem]">
           {t("hero.copy")}
         </p>
 

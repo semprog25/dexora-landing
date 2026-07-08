@@ -16,13 +16,20 @@ export function ZoomSection({
   className = "",
   contentOverflow = "hidden",
 }: ZoomSectionProps) {
-  const { progress } = useZoomScene()
+  const { progress, activeIndex } = useZoomScene()
+  const isActive = activeIndex === index
   const style = getZoomSectionStyle(index, progress)
+
+  const contentOverflowClass = isActive
+    ? "justify-start overflow-x-hidden overflow-y-auto overscroll-y-contain max-md:pt-0.5 max-md:pb-3"
+    : contentOverflow === "visible"
+      ? "justify-center overflow-visible"
+      : "justify-center overflow-hidden"
 
   return (
     <section
       id={id}
-        className={`zoom-panel safe-section relative z-20 px-5 py-16 md:px-10 lg:px-16 ${className}`}
+      className={`zoom-panel safe-section relative z-20 px-4 py-8 max-md:py-3 md:px-10 md:py-14 lg:px-16 ${className}`}
       style={{
         transform: style.transform,
         opacity: style.opacity,
@@ -33,9 +40,8 @@ export function ZoomSection({
       aria-hidden={style.pointerEvents === "none"}
     >
       <div
-        className={`relative z-10 mx-auto flex h-full w-full max-w-3xl flex-col items-center justify-center px-1 text-center sm:px-0 ${
-          contentOverflow === "visible" ? "overflow-visible" : "overflow-hidden"
-        }`}
+        className={`zoom-section-content relative z-10 mx-auto flex h-full w-full max-w-3xl flex-col items-center px-1 text-center sm:px-0 ${contentOverflowClass}`}
+        data-zoom-scroll={isActive ? "true" : undefined}
       >
         {children}
       </div>

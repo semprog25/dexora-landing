@@ -31,7 +31,7 @@ export function DailyAssistantSection({ sectionIndex }: DailyAssistantSectionPro
 
   return (
     <SectionShell index={sectionIndex} id="daily">
-      <div className="landing-page-panel mx-auto w-full max-w-3xl px-4 text-center">
+      <div className="landing-page-panel mx-auto w-full max-w-3xl px-3 text-center max-md:px-2 sm:px-4">
         <SectionEyebrow accent="yellow">{t("daily.eyebrow")}</SectionEyebrow>
         <h2 className="landing-page-headline mb-3">
           <span className="text-[#edf0ff]">{t("daily.headline1")} </span>
