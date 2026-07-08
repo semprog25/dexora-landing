@@ -1,6 +1,5 @@
 import { SectionShell } from "@/components/section-shell"
-import { GooglePlayCta } from "@/components/google-play-cta"
-import { StoreBadgesRow } from "@/components/store-badges-row"
+import { StoreCtaButton } from "@/components/store-cta-button"
 import { StaggerItem } from "@/components/section-shell"
 import { useTranslation } from "react-i18next"
 
@@ -19,17 +18,12 @@ export function ComingSoonSection({ sectionIndex }: ComingSoonSectionProps) {
           <span className="text-section-purple">{t("download.headlineBrand")}</span>
         </h2>
 
-        <p className="download-copy mx-auto mb-8 max-w-md">
-          {t("download.copyPlay")}{" "}
-          <span className="text-section-purple">{t("download.copyPlayHighlight")}</span>.{" "}
-          <span className="text-[#edf0ff]">{t("download.copyIos")}</span>{" "}
-          {t("download.copyIosSuffix")}
-        </p>
+        <p className="download-copy mx-auto mb-8 max-w-md">{t("download.copy")}</p>
 
         <StaggerItem sectionIndex={sectionIndex} index={0}>
-          <div className="flex flex-col items-center gap-5">
-            <GooglePlayCta />
-            <StoreBadgesRow />
+          <div className="store-cta-row mx-auto flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-start sm:justify-center">
+            <StoreCtaButton platform="google" />
+            <StoreCtaButton platform="apple" />
           </div>
         </StaggerItem>
       </div>

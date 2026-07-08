@@ -22,6 +22,9 @@ const LOCALE_OVERRIDES = {
       contact: "Kontakt",
       feedback: "Feedback",
       home: "Start",
+      tools: "Tools",
+      daily: "Daily",
+      community: "Community",
       explore: "Entdecken",
       download: "Download",
       legal: "Rechtliches",
@@ -44,6 +47,22 @@ const LOCALE_OVERRIDES = {
       playStoreNote: "Kostenlos auf Android · iOS kommt bald",
       waitlistEyebrow: "Oder tritt der Warteliste bei",
       waitlistHint: "FRÜHER ZUGANG · KEIN SPAM",
+    },
+    tools: {
+      eyebrow: "POWER-TOOLS",
+      headline: "Scannen, tracken, offline planen",
+      copy: "Trainer Vision, Catch Queue, Offline-Pokédex und Live-Events — die Tools für jede Jagd.",
+    },
+    daily: {
+      eyebrow: "DEIN HOME-SCREEN",
+      headline1: "Guten Morgen,",
+      headlineHighlight: "Trainer",
+      copy: "Täglicher Assistent, Sammlungs-Tracking und Kampfintelligenz — ein ruhiges Dashboard bei jedem Öffnen.",
+    },
+    community: {
+      eyebrow: "TRAINER WELTWEIT",
+      headline: "Gemeinsam spielen, in deiner Sprache",
+      copy: "Freundescodes, Gruppenchat und volle Lokalisierung in 13 Sprachen.",
     },
     showcase: {
       eyebrow: "DEXORA ENTDECKEN",
@@ -84,10 +103,7 @@ const LOCALE_OVERRIDES = {
     download: {
       headlinePrefix: "Hol dir",
       headlineBrand: "Dexora",
-      copyPlay: "Jetzt verfügbar auf",
-      copyPlayHighlight: "Google Play",
-      copyIos: "iOS",
-      copyIosSuffix: "befindet sich im finalen Feinschliff.",
+      copy: "Nimm deinen täglichen Begleiter auf jede Jagd mit. Kostenlos auf Android — iOS folgt bald.",
     },
     waitlist: {
       emailLabel: "E-Mail-Adresse",
@@ -105,11 +121,16 @@ const LOCALE_OVERRIDES = {
     },
     store: {
       googlePlayAria: "Hol dir Dexora auf Google Play",
+      appStoreAria: "Dexora im App Store — demnächst",
       getItOn: "JETZT AUF",
+      downloadOn: "Laden im",
       googlePlay: "Google Play",
+      appStore: "App Store",
+      comingSoonToast: "Demnächst im App Store!",
     },
     footer: {
       rights: "© {{year}} Dexora. Alle Rechte vorbehalten.",
+      contact: "Kontakt",
     },
     legalPage: {
       brand: "DEXORA",
@@ -1646,13 +1667,25 @@ function assertSameLeafPaths({ source, target, locale }) {
   )
 }
 
+function deepMerge(base, override) {
+  if (typeof base !== "object" || base === null || Array.isArray(base)) return base
+  if (typeof override !== "object" || override === null || Array.isArray(override)) return base
+  const result = { ...base }
+  for (const key of Object.keys(base)) {
+    if (Object.prototype.hasOwnProperty.call(override, key)) {
+      result[key] = deepMerge(base[key], override[key])
+    }
+  }
+  return result
+}
+
 async function executeGenerateLandingLocales() {
   const sourceRaw = await fs.readFile(SOURCE_PATH, "utf8")
   const sourceJson = JSON.parse(sourceRaw)
 
   const locales = Object.keys(LOCALE_OVERRIDES)
   for (const locale of locales) {
-    const localeJson = LOCALE_OVERRIDES[locale]
+    const localeJson = deepMerge(sourceJson, LOCALE_OVERRIDES[locale])
     assertSameLeafPaths({
       source: sourceJson,
       target: localeJson,

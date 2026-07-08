@@ -11,6 +11,9 @@
     "contact": "Contact",
     "feedback": "Feedback",
     "home": "Home",
+    "tools": "Tools",
+    "daily": "Daily",
+    "community": "Community",
     "explore": "Explore",
     "download": "Download",
     "legal": "Legal"
@@ -33,6 +36,22 @@
     "playStoreNote": "Free on Android · iOS coming soon",
     "waitlistEyebrow": "Or join the waitlist",
     "waitlistHint": "EARLY ACCESS · NO SPAM"
+  },
+  "tools": {
+    "eyebrow": "POWER TOOLS",
+    "headline": "Scan, track, and plan offline",
+    "copy": "Trainer Vision, Catch Queue, offline Pokédex, and live events — the tools you reach for on every hunt."
+  },
+  "daily": {
+    "eyebrow": "YOUR HOME SCREEN",
+    "headline1": "Good morning,",
+    "headlineHighlight": "Trainer",
+    "copy": "Daily Assistant, collection tracking, and battle intelligence — one calm dashboard every time you open Dexora."
+  },
+  "community": {
+    "eyebrow": "TRAINERS WORLDWIDE",
+    "headline": "Play together, in your language",
+    "copy": "Friend codes, group chat, and full localization in 13 languages."
   },
   "showcase": {
     "eyebrow": "EXPLORE DEXORA",
@@ -63,10 +82,7 @@
   "download": {
     "headlinePrefix": "Get",
     "headlineBrand": "Dexora",
-    "copyPlay": "Available now on",
-    "copyPlayHighlight": "Google Play",
-    "copyIos": "iOS",
-    "copyIosSuffix": "is in final polish."
+    "copy": "Take your daily companion on every hunt. Free on Android — iOS is on the way."
   },
   "waitlist": {
     "emailLabel": "Email address",
@@ -82,11 +98,16 @@
   },
   "store": {
     "googlePlayAria": "Get Dexora on Google Play",
+    "appStoreAria": "Dexora on the App Store — coming soon",
     "getItOn": "GET IT ON",
-    "googlePlay": "Google Play"
+    "downloadOn": "Download on the",
+    "googlePlay": "Google Play",
+    "appStore": "App Store",
+    "comingSoonToast": "Coming soon on the App Store!"
   },
   "footer": {
-    "rights": "© {{year}} Dexora. All rights reserved."
+    "rights": "© {{year}} Dexora. All rights reserved.",
+    "contact": "Contact us"
   },
   "legalPage": {
     "brand": "DEXORA",

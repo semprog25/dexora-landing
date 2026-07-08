@@ -15,7 +15,17 @@ export const SECTION_BACKDROPS: Record<number, SectionBackdropConfig> = {
     wallpaperVideo: "/backgrounds/home-glaceon.mp4",
     smokeHue: "#B24DFF",
   },
-  [SECTION.SHOWCASE]: {
+  [SECTION.TOOLS]: {
+    wallpaper: "/backgrounds/explore-eternatus.png",
+    wallpaperVideo: "/backgrounds/explore-mewtwo.mp4",
+    smokeHue: "#FF6EC7",
+  },
+  [SECTION.DAILY]: {
+    wallpaper: "/backgrounds/home-gengar.png",
+    wallpaperVideo: "/backgrounds/home-glaceon.mp4",
+    smokeHue: "#FFE500",
+  },
+  [SECTION.COMMUNITY]: {
     wallpaper: "/backgrounds/explore-eternatus.png",
     wallpaperVideo: "/backgrounds/explore-mewtwo.mp4",
     smokeHue: "#3D72FF",

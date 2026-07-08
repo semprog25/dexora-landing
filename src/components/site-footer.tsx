@@ -23,6 +23,13 @@ export function SiteFooter() {
 
       <LegalNav variant="footer" />
 
+      <a
+        href="mailto:support@dexora.app"
+        className="footer-contact-btn mx-auto mt-6 inline-flex min-h-[48px] items-center justify-center rounded-full px-8 py-3 text-sm font-semibold transition"
+      >
+        {t("footer.contact")}
+      </a>
+
       <p className="mx-auto mt-6 text-xs text-[#6b7494]">
         {t("footer.rights", { year: new Date().getFullYear() })}
       </p>

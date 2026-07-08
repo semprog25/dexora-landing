@@ -1,6 +1,6 @@
 interface SectionEyebrowProps {
   children: string
-  accent?: "yellow" | "blue" | "green" | "muted"
+  accent?: "yellow" | "blue" | "green" | "pink" | "muted"
 }
 
 export function SectionEyebrow({ children, accent = "muted" }: SectionEyebrowProps) {
@@ -11,7 +11,9 @@ export function SectionEyebrow({ children, accent = "muted" }: SectionEyebrowPro
         ? "text-[#3d72ff]"
         : accent === "green"
           ? "text-[#3dbd62]"
-          : "text-[#6b7494]"
+          : accent === "pink"
+            ? "text-[#ff6ec7]"
+            : "text-[#6b7494]"
 
   return (
     <p className={`section-eyebrow font-mono mb-4 ${color}`}>
