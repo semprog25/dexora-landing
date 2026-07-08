@@ -5,7 +5,7 @@ const GENGAR_DYNAMAX_SRC = "/pokemon/artwork/dynamax/94.png"
 
 export function HeroGengarReveal() {
   const { activeIndex } = useZoomScene()
-  const isHome = activeIndex === SECTION.WAITLIST
+  const isHome = activeIndex === SECTION.HOME
 
   return (
     <div

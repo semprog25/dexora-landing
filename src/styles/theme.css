@@ -119,6 +119,47 @@ body.zoom-scene-active {
   text-transform: uppercase;
 }
 
+.home-hero {
+  width: 100%;
+  max-width: 34rem;
+  margin-inline: auto;
+}
+
+.home-hero-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.home-hero-logo {
+  filter: drop-shadow(0 0 18px rgba(100, 217, 255, 0.25));
+}
+
+.home-hero-headline {
+  font-size: clamp(2.35rem, 8vw, 3.75rem);
+  font-weight: 800;
+  line-height: 1.04;
+  letter-spacing: -0.03em;
+}
+
+.home-hero-copy {
+  padding-inline: 0.5rem;
+}
+
+.home-section {
+  padding-top: max(2rem, env(safe-area-inset-top));
+}
+
+.home-section.zoom-panel > div {
+  max-width: none;
+}
+
+@media (min-width: 480px) {
+  .hero-waitlist-form form {
+    grid-template-columns: minmax(0, 1fr) auto !important;
+  }
+}
+
 .display-headline {
   font-size: clamp(2.25rem, 7.5vw, 4.25rem);
   font-weight: 800;

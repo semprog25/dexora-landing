@@ -1,6 +1,4 @@
 import { DexoraLogo } from "@/components/dexora-logo"
-import { GooglePlayCta } from "@/components/google-play-cta"
-import { JoinWaitlistButton } from "@/components/join-waitlist-button"
 import { LegalNav } from "@/components/legal-nav"
 import { LEGAL_DISCLAIMER, LEGAL_SUBSCRIPTION_NOTE } from "@/lib/legal"
 import { useTranslation } from "react-i18next"
@@ -22,11 +20,6 @@ export function SiteFooter() {
       <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-[#6b7494]">
         {LEGAL_SUBSCRIPTION_NOTE}
       </p>
-
-      <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-        <GooglePlayCta variant="compact" />
-        <JoinWaitlistButton variant="neonBlue" />
-      </div>
 
       <LegalNav variant="footer" />
 

@@ -38,14 +38,14 @@ export function App() {
             siteVisible ? "opacity-100" : "opacity-0"
           }`}
         >
-          <ZoomSection index={SECTION.WAITLIST} id="home" className="!px-4 sm:!px-6">
+          <ZoomSection index={SECTION.HOME} id="home" className="!px-4 sm:!px-6 home-section">
             <WaitlistHero visible={siteVisible} />
           </ZoomSection>
           <ZoomSection index={SECTION.SHOWCASE} id="explore" className="!py-6 md:!py-8" contentOverflow="visible">
             <ShowcaseSection sectionIndex={SECTION.SHOWCASE} />
           </ZoomSection>
-          <ZoomSection index={SECTION.COMING} id="coming-soon">
-            <ComingSoonSection sectionIndex={SECTION.COMING} />
+          <ZoomSection index={SECTION.DOWNLOAD} id="download">
+            <ComingSoonSection sectionIndex={SECTION.DOWNLOAD} />
           </ZoomSection>
           <ZoomSection index={SECTION.FOOTER} id="footer">
             <FooterSection />

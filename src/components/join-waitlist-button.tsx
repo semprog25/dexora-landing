@@ -16,7 +16,7 @@ export function JoinWaitlistButton({
   const { goTo } = useZoomScene()
 
   function handleClick() {
-    goTo(SECTION.WAITLIST)
+    goTo(SECTION.HOME)
   }
 
   const base =

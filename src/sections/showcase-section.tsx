@@ -1,7 +1,6 @@
 import { SectionShell } from "@/components/section-shell"
 import { SectionEyebrow } from "@/components/section-eyebrow"
 import { FeatureHighlightCard } from "@/components/feature-highlight-card"
-import { GooglePlayCta } from "@/components/google-play-cta"
 import { PhoneMockup } from "@/components/phone-mockup"
 import { useSpeciesCount } from "@/i18n/use-species-count"
 import { useTranslation } from "react-i18next"
@@ -13,6 +12,12 @@ interface ShowcaseSectionProps {
 export function ShowcaseSection({ sectionIndex }: ShowcaseSectionProps) {
   const { t } = useTranslation("landing")
   const speciesCount = useSpeciesCount()
+
+  const benefits = [
+    { emoji: "📅", label: t("hero.benefitDaily"), color: "#FFE500" },
+    { emoji: "🏆", label: t("hero.benefitCollection"), color: "#3D8EFF" },
+    { emoji: "⚔️", label: t("hero.benefitBattle"), color: "#9575CD" },
+  ] as const
 
   const coreBenefits = [
     {
@@ -69,18 +74,31 @@ export function ShowcaseSection({ sectionIndex }: ShowcaseSectionProps) {
     <SectionShell index={sectionIndex} id="explore">
       <div className="showcase-panel mx-auto w-full max-w-5xl px-2 text-center">
         <SectionEyebrow accent="blue">{t("showcase.eyebrow")}</SectionEyebrow>
-        <h2 className="showcase-headline mb-2">
+        <h2 className="showcase-headline mb-3">
           <span className="block text-[#edf0ff]">{t("showcase.headline1")}</span>
           <span className="block text-[#edf0ff]">
             {t("showcase.headline2")}{" "}
             <span className="text-section-blue">{t("showcase.headlineHighlight")}</span>
           </span>
         </h2>
-        <p className="mx-auto mb-8 max-w-lg text-sm leading-relaxed text-[#8892b0] md:text-base">
+        <p className="mx-auto mb-6 max-w-lg text-sm leading-relaxed text-[#8892b0] md:text-base">
           {t("showcase.copy")}
         </p>
 
-        <div className="showcase-split mx-auto mb-8 grid max-w-4xl grid-cols-1 items-center gap-8 md:grid-cols-2 md:text-left">
+        <div className="mb-8 flex flex-wrap justify-center gap-2">
+          {benefits.map(({ emoji, label, color }) => (
+            <span
+              key={label}
+              className="inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-bold"
+              style={{ color, background: `${color}14`, border: `1px solid ${color}30` }}
+            >
+              <span aria-hidden>{emoji}</span>
+              {label}
+            </span>
+          ))}
+        </div>
+
+        <div className="showcase-split mx-auto mb-6 grid max-w-4xl grid-cols-1 items-center gap-8 md:grid-cols-2 md:text-left">
           <PhoneMockup className="mx-auto md:mx-0" />
           <div className="feature-blocks-grid mx-auto md:mx-0">
             {coreBenefits.map((item, i) => (
@@ -96,7 +114,7 @@ export function ShowcaseSection({ sectionIndex }: ShowcaseSectionProps) {
           </div>
         </div>
 
-        <div className="feature-blocks-grid mx-auto mt-2 max-w-3xl">
+        <div className="feature-blocks-grid mx-auto max-w-3xl">
           {highlights.map((item, i) => (
             <FeatureHighlightCard
               key={item.title}
@@ -107,13 +125,6 @@ export function ShowcaseSection({ sectionIndex }: ShowcaseSectionProps) {
               sectionIndex={sectionIndex}
             />
           ))}
-        </div>
-
-        <div className="mt-8 flex flex-col items-center gap-3">
-          <GooglePlayCta />
-          <p className="text-xs text-[#6b7494]">
-            {t("showcase.ctaNote", { speciesCount })}
-          </p>
         </div>
       </div>
     </SectionShell>

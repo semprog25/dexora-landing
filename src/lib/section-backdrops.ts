@@ -10,11 +10,9 @@ export interface SectionBackdropConfig {
 }
 
 export const SECTION_BACKDROPS: Record<number, SectionBackdropConfig> = {
-  [SECTION.WAITLIST]: {
+  [SECTION.HOME]: {
     wallpaper: "/backgrounds/home-gengar.png",
     wallpaperVideo: "/backgrounds/home-glaceon.mp4",
-    figure: "/pokemon/artwork/dynamax/94.png",
-    figurePosition: "bottom",
     smokeHue: "#B24DFF",
   },
   [SECTION.SHOWCASE]: {
@@ -22,7 +20,7 @@ export const SECTION_BACKDROPS: Record<number, SectionBackdropConfig> = {
     wallpaperVideo: "/backgrounds/explore-mewtwo.mp4",
     smokeHue: "#3D72FF",
   },
-  [SECTION.COMING]: {
+  [SECTION.DOWNLOAD]: {
     wallpaper: "/backgrounds/coming-eevee.png",
     wallpaperVideo: "/backgrounds/coming-umbreon.mp4",
     smokeHue: "#7C4DFF",
