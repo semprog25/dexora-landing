@@ -8,7 +8,6 @@ interface ZoomSectionProps {
   children: ReactNode
   className?: string
   contentOverflow?: "hidden" | "visible"
-  footerBleed?: ReactNode
 }
 
 export function ZoomSection({
@@ -17,7 +16,6 @@ export function ZoomSection({
   children,
   className = "",
   contentOverflow = "hidden",
-  footerBleed,
 }: ZoomSectionProps) {
   const { progress, activeIndex } = useZoomScene()
   const isActive = activeIndex === index
@@ -32,7 +30,7 @@ export function ZoomSection({
   return (
     <section
       id={id}
-      className={`zoom-panel safe-section relative z-20 flex flex-col items-center px-4 py-8 max-md:px-3 max-md:py-2 md:px-10 md:py-14 lg:px-16 ${className}`}
+      className={`zoom-panel safe-section relative z-20 px-4 py-8 max-md:px-3 max-md:py-2 md:px-10 md:py-14 lg:px-16 ${className}`}
       style={{
         transform: style.transform,
         opacity: style.opacity,
@@ -48,9 +46,6 @@ export function ZoomSection({
       >
         {children}
       </div>
-      {footerBleed ? (
-        <div className="zoom-section-bleed relative z-10 w-full shrink-0">{footerBleed}</div>
-      ) : null}
     </section>
   )
 }

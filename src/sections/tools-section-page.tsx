@@ -1,3 +1,4 @@
+import { PokemonMarquee } from "@/components/pokemon-marquee"
 import { SectionEyebrow } from "@/components/section-eyebrow"
 import { SectionShell } from "@/components/section-shell"
 import { useTranslation } from "react-i18next"
@@ -18,6 +19,8 @@ export function ToolsSectionPage({ sectionIndex }: ToolsSectionPageProps) {
           <span className="text-gradient-pink block">{t("tools.headline2")}</span>
         </h2>
         <p className="landing-page-copy mx-auto max-w-md">{t("tools.copy")}</p>
+
+        <PokemonMarquee className="tools-marquee" />
       </div>
     </SectionShell>
   )

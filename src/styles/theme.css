@@ -100,6 +100,10 @@ body.zoom-scene-active {
     justify-content: center;
   }
 
+  .zoom-section--tools .zoom-section-content[data-zoom-scroll="true"] {
+    overflow: visible;
+  }
+
   .zoom-section--daily.safe-section {
     padding-inline: max(0.65rem, env(safe-area-inset-left)) max(0.65rem, env(safe-area-inset-right));
   }
@@ -821,12 +825,13 @@ body.zoom-scene-active {
   padding-block: 0.5rem;
 }
 
-.zoom-section-bleed .pokemon-marquee-bleed {
-  width: 100%;
-  max-width: none;
-  left: auto;
-  margin-left: 0;
-  contain: none;
+.zoom-section--tools .pokemon-marquee-bleed,
+.tools-intro .pokemon-marquee-bleed {
+  width: 100vw;
+  max-width: 100vw;
+  left: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
 }
 
 .pokemon-marquee-viewport {
@@ -1027,14 +1032,19 @@ body.zoom-scene-active {
   }
 }
 
-.zoom-section-bleed {
-  align-self: stretch;
-  width: 100%;
+.zoom-section--tools .zoom-section-content {
   max-width: 100%;
+  overflow: visible;
+  padding-inline: max(0.75rem, env(safe-area-inset-left)) max(0.75rem, env(safe-area-inset-right));
 }
 
-.zoom-section--tools .zoom-section-content {
-  padding-inline: max(0.75rem, env(safe-area-inset-left)) max(0.75rem, env(safe-area-inset-right));
+.zoom-section--tools .zoom-section-content[data-zoom-scroll="true"] {
+  overflow: visible;
+}
+
+.tools-intro .tools-marquee {
+  margin-top: 0.35rem;
+  align-self: stretch;
 }
 
 .tools-marquee {

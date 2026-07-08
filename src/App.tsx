@@ -8,7 +8,6 @@ import { LogoZoomIntro } from "@/components/logo-zoom-intro"
 import { ZoomSceneProvider } from "@/components/zoom-scene"
 import { ZoomSection, ZoomHint } from "@/components/zoom-section"
 import { WaitlistHero } from "@/sections/waitlist-hero"
-import { PokemonMarquee } from "@/components/pokemon-marquee"
 import { ToolsSectionPage } from "@/sections/tools-section-page"
 import { DailyAssistantSection } from "@/sections/daily-assistant-section"
 import { CommunitySectionPage } from "@/sections/community-section-page"
@@ -47,7 +46,6 @@ export function App() {
             id="tools"
             className="zoom-section--tools zoom-section--scrollable !px-0 !py-4 md:!py-8"
             contentOverflow="visible"
-            footerBleed={<PokemonMarquee className="tools-marquee" />}
           >
             <ToolsSectionPage sectionIndex={SECTION.TOOLS} />
           </ZoomSection>
