@@ -14,7 +14,7 @@ export interface SectionBackdropConfig {
 export const SECTION_BACKDROPS: Record<number, SectionBackdropConfig> = {
   [SECTION.HOME]: {
     wallpaper: "/backgrounds/home-gengar.png",
-    wallpaperVideo: "/backgrounds/home-glaceon.mp4",
+    wallpaperVideo: "/backgrounds/home-gengar.mp4",
     smokeHue: "#B24DFF",
   },
   [SECTION.TOOLS]: {
