@@ -241,10 +241,7 @@ const LOCALE_OVERRIDES = {
     download: {
       headlinePrefix: "Téléchargez",
       headlineBrand: "Dexora",
-      copyPlay: "Disponible maintenant sur",
-      copyPlayHighlight: "Google Play",
-      copyIos: "iOS",
-      copyIosSuffix: "est en finition finale.",
+      copy: "Emportez votre compagnon quotidien à chaque chasse. Gratuit sur Android — iOS arrive bientôt.",
     },
     waitlist: {
       emailLabel: "Adresse e-mail",
@@ -378,10 +375,7 @@ const LOCALE_OVERRIDES = {
     download: {
       headlinePrefix: "Consigue",
       headlineBrand: "Dexora",
-      copyPlay: "Disponible ahora en",
-      copyPlayHighlight: "Google Play",
-      copyIos: "iOS",
-      copyIosSuffix: "está en el pulido final.",
+      copy: "Lleva a tu compañero diario en cada caza. Gratis en Android — iOS llegará pronto.",
     },
     waitlist: {
       emailLabel: "Correo electrónico",
@@ -513,10 +507,7 @@ const LOCALE_OVERRIDES = {
     download: {
       headlinePrefix: "Ottieni",
       headlineBrand: "Dexora",
-      copyPlay: "Disponibile ora su",
-      copyPlayHighlight: "Google Play",
-      copyIos: "iOS",
-      copyIosSuffix: "è in rifinitura finale.",
+      copy: "Porta il tuo compagno quotidiano in ogni caccia. Gratis su Android — iOS in arrivo.",
     },
     waitlist: {
       emailLabel: "Indirizzo email",
@@ -649,10 +640,7 @@ const LOCALE_OVERRIDES = {
     download: {
       headlinePrefix: "Baixe",
       headlineBrand: "Dexora",
-      copyPlay: "Disponível agora no",
-      copyPlayHighlight: "Google Play",
-      copyIos: "iOS",
-      copyIosSuffix: "está no polimento final.",
+      copy: "Leve seu companheiro diário em cada caçada. Grátis no Android — iOS em breve.",
     },
     waitlist: {
       emailLabel: "Endereço de e-mail",
@@ -784,10 +772,7 @@ const LOCALE_OVERRIDES = {
     download: {
       headlinePrefix: "Установите",
       headlineBrand: "Dexora",
-      copyPlay: "Уже доступно в",
-      copyPlayHighlight: "Google Play",
-      copyIos: "iOS",
-      copyIosSuffix: "на стадии финальной полировки.",
+      copy: "Берите ежедневного спутника на каждую охоту. Бесплатно на Android — iOS скоро.",
     },
     waitlist: {
       emailLabel: "Электронная почта",
@@ -920,10 +905,7 @@ const LOCALE_OVERRIDES = {
     download: {
       headlinePrefix: "今すぐ",
       headlineBrand: "Dexora",
-      copyPlay: "現在",
-      copyPlayHighlight: "Google Play",
-      copyIos: "iOS",
-      copyIosSuffix: "版は最終調整中です。",
+      copy: "毎日の相棒をすべてのハントに。Androidは無料 — iOSは近日公開。",
     },
     waitlist: {
       emailLabel: "メールアドレス",
@@ -1055,10 +1037,7 @@ const LOCALE_OVERRIDES = {
     download: {
       headlinePrefix: "지금",
       headlineBrand: "Dexora",
-      copyPlay: "에서 이용 가능",
-      copyPlayHighlight: "Google Play",
-      copyIos: "iOS",
-      copyIosSuffix: "는 최종 마무리 단계입니다.",
+      copy: "매일 함께하는 동반자를 모든 사냥에. Android는 무료 — iOS 곧 출시.",
     },
     waitlist: {
       emailLabel: "이메일 주소",
@@ -1188,10 +1167,7 @@ const LOCALE_OVERRIDES = {
     download: {
       headlinePrefix: "获取",
       headlineBrand: "Dexora",
-      copyPlay: "现已上线",
-      copyPlayHighlight: "Google Play",
-      copyIos: "iOS",
-      copyIosSuffix: "正在最后打磨中。",
+      copy: "让每日伙伴陪你每次狩猎。Android 免费 — iOS 即将推出。",
     },
     waitlist: {
       emailLabel: "邮箱地址",
@@ -1317,10 +1293,7 @@ const LOCALE_OVERRIDES = {
     download: {
       headlinePrefix: "取得",
       headlineBrand: "Dexora",
-      copyPlay: "現已上架",
-      copyPlayHighlight: "Google Play",
-      copyIos: "iOS",
-      copyIosSuffix: "正在最後打磨中。",
+      copy: "讓每日夥伴陪你每次狩獵。Android 免費 — iOS 即將推出。",
     },
     waitlist: {
       emailLabel: "電子郵件地址",
@@ -1448,10 +1421,7 @@ const LOCALE_OVERRIDES = {
     download: {
       headlinePrefix: "احصل على",
       headlineBrand: "Dexora",
-      copyPlay: "متاح الآن على",
-      copyPlayHighlight: "Google Play",
-      copyIos: "iOS",
-      copyIosSuffix: "في مرحلة اللمسات الأخيرة.",
+      copy: "اصطحب رفيقك اليومي في كل مطاردة. مجاني على Android — iOS قريبًا.",
     },
     waitlist: {
       emailLabel: "البريد الإلكتروني",
@@ -1583,10 +1553,7 @@ const LOCALE_OVERRIDES = {
     download: {
       headlinePrefix: "הורידו את",
       headlineBrand: "Dexora",
-      copyPlay: "זמין עכשיו ב-",
-      copyPlayHighlight: "Google Play",
-      copyIos: "iOS",
-      copyIosSuffix: "בשלבי ליטוש אחרונים.",
+      copy: "קחו את בן הלוויה היומי לכל מצוד. חינם ב-Android — iOS בקרוב.",
     },
     waitlist: {
       emailLabel: "כתובת אימייל",
@@ -1668,13 +1635,16 @@ function assertSameLeafPaths({ source, target, locale }) {
 }
 
 function deepMerge(base, override) {
-  if (typeof base !== "object" || base === null || Array.isArray(base)) return base
-  if (typeof override !== "object" || override === null || Array.isArray(override)) return base
+  if (override === undefined) return base
+  if (typeof override !== "object" || override === null || Array.isArray(override)) {
+    return override
+  }
+  if (typeof base !== "object" || base === null || Array.isArray(base)) {
+    return override
+  }
   const result = { ...base }
-  for (const key of Object.keys(base)) {
-    if (Object.prototype.hasOwnProperty.call(override, key)) {
-      result[key] = deepMerge(base[key], override[key])
-    }
+  for (const key of Object.keys(override)) {
+    result[key] = deepMerge(base[key], override[key])
   }
   return result
 }

@@ -2,14 +2,20 @@ import { useEffect, useMemo, useRef, useState } from "react"
 import { AnimatePresence, motion } from "motion/react"
 import { useTranslation } from "react-i18next"
 import { changeLanguage } from "@/i18n/config"
-import { DEXORA_LANGUAGES, getLanguage, type DexoraLanguage } from "@/i18n/languages"
+import {
+  DEXORA_LANGUAGES,
+  getLanguage,
+  normalizeLanguageCode,
+  type DexoraLanguage,
+} from "@/i18n/languages"
 
 export function LanguageSwitcher() {
   const { t, i18n } = useTranslation("landing")
   const [isOpen, setIsOpen] = useState(false)
   const [query, setQuery] = useState("")
   const panelRef = useRef<HTMLDivElement>(null)
-  const current = getLanguage(i18n.language)
+  const activeLanguageCode = normalizeLanguageCode(i18n.resolvedLanguage ?? i18n.language)
+  const current = getLanguage(activeLanguageCode)
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase()
@@ -109,7 +115,7 @@ export function LanguageSwitcher() {
               aria-label={t("language.title")}
             >
               {filtered.map(lang => {
-                const isSelected = lang.code === i18n.language
+                const isSelected = lang.code === activeLanguageCode
                 return (
                   <li key={lang.code}>
                     <button

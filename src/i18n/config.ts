@@ -5,6 +5,7 @@ import {
   DEXORA_LANGUAGES,
   getLanguage,
   isRtlLanguage,
+  normalizeLanguageCode,
 } from "./languages"
 import { loadPersistedLanguageSync, persistLanguageSync } from "./persistence"
 
@@ -59,21 +60,26 @@ export async function initI18n(preferredCode?: string): Promise<typeof i18n> {
     const matchedBrowser = DEXORA_LANGUAGES.find(
       lang => browserLang === lang.code || browserLang.startsWith(`${lang.code}-`),
     )?.code
-    const initialCode = resources[savedCode as keyof typeof resources]
-      ? savedCode
-      : matchedBrowser && resources[matchedBrowser as keyof typeof resources]
-        ? matchedBrowser
-        : DEFAULT_LANGUAGE_CODE
+    const normalizedSaved = normalizeLanguageCode(savedCode)
+    const normalizedBrowser = matchedBrowser ? normalizeLanguageCode(matchedBrowser) : null
+    const initialCode =
+      resources[normalizedSaved as keyof typeof resources]
+        ? normalizedSaved
+        : normalizedBrowser && resources[normalizedBrowser as keyof typeof resources]
+          ? normalizedBrowser
+          : DEFAULT_LANGUAGE_CODE
 
     await i18n.use(initReactI18next).init({
       lng: initialCode,
       fallbackLng: DEFAULT_LANGUAGE_CODE,
       supportedLngs: Object.keys(resources),
+      nonExplicitSupportedLngs: true,
+      load: "languageOnly",
       ns: ["landing"],
       defaultNS: "landing",
       resources,
       interpolation: { escapeValue: false },
-      react: { useSuspense: false },
+      react: { useSuspense: false, bindI18n: "languageChanged", bindI18nStore: "added removed" },
       returnEmptyString: false,
     })
 
@@ -85,9 +91,10 @@ export async function initI18n(preferredCode?: string): Promise<typeof i18n> {
 }
 
 export async function changeLanguage(code: string): Promise<void> {
-  persistLanguageSync(code)
-  applyDocumentLanguage(code)
-  await i18n.changeLanguage(code)
+  const normalizedCode = normalizeLanguageCode(code)
+  persistLanguageSync(normalizedCode)
+  applyDocumentLanguage(normalizedCode)
+  await i18n.changeLanguage(normalizedCode)
 }
 
 export function getI18n() {

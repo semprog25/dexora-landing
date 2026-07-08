@@ -1,41 +1,41 @@
 {
   "meta": {
-    "title": "Dexora — Daily Pokémon GO Assistant & Collection Tracker",
-    "description": "Dexora is your daily Pokémon GO companion — home dashboard, living dex tracking, raid & PvP intelligence, Trainer Vision, and 13 languages. Free on Google Play."
+    "title": "Dexora — 每日 Pokémon GO 助手与收藏追踪",
+    "description": "Dexora 是你的每日 Pokémon GO 伙伴——主页仪表盘、living dex 追踪、Raid 与 PvP 情报、Trainer Vision，以及 13 种语言。Google Play 免费提供。"
   },
   "nav": {
-    "legalLabel": "Legal and support",
-    "privacy": "Privacy",
-    "terms": "Terms",
-    "deleteAccount": "Delete account",
-    "contact": "Contact",
-    "feedback": "Feedback",
-    "home": "Home",
+    "legalLabel": "法律与支持",
+    "privacy": "隐私",
+    "terms": "条款",
+    "deleteAccount": "删除账号",
+    "contact": "联系我们",
+    "feedback": "反馈",
+    "home": "首页",
     "tools": "Tools",
     "daily": "Daily",
     "community": "Community",
-    "explore": "Explore",
-    "download": "Download",
-    "legal": "Legal"
+    "explore": "探索",
+    "download": "下载",
+    "legal": "法律"
   },
   "language": {
-    "title": "Language",
-    "choose": "Choose language",
-    "searchPlaceholder": "Search languages…",
-    "previewHint": "Tap a language to preview instantly"
+    "title": "语言",
+    "choose": "选择语言",
+    "searchPlaceholder": "搜索语言…",
+    "previewHint": "点击语言可立即预览"
   },
   "hero": {
-    "eyebrow": "Pokémon GO companion",
-    "headline1": "Your daily",
+    "eyebrow": "Pokémon GO 伙伴",
+    "headline1": "你的每日",
     "headline2": "Pokémon GO",
-    "headline3": "assistant",
-    "copy": "Track your living dex, plan hunts, and get smarter battle insights — built for trainers who play every day.",
+    "headline3": "助手",
+    "copy": "追踪 living dex、规划狩猎并获得更智能的对战分析 — 为每天游玩的训练家打造。",
     "benefitDaily": "Daily GO Assistant",
     "benefitCollection": "Collection Tracking",
     "benefitBattle": "Battle Intelligence",
-    "playStoreNote": "Free on Android · iOS coming soon",
-    "waitlistEyebrow": "Or join the waitlist",
-    "waitlistHint": "EARLY ACCESS · NO SPAM"
+    "playStoreNote": "Android 免费 · iOS 即将推出",
+    "waitlistEyebrow": "或加入候补名单",
+    "waitlistHint": "抢先体验 · 无垃圾邮件"
   },
   "tools": {
     "eyebrow": "POWER TOOLS",
@@ -54,88 +54,88 @@
     "copy": "Friend codes, group chat, and full localization in 13 languages."
   },
   "showcase": {
-    "eyebrow": "EXPLORE DEXORA",
-    "headline1": "Built for trainers",
-    "headline2": "who play",
-    "headlineHighlight": "every day",
-    "copy": "One home dashboard. Priorities, collection progress, battle intelligence, events, and community — everything you need before you leave the house.",
-    "coreDailyTitle": "Daily Assistant",
-    "coreDailyText": "Priorities, today's hunt, daily missions, and event-aware hero — every time you open Dexora.",
-    "coreCollectionTitle": "Collection Tracking",
-    "coreCollectionText": "Living dex, shinies, megas, hundos, and milestone rings — synced securely to the cloud with Google sign-in.",
-    "coreBattleTitle": "Battle Intelligence",
-    "coreBattleText": "Raid ratings, PvP tiers, Rocket counters, and AI recommendations per Pokémon.",
+    "eyebrow": "探索 DEXORA",
+    "headline1": "专为每天游玩的",
+    "headline2": "训练家打造",
+    "headlineHighlight": "",
+    "copy": "一个主页仪表盘，整合优先事项、收藏进度、对战情报、活动与社区——出门前所需信息一目了然。",
+    "coreDailyTitle": "每日助手",
+    "coreDailyText": "优先事项、今日狩猎、每日任务与活动感知首页，每次打开 Dexora 都能看到。",
+    "coreCollectionTitle": "收藏追踪",
+    "coreCollectionText": "living dex、shiny、mega、hundo 与里程碑圆环，通过 Google 登录安全云同步。",
+    "coreBattleTitle": "对战情报",
+    "coreBattleText": "提供 Raid 评级、PvP 分级、Rocket 克制与按 Pokémon 的 AI 推荐。",
     "highlightVisionTitle": "Trainer Vision",
-    "highlightVisionText": "Scan screenshots to identify Pokémon, IVs, and catch opportunities instantly with on-device OCR.",
+    "highlightVisionText": "通过设备端 OCR 扫描截图，立即识别 Pokémon、IV 与捕捉机会。",
     "highlightCatchTitle": "Catch Queue",
-    "highlightCatchText": "Weekly raid targets sync automatically. Track pending and caught Pokémon.",
-    "highlightPokedexTitle": "Offline Pokédex",
-    "highlightPokedexText": "{{speciesCount}} species with GO stats, moves, and artwork cached on device.",
-    "highlightEventsTitle": "Event Tracker",
-    "highlightEventsText": "Community Day, GO Fest, and live events with move pools, bonuses, and countdown reminders.",
-    "highlightCommunityTitle": "Trainer Community",
-    "highlightCommunityText": "Friend codes, group chat, raid coordination, and moderation tools — connect with trainers worldwide.",
-    "highlightLanguagesTitle": "13 Languages",
-    "highlightLanguagesText": "Full app localization — English, Deutsch, Français, Español, and 9 more, including Arabic and Hebrew.",
-    "ctaNote": "Trusted by trainers syncing {{speciesCount}}+ species offline"
+    "highlightCatchText": "每周 Raid 目标自动同步，追踪待抓与已抓 Pokémon。",
+    "highlightPokedexTitle": "离线 Pokédex",
+    "highlightPokedexText": "{{speciesCount}} 个物种，含 GO 数据、招式与插图，缓存到设备。",
+    "highlightEventsTitle": "活动追踪",
+    "highlightEventsText": "Community Day、GO Fest 与实时活动，提供招式池、加成与倒计时提醒。",
+    "highlightCommunityTitle": "训练家社区",
+    "highlightCommunityText": "好友码、群聊、Raid 协调与审核工具——与全球训练家连接。",
+    "highlightLanguagesTitle": "13 种语言",
+    "highlightLanguagesText": "完整应用本地化——English、Deutsch、Français、Español 等 13 种语言，含阿拉伯语与希伯来语。",
+    "ctaNote": "深受训练家信赖，离线同步 {{speciesCount}}+ 个物种"
   },
   "download": {
-    "headlinePrefix": "Get",
+    "headlinePrefix": "获取",
     "headlineBrand": "Dexora",
-    "copy": "Take your daily companion on every hunt. Free on Android — iOS is on the way."
+    "copy": "让每日伙伴陪你每次狩猎。Android 免费 — iOS 即将推出。"
   },
   "waitlist": {
-    "emailLabel": "Email address",
+    "emailLabel": "邮箱地址",
     "emailPlaceholder": "trainer@email.com",
-    "join": "Join Waitlist",
-    "joining": "Joining...",
-    "joinButton": "Join Waitlist",
-    "invalidEmail": "Please enter a valid email address.",
-    "notConfigured": "Waitlist is not configured yet. Please try again soon.",
-    "alreadyOnList": "You're already on the waitlist!",
-    "error": "Something went wrong. Please try again.",
-    "success": "You're on the list! We'll notify you at launch."
+    "join": "加入候补名单",
+    "joining": "加入中...",
+    "joinButton": "加入候补名单",
+    "invalidEmail": "请输入有效的邮箱地址。",
+    "notConfigured": "候补名单尚未配置，请稍后再试。",
+    "alreadyOnList": "你已在候补名单中！",
+    "error": "发生错误，请重试。",
+    "success": "你已成功加入！上线时我们会通知你。"
   },
   "store": {
-    "googlePlayAria": "Get Dexora on Google Play",
+    "googlePlayAria": "在 Google Play 获取 Dexora",
     "appStoreAria": "Dexora on the App Store — coming soon",
-    "getItOn": "GET IT ON",
+    "getItOn": "下载于",
     "downloadOn": "Download on the",
     "googlePlay": "Google Play",
     "appStore": "App Store",
     "comingSoonToast": "Coming soon on the App Store!"
   },
   "footer": {
-    "rights": "© {{year}} Dexora. All rights reserved.",
+    "rights": "© {{year}} Dexora。保留所有权利。",
     "contact": "Contact us"
   },
   "legalPage": {
     "brand": "DEXORA",
-    "effective": "Effective {{date}}",
-    "backHome": "← Back to home",
-    "emailSupport": "Email support@dexora.app",
-    "privacyPolicy": "Privacy policy"
+    "effective": "{{date}} 生效",
+    "backHome": "← 返回首页",
+    "emailSupport": "发送邮件至 support@dexora.app",
+    "privacyPolicy": "隐私政策"
   },
   "legal": {
     "privacy": {
-      "title": "Privacy Policy",
-      "description": "How Dexora handles your information on dexora.app and in the app."
+      "title": "隐私政策",
+      "description": "Dexora 如何在 dexora.app 与应用中处理你的信息。"
     },
     "terms": {
-      "title": "Terms & Conditions",
-      "description": "Rules for using dexora.app and the Dexora companion app."
+      "title": "条款与条件",
+      "description": "使用 dexora.app 与 Dexora 伴侣应用的规则。"
     },
     "contact": {
-      "title": "Contact Us",
-      "description": "Get in touch with the Dexora team."
+      "title": "联系我们",
+      "description": "联系 Dexora 团队。"
     },
     "feedback": {
-      "title": "Feedback",
-      "description": "Share ideas, report bugs, or suggest improvements."
+      "title": "反馈",
+      "description": "分享想法、报告问题或提出改进建议。"
     },
     "delete-account": {
-      "title": "Delete Account & Data",
-      "description": "Permanently remove your Dexora cloud account and associated data."
+      "title": "删除账号与数据",
+      "description": "永久移除你的 Dexora 云账号及相关数据。"
     }
   }
 }

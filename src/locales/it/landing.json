@@ -1,41 +1,41 @@
 {
   "meta": {
-    "title": "Dexora — Daily Pokémon GO Assistant & Collection Tracker",
-    "description": "Dexora is your daily Pokémon GO companion — home dashboard, living dex tracking, raid & PvP intelligence, Trainer Vision, and 13 languages. Free on Google Play."
+    "title": "Dexora — Assistente giornaliero di Pokémon GO e tracker collezione",
+    "description": "Dexora è il tuo compagno quotidiano per Pokémon GO — dashboard home, monitoraggio living dex, intelligence raid e PvP, Trainer Vision e 13 lingue. Gratis su Google Play."
   },
   "nav": {
-    "legalLabel": "Legal and support",
+    "legalLabel": "Legale e supporto",
     "privacy": "Privacy",
-    "terms": "Terms",
-    "deleteAccount": "Delete account",
-    "contact": "Contact",
+    "terms": "Termini",
+    "deleteAccount": "Elimina account",
+    "contact": "Contatti",
     "feedback": "Feedback",
     "home": "Home",
     "tools": "Tools",
     "daily": "Daily",
     "community": "Community",
-    "explore": "Explore",
-    "download": "Download",
-    "legal": "Legal"
+    "explore": "Esplora",
+    "download": "Scarica",
+    "legal": "Legale"
   },
   "language": {
-    "title": "Language",
-    "choose": "Choose language",
-    "searchPlaceholder": "Search languages…",
-    "previewHint": "Tap a language to preview instantly"
+    "title": "Lingua",
+    "choose": "Scegli lingua",
+    "searchPlaceholder": "Cerca lingue…",
+    "previewHint": "Tocca una lingua per un'anteprima immediata"
   },
   "hero": {
-    "eyebrow": "Pokémon GO companion",
-    "headline1": "Your daily",
+    "eyebrow": "Compagno Pokémon GO",
+    "headline1": "Il tuo",
     "headline2": "Pokémon GO",
-    "headline3": "assistant",
-    "copy": "Track your living dex, plan hunts, and get smarter battle insights — built for trainers who play every day.",
+    "headline3": "assistente quotidiano",
+    "copy": "Traccia il tuo living dex, pianifica cacce e ottieni analisi di combattimento più intelligenti — per allenatori che giocano ogni giorno.",
     "benefitDaily": "Daily GO Assistant",
     "benefitCollection": "Collection Tracking",
     "benefitBattle": "Battle Intelligence",
-    "playStoreNote": "Free on Android · iOS coming soon",
-    "waitlistEyebrow": "Or join the waitlist",
-    "waitlistHint": "EARLY ACCESS · NO SPAM"
+    "playStoreNote": "Gratis su Android · iOS in arrivo",
+    "waitlistEyebrow": "Oppure unisciti alla lista d'attesa",
+    "waitlistHint": "ACCESSO ANTICIPATO · NIENTE SPAM"
   },
   "tools": {
     "eyebrow": "POWER TOOLS",
@@ -54,88 +54,88 @@
     "copy": "Friend codes, group chat, and full localization in 13 languages."
   },
   "showcase": {
-    "eyebrow": "EXPLORE DEXORA",
-    "headline1": "Built for trainers",
-    "headline2": "who play",
-    "headlineHighlight": "every day",
-    "copy": "One home dashboard. Priorities, collection progress, battle intelligence, events, and community — everything you need before you leave the house.",
-    "coreDailyTitle": "Daily Assistant",
-    "coreDailyText": "Priorities, today's hunt, daily missions, and event-aware hero — every time you open Dexora.",
-    "coreCollectionTitle": "Collection Tracking",
-    "coreCollectionText": "Living dex, shinies, megas, hundos, and milestone rings — synced securely to the cloud with Google sign-in.",
-    "coreBattleTitle": "Battle Intelligence",
-    "coreBattleText": "Raid ratings, PvP tiers, Rocket counters, and AI recommendations per Pokémon.",
+    "eyebrow": "ESPLORA DEXORA",
+    "headline1": "Creato per gli allenatori",
+    "headline2": "che giocano",
+    "headlineHighlight": "ogni giorno",
+    "copy": "Una dashboard home. Priorità, progresso collezione, intelligence battaglia, eventi e community — tutto ciò che ti serve prima di uscire.",
+    "coreDailyTitle": "Assistente quotidiano",
+    "coreDailyText": "Priorità, caccia di oggi, missioni giornaliere ed hero orientato agli eventi — ogni volta che apri Dexora.",
+    "coreCollectionTitle": "Tracking collezione",
+    "coreCollectionText": "Living dex, shiny, mega, hundo e anelli traguardo — sincronizzati in sicurezza sul cloud con accesso Google.",
+    "coreBattleTitle": "Intelligence battaglia",
+    "coreBattleText": "Valutazioni raid, tier PvP, counter Rocket e consigli AI per ogni Pokémon.",
     "highlightVisionTitle": "Trainer Vision",
-    "highlightVisionText": "Scan screenshots to identify Pokémon, IVs, and catch opportunities instantly with on-device OCR.",
+    "highlightVisionText": "Scansiona screenshot per identificare Pokémon, IV e opportunità di cattura istantaneamente con OCR sul dispositivo.",
     "highlightCatchTitle": "Catch Queue",
-    "highlightCatchText": "Weekly raid targets sync automatically. Track pending and caught Pokémon.",
-    "highlightPokedexTitle": "Offline Pokédex",
-    "highlightPokedexText": "{{speciesCount}} species with GO stats, moves, and artwork cached on device.",
-    "highlightEventsTitle": "Event Tracker",
-    "highlightEventsText": "Community Day, GO Fest, and live events with move pools, bonuses, and countdown reminders.",
-    "highlightCommunityTitle": "Trainer Community",
-    "highlightCommunityText": "Friend codes, group chat, raid coordination, and moderation tools — connect with trainers worldwide.",
-    "highlightLanguagesTitle": "13 Languages",
-    "highlightLanguagesText": "Full app localization — English, Deutsch, Français, Español, and 9 more, including Arabic and Hebrew.",
-    "ctaNote": "Trusted by trainers syncing {{speciesCount}}+ species offline"
+    "highlightCatchText": "I target raid settimanali si sincronizzano automaticamente. Traccia Pokémon in attesa e catturati.",
+    "highlightPokedexTitle": "Pokédex offline",
+    "highlightPokedexText": "{{speciesCount}} specie con statistiche GO, mosse e artwork in cache sul dispositivo.",
+    "highlightEventsTitle": "Tracker eventi",
+    "highlightEventsText": "Community Day, GO Fest ed eventi live con pool mosse, bonus e promemoria countdown.",
+    "highlightCommunityTitle": "Community allenatori",
+    "highlightCommunityText": "Codici amico, chat di gruppo, coordinamento raid e strumenti di moderazione — connettiti con allenatori di tutto il mondo.",
+    "highlightLanguagesTitle": "13 lingue",
+    "highlightLanguagesText": "Localizzazione completa dell'app — English, Deutsch, Français, Español e altre 9, incluse arabo ed ebraico.",
+    "ctaNote": "Scelto dagli allenatori che sincronizzano {{speciesCount}}+ specie offline"
   },
   "download": {
-    "headlinePrefix": "Get",
+    "headlinePrefix": "Ottieni",
     "headlineBrand": "Dexora",
-    "copy": "Take your daily companion on every hunt. Free on Android — iOS is on the way."
+    "copy": "Porta il tuo compagno quotidiano in ogni caccia. Gratis su Android — iOS in arrivo."
   },
   "waitlist": {
-    "emailLabel": "Email address",
+    "emailLabel": "Indirizzo email",
     "emailPlaceholder": "trainer@email.com",
-    "join": "Join Waitlist",
-    "joining": "Joining...",
-    "joinButton": "Join Waitlist",
-    "invalidEmail": "Please enter a valid email address.",
-    "notConfigured": "Waitlist is not configured yet. Please try again soon.",
-    "alreadyOnList": "You're already on the waitlist!",
-    "error": "Something went wrong. Please try again.",
-    "success": "You're on the list! We'll notify you at launch."
+    "join": "Unisciti alla lista",
+    "joining": "Iscrizione in corso...",
+    "joinButton": "Unisciti alla lista",
+    "invalidEmail": "Inserisci un indirizzo email valido.",
+    "notConfigured": "La lista d'attesa non è ancora configurata. Riprova presto.",
+    "alreadyOnList": "Sei già nella lista d'attesa!",
+    "error": "Qualcosa è andato storto. Riprova.",
+    "success": "Sei nella lista! Ti avviseremo al momento del lancio."
   },
   "store": {
-    "googlePlayAria": "Get Dexora on Google Play",
+    "googlePlayAria": "Ottieni Dexora su Google Play",
     "appStoreAria": "Dexora on the App Store — coming soon",
-    "getItOn": "GET IT ON",
+    "getItOn": "SCARICALO SU",
     "downloadOn": "Download on the",
     "googlePlay": "Google Play",
     "appStore": "App Store",
     "comingSoonToast": "Coming soon on the App Store!"
   },
   "footer": {
-    "rights": "© {{year}} Dexora. All rights reserved.",
+    "rights": "© {{year}} Dexora. Tutti i diritti riservati.",
     "contact": "Contact us"
   },
   "legalPage": {
     "brand": "DEXORA",
-    "effective": "Effective {{date}}",
-    "backHome": "← Back to home",
-    "emailSupport": "Email support@dexora.app",
-    "privacyPolicy": "Privacy policy"
+    "effective": "In vigore dal {{date}}",
+    "backHome": "← Torna alla home",
+    "emailSupport": "Invia un'email a support@dexora.app",
+    "privacyPolicy": "Informativa sulla privacy"
   },
   "legal": {
     "privacy": {
-      "title": "Privacy Policy",
-      "description": "How Dexora handles your information on dexora.app and in the app."
+      "title": "Informativa sulla privacy",
+      "description": "Come Dexora gestisce le tue informazioni su dexora.app e nell'app."
     },
     "terms": {
-      "title": "Terms & Conditions",
-      "description": "Rules for using dexora.app and the Dexora companion app."
+      "title": "Termini e condizioni",
+      "description": "Regole per l'uso di dexora.app e dell'app companion Dexora."
     },
     "contact": {
-      "title": "Contact Us",
-      "description": "Get in touch with the Dexora team."
+      "title": "Contattaci",
+      "description": "Mettiti in contatto con il team Dexora."
     },
     "feedback": {
       "title": "Feedback",
-      "description": "Share ideas, report bugs, or suggest improvements."
+      "description": "Condividi idee, segnala bug o suggerisci miglioramenti."
     },
     "delete-account": {
-      "title": "Delete Account & Data",
-      "description": "Permanently remove your Dexora cloud account and associated data."
+      "title": "Elimina account e dati",
+      "description": "Rimuovi definitivamente il tuo account cloud Dexora e i dati associati."
     }
   }
 }

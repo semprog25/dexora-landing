@@ -135,6 +135,18 @@ const languageByCode = new Map(DEXORA_LANGUAGES.map(lang => [lang.code, lang]))
 export function normalizeLanguageCode(value: string | null | undefined): string {
   if (!value) return DEFAULT_LANGUAGE_CODE
   if (languageByCode.has(value)) return value
+
+  const lower = value.toLowerCase()
+  if (lower.startsWith("zh")) {
+    if (lower.includes("hans") || lower === "zh-cn" || lower === "zh-sg") return "zh-Hans"
+    if (lower.includes("hant") || lower === "zh-tw" || lower === "zh-hk" || lower === "zh-mo") {
+      return "zh-Hant"
+    }
+  }
+
+  const baseCode = value.split("-")[0]
+  if (languageByCode.has(baseCode)) return baseCode
+
   return DEFAULT_LANGUAGE_CODE
 }
 
