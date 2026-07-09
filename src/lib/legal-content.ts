@@ -28,11 +28,15 @@ export const LEGAL_PAGES: Record<LegalSlug, LegalDocument> = {
       },
       {
         heading: "App account data",
-        body: "When you use the Dexora app, your trainer profile, collection progress, favorites, language preference, optional Google sign-in email, community messages, public trainer code, and Dexora Plus subscription status may be saved to your Dexora cloud account to sync across devices.",
+        body: "When you use the Dexora app, your trainer profile, collection progress, favorites, language preference, optional Google sign-in email, community messages, public trainer code, scan history metadata (species, CP, and similar stats — not screenshots), and Dexora Plus subscription status may be saved to your Dexora cloud account to sync across devices.",
       },
       {
-        heading: "Trainer Vision photos",
-        body: "Pokémon GO screenshots you import for Trainer Vision are processed on your device with OCR. They are not uploaded to Dexora servers.",
+        heading: "Trainer Vision & Live Scanner",
+        body: "Pokémon GO screenshots you import manually, or screen frames captured when you tap scan in Live Scanner (Android), are processed on your device with OCR to identify Pokémon and stats. Raw images and screen recordings are not uploaded to Dexora servers.",
+      },
+      {
+        heading: "Android permissions (Live Scanner)",
+        body: "Live Scanner is optional and Android-only. If you enable it, Dexora may request: Notifications (scanner status alerts); Display over other apps (floating scan button while playing); Accessibility (detect when Pokémon GO is in the foreground — Dexora does not automate gameplay); and Screen capture / Media Projection (read the current game screen only when you tap scan). Dexora also uses a foreground service while the overlay is active. You can revoke any permission in Android Settings or in Dexora → Settings → App Permissions.",
       },
       {
         heading: "Community features",
@@ -78,7 +82,19 @@ export const LEGAL_PAGES: Record<LegalSlug, LegalDocument> = {
       },
       {
         heading: "Subscriptions",
-        body: "Dexora Plus is an optional paid subscription for premium features. Billing, renewal, and cancellation are handled through the Apple App Store or Google Play and their respective terms.",
+        body: "Dexora Plus is an optional paid subscription for premium features such as unlimited Trainer Vision scans, advanced recommendations, collection analytics, and data export. Billing, renewal, and cancellation are handled through the Apple App Store or Google Play and their respective terms.",
+      },
+      {
+        heading: "Live Scanner & fair play",
+        body: "Live Scanner reads on-screen Pokémon GO information when you manually tap scan. Dexora does not automate gameplay, spoof location, bot, or interact with Pokémon GO on your behalf. Use of companion tools may be subject to Niantic's Terms of Service; you are responsible for how you use Dexora.",
+      },
+      {
+        heading: "Android permissions",
+        body: "By enabling Live Scanner you consent to granting the Android permissions described in our Privacy Policy. You are responsible for managing these permissions on your device and may disable Live Scanner at any time.",
+      },
+      {
+        heading: "Community conduct",
+        body: "Community chat, groups, and public trainer codes must be used respectfully. Spam, harassment, or abuse may result in content removal or account restrictions.",
       },
       {
         heading: "Limitation of liability",
@@ -136,7 +152,7 @@ export const LEGAL_PAGES: Record<LegalSlug, LegalDocument> = {
       },
       {
         heading: "What is not deleted by Dexora",
-        body: "Your Google Play subscription billing history (manage or cancel in Google Play). Pokémon GO screenshots processed on-device for Trainer Vision are not uploaded to Dexora servers.",
+        body: "Your Google Play or App Store subscription billing history (manage or cancel in the store). Pokémon GO screenshots and Live Scanner screen frames are processed on-device and are not uploaded to Dexora servers, so there is no image data for Dexora to delete.",
       },
       {
         heading: "Request deletion by email",
@@ -154,7 +170,7 @@ export const LEGAL_LINKS: { slug: LegalSlug; label: string; href: string }[] = [
   { slug: "feedback", label: "Feedback", href: "/feedback" },
 ]
 
-export const LEGAL_EFFECTIVE_DATE = "July 5, 2026"
+export const LEGAL_EFFECTIVE_DATE = "July 9, 2026"
 
 export function getLegalSlug(pathname: string): LegalSlug | null {
   const slug = pathname.replace(/^\/+|\/+$/g, "")
