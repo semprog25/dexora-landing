@@ -355,8 +355,7 @@ body.zoom-scene-active {
     border-radius: 0.7rem;
   }
 
-  .pokemon-showcase-img,
-  .pokemon-showcase-artwork {
+  .pokemon-showcase-img {
     max-width: 40px;
     max-height: 40px;
   }
@@ -922,7 +921,8 @@ body.zoom-scene-active {
   }
 }
 
-.pokemon-showcase-card:hover {
+.pokemon-showcase-card:hover,
+.pokemon-showcase-card:focus-visible {
   border-color: var(--poke-glow, #00f0ff);
   transform: translateY(-2px) scale(1.04);
   z-index: 20;
@@ -933,7 +933,8 @@ body.zoom-scene-active {
     inset 0 0 20px color-mix(in srgb, var(--poke-glow, #00f0ff) 16%, transparent);
 }
 
-.pokemon-showcase-card:hover::after {
+.pokemon-showcase-card:hover::after,
+.pokemon-showcase-card:focus-visible::after {
   opacity: 1;
 }
 
@@ -958,69 +959,22 @@ body.zoom-scene-active {
   opacity: 0.78;
 }
 
-.pokemon-showcase-artwork {
-  position: absolute;
-  inset: 10px;
-  margin: auto;
-  max-width: 56px;
-  max-height: 56px;
-  opacity: 0;
-  transform: scale(0.92);
-  pointer-events: none;
-}
-
 @media (min-width: 768px) {
   .pokemon-showcase-img {
     max-width: 60px;
     max-height: 60px;
   }
-
-  .pokemon-showcase-artwork {
-    inset: 12px;
-    max-width: 60px;
-    max-height: 60px;
-  }
 }
 
-.pokemon-showcase-card:hover .pokemon-showcase-silhouette {
-  opacity: 0;
-  transform: scale(0.85);
-}
-
-.pokemon-showcase-card:hover .pokemon-showcase-artwork {
+.pokemon-showcase-card:hover .pokemon-showcase-silhouette,
+.pokemon-showcase-card:focus-visible .pokemon-showcase-silhouette {
   opacity: 1;
-  transform: scale(1);
+  transform: scale(1.02);
   filter:
+    brightness(0) invert(1)
     drop-shadow(0 0 4px var(--poke-glow, #3d72ff))
     drop-shadow(0 0 10px var(--poke-glow, #3d72ff))
-    drop-shadow(0 0 22px color-mix(in srgb, var(--poke-glow, #3d72ff) 80%, transparent))
-    drop-shadow(0 0 36px color-mix(in srgb, var(--poke-glow, #3d72ff) 50%, transparent));
-  animation: poke-neon-flash 0.5s ease-out;
-}
-
-@keyframes poke-neon-flash {
-  0% {
-    opacity: 0;
-    transform: scale(0.85);
-    filter: brightness(0.8);
-  }
-  35% {
-    opacity: 1;
-    transform: scale(1.05);
-    filter:
-      drop-shadow(0 0 8px #fff)
-      drop-shadow(0 0 16px var(--poke-glow, #3d72ff))
-      drop-shadow(0 0 32px var(--poke-glow, #3d72ff));
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-    filter:
-      drop-shadow(0 0 4px var(--poke-glow, #3d72ff))
-      drop-shadow(0 0 10px var(--poke-glow, #3d72ff))
-      drop-shadow(0 0 22px color-mix(in srgb, var(--poke-glow, #3d72ff) 80%, transparent))
-      drop-shadow(0 0 36px color-mix(in srgb, var(--poke-glow, #3d72ff) 50%, transparent));
-  }
+    drop-shadow(0 0 22px color-mix(in srgb, var(--poke-glow, #3d72ff) 80%, transparent));
 }
 
 @keyframes pokemon-marquee {

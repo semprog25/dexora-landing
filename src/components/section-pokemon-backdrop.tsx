@@ -51,7 +51,11 @@ export function SectionPokemonBackdrop() {
                 loop
                 muted
                 playsInline
+                disablePictureInPicture
+                disableRemotePlayback
+                controls={false}
                 preload={index === 0 ? "auto" : "metadata"}
+                tabIndex={-1}
               />
             ) : (
               <img

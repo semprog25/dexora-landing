@@ -1,5 +1,5 @@
 import type { CSSProperties } from "react"
-import { getArtworkSrc, getShowcaseSrc } from "@/lib/showcase-pokemon"
+import { getShowcaseSrc } from "@/lib/showcase-pokemon"
 
 interface PokemonShowcaseCardProps {
   dexId: number
@@ -20,16 +20,6 @@ export function PokemonShowcaseCard({ dexId, name, glow }: PokemonShowcaseCardPr
         width={56}
         height={56}
         className="pokemon-showcase-img pokemon-showcase-silhouette"
-        loading="lazy"
-        decoding="async"
-        draggable={false}
-      />
-      <img
-        src={getArtworkSrc(dexId)}
-        alt=""
-        width={56}
-        height={56}
-        className="pokemon-showcase-img pokemon-showcase-artwork"
         loading="lazy"
         decoding="async"
         draggable={false}

@@ -18,7 +18,3 @@ export const SHOWCASE_POKEMON = [
 export function getShowcaseSrc(dexId: number): string {
   return getSilhouetteSrc(dexId)
 }
-
-export function getArtworkSrc(dexId: number): string {
-  return `/pokemon/artwork/${dexId}.png`
-}
