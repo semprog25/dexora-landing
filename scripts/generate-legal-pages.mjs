@@ -11,7 +11,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const distDir = path.resolve(__dirname, "../dist")
 
 const SITE_ORIGIN = "https://www.dexora.app"
-const EFFECTIVE_DATE = "July 9, 2026"
+const EFFECTIVE_DATE = "September 20, 2026"
 const SUPPORT_EMAIL = "support@dexora.app"
 
 const LEGAL_DISCLAIMER =
@@ -27,43 +27,71 @@ const LEGAL_PAGES = {
     sections: [
       {
         heading: "Overview",
-        body: "Dexora respects your privacy. This policy explains what we collect, why we collect it, and how you can contact us.",
+        body: "Dexora respects your privacy. This policy describes what information we process when you use dexora.app or the Dexora mobile app, why we process it, and the choices you have. Dexora is an independent Pokémon GO companion and is not affiliated with, endorsed by, or sponsored by Niantic, The Pokémon Company, Nintendo, or Creatures Inc.",
       },
       {
-        heading: "Waitlist sign-ups",
-        body: "If you join the waitlist, we store your email address in our secure Supabase database so we can notify you about early access. We do not sell or rent waitlist emails to third parties.",
+        heading: "Account and profile",
+        body: "When you use the app, Dexora creates a cloud account through Supabase Auth (an anonymous account on first use, or the same account linked to Google Sign-In if you choose). We store your trainer profile (display name, trainer code, team, level, points, avatar, language, and onboarding preferences), synced collection progress (species caught, shiny, shadow, lucky, and related flags), favorites, and structured scan history metadata (species, CP, IV-related fields, timestamps — not full OCR text) in Supabase so your data can sync across devices. Optional Google sign-in may provide your email and name to Supabase as part of authentication.",
       },
       {
-        heading: "App account data",
-        body: "When you use the Dexora app, your trainer profile, collection progress, favorites, language preference, optional Google sign-in email, community messages, public trainer code, scan history metadata (species, CP, and similar stats — not screenshots), and Dexora Plus subscription status may be saved to your Dexora cloud account to sync across devices.",
+        heading: "Trainer Vision, scanning, and Live Companion",
+        body: "When you import a Pokémon GO screenshot or use Live Scanner / Live Companion on Android, image and screen frames are processed on your device with OCR and related analysis to identify Pokémon and stats. Raw screenshots, screen recordings, and live camera frames are not uploaded to Dexora servers. Structured results from scans may be saved to your cloud profile and to local storage on your device. Full OCR raw text is not synced to Supabase; it may remain in local scan history on your device (for example Recent Scans) until you clear app data or uninstall. Live Companion may continuously process frames on-device while a session is active, only when you enable it.",
       },
       {
-        heading: "Trainer Vision and Live Scanner",
-        body: "Pokémon GO screenshots you import manually, or screen frames captured when you tap scan in Live Scanner (Android), are processed on your device with OCR to identify Pokémon and stats. Raw images and screen recordings are not uploaded to Dexora servers.",
+        heading: "Android permissions (Live Scanner / Live Companion)",
+        body: "Live Scanner and Live Companion are optional and Android-only. If you enable them, Dexora may request: notifications (scanner status); display over other apps (overlay while playing); accessibility (detect when Pokémon GO is in the foreground — Dexora does not automate gameplay or read game UI text through accessibility); and screen capture / Media Projection (read the game screen for on-device analysis when you scan). Dexora may run a foreground service while the overlay is active. You can revoke permissions in Android Settings or in Dexora → Settings → App Permissions.",
       },
       {
-        heading: "Android permissions (Live Scanner)",
-        body: "Live Scanner is optional and Android-only. If you enable it, Dexora may request: Notifications (scanner status alerts); Display over other apps (floating scan button while playing); Accessibility (detect when Pokémon GO is in the foreground — Dexora does not automate gameplay); and Screen capture / Media Projection (read the current game screen only when you tap scan). Dexora also uses a foreground service while the overlay is active. You can revoke any permission in Android Settings or in Dexora → Settings → App Permissions.",
+        heading: "Community and support",
+        body: "If you use community features, public feed messages, groups, group chat, mini-game scores, or share a public trainer code, that content is stored in our Supabase database. Community chat may be moderated with automated filters; you can report messages and block users. If you contact support through the app or website, we store the email and message you submit in support_requests.",
       },
       {
-        heading: "Community features",
-        body: "If you use community chat, group messages, or public friend codes, that content is stored in our cloud database. Chat is moderated with automated filters; you can report messages and block users.",
+        heading: "Subscriptions and purchases",
+        body: "Dexora Plus is an optional subscription. Purchases are processed by Google Play Billing (Android) or the Apple App Store (iOS). RevenueCat helps us verify subscription status and entitlements; we store a subscription status flag in your profile but do not persist Google Play purchase tokens in Dexora cloud after verification. Billing history and payment methods are managed by the store.",
       },
       {
-        heading: "Analytics and advertising",
-        body: "Dexora does not use third-party advertising trackers on this landing page. The app does not include third-party analytics SDKs in its core shell.",
+        heading: "Analytics and diagnostics",
+        body: "The Dexora app uses Google Firebase Analytics to understand product usage and Vision reliability (for example session metrics, device model, OS version, screen characteristics, and event names related to features — not OCR text or uploaded screenshots). Firebase Crashlytics collects crash reports and diagnostic information (such as stack traces) to improve stability. These services are operated by Google and are subject to Google's policies.",
+      },
+      {
+        heading: "Advertising",
+        body: "On the free tier, Dexora shows ads through Google AdMob. AdMob and related Google services may use advertising identifiers and device signals as permitted by your device settings and consent choices. Before ads load, the app uses Google's User Messaging Platform (UMP) to present privacy and consent choices where required, including European regulations and US state privacy controls. Dexora Plus subscribers do not see banners or interstitials; Plus removes ad surfaces in the app but does not delete all identifiers that Google or Firebase may already have collected for analytics or prior ad activity.",
+      },
+      {
+        heading: "Consent and privacy controls",
+        body: "Where Google's UMP indicates it is required or available, you can review or change advertising and privacy choices in Dexora → Settings (Privacy options) or through system ad settings on your device. Declining or limiting consent may mean ads are not shown even on the free tier.",
+      },
+      {
+        heading: "Third-party processors",
+        body: "We use service providers that process data on our behalf, including: Supabase (authentication, database, and edge functions); Google Firebase Analytics and Firebase Crashlytics; Google AdMob; RevenueCat (subscription status); Google Play (purchases on Android); Google Sign-In (optional login); and api.qrserver.com (generates a QR image when you open your trainer code — only your trainer code string is sent to that service). This marketing site may use Supabase for waitlist sign-ups only.",
+      },
+      {
+        heading: "Waitlist (website)",
+        body: "If you join the waitlist on dexora.app, we store your email in Supabase to notify you about Dexora. Waitlist data is separate from in-app accounts. We do not sell waitlist emails.",
+      },
+      {
+        heading: "Location",
+        body: "Dexora does not collect precise or approximate location from your device for companion features. Trainer Vision reads on-screen game information only.",
+      },
+      {
+        heading: "Data retention and account deletion",
+        body: `Cloud data in Supabase is kept until you delete your account or we no longer need it for the service. Deleting your account in the app (Profile → Settings → Delete Account) or at ${SITE_ORIGIN}/delete-account triggers deletion of your auth user and cascades to profile, collection, community content tied to your account, and related app data. Support requests may be retained in anonymized form after deletion. Waitlist emails are not removed by in-app account deletion — email ${SUPPORT_EMAIL} to remove waitlist data. Google (Analytics, Crashlytics, AdMob), RevenueCat, and app stores may retain data under their own retention and legal obligations; deletion in Dexora does not instantly erase all copies at those providers.`,
+      },
+      {
+        heading: "Security",
+        body: "We use encryption in transit for cloud sync. Sensitive local data is excluded from Android cloud backup where configured. Authorized waitlist export via automated admin tools is disabled; authorized staff use Supabase Dashboard for exports.",
+      },
+      {
+        heading: "Children",
+        body: "Dexora is not directed at children under 13. We do not knowingly collect personal information from children under 13.",
+      },
+      {
+        heading: "Changes and contact",
+        body: `We may update this policy as Dexora evolves; material changes appear on this page with an updated effective date. Questions or privacy requests: ${SUPPORT_EMAIL}.`,
       },
       {
         heading: "External links",
-        body: "Some links (support and app stores) open external websites with their own privacy policies.",
-      },
-      {
-        heading: "Your rights",
-        body: `You can permanently delete your app account in Profile → Settings → Delete Account, or request deletion at ${SITE_ORIGIN}/delete-account. You may also email ${SUPPORT_EMAIL} to delete waitlist or account data.`,
-      },
-      {
-        heading: "Updates",
-        body: "We may update this policy as Dexora evolves. Material changes will be reflected on this page with an updated effective date.",
+        body: "Links to app stores, support, or third-party sites have their own privacy policies.",
       },
     ],
   },
