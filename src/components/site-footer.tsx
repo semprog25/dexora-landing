@@ -33,6 +33,7 @@ export function SiteFooter() {
       <p className="mx-auto mt-6 text-xs text-[#6b7494]">
         {t("footer.rights", { year: new Date().getFullYear() })}
       </p>
+      <p className="mx-auto mt-2 text-xs text-[#7d87a6]">Developed by SEMPROG</p>
     </footer>
   )
 }
