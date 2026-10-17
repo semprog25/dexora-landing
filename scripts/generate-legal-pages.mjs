@@ -331,6 +331,12 @@ function renderPage(slug, doc) {
         font-size: 0.85rem;
       }
       .footer-note a { color: #ffe500; }
+      .dev-credit {
+        margin: 0.75rem 0 0;
+        text-align: center;
+        font-size: 0.75rem;
+        color: #7d87a6;
+      }
     </style>
   </head>
   <body>
@@ -345,6 +351,7 @@ function renderPage(slug, doc) {
       ${sectionsHtml}
       ${contactBlock}
       <p class="footer-note"><a href="/">← Back to Dexora home</a></p>
+      <p class="dev-credit">Developed by SEMPROG</p>
     </main>
   </body>
 </html>
